@@ -5,6 +5,7 @@
     <Klient>
       <Imie>Anna</Imie>
       <Nazwisko>Szmit</Nazwisko>
+      <rodzina />
       <historia>
         <Zamowienie>
           <Efekt>false</Efekt>
@@ -15,6 +16,7 @@
             <Skladka>0</Skladka>
             <Podzialskl>0</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>0</Lata>
           </PakietKoncowy>
         </Zamowienie>
         <Zamowienie>
@@ -23,9 +25,10 @@
           <PakietKoncowy>
             <Id>0</Id>
             <Znizka>0</Znizka>
-            <Skladka>264</Skladka>
-            <Podzialskl>0</Podzialskl>
+            <Skladka>724.8</Skladka>
+            <Podzialskl>1</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>10</Lata>
           </PakietKoncowy>
         </Zamowienie>
       </historia>
@@ -46,6 +49,7 @@
             <Skladka>0</Skladka>
             <Podzialskl>0</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>0</Lata>
           </PakietKoncowy>
         </Zamowienie>
         <Zamowienie>
@@ -54,14 +58,19 @@
           <PakietKoncowy>
             <Id>0</Id>
             <Znizka>0</Znizka>
-            <Skladka>264</Skladka>
-            <Podzialskl>0</Podzialskl>
+            <Skladka>724.8</Skladka>
+            <Podzialskl>1</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>10</Lata>
           </PakietKoncowy>
         </Zamowienie>
       </Historia>
+      <Rodzina />
       <Choroba>brak</Choroba>
       <Chorobies />
+      <Hobbies>
+        <Pasje>gry_komputerowe</Pasje>
+      </Hobbies>
     </Klient>
   </klienci>
   <Id>48</Id>
@@ -69,6 +78,7 @@
     <Klient>
       <Imie>Anna</Imie>
       <Nazwisko>Szmit</Nazwisko>
+      <rodzina />
       <historia>
         <Zamowienie>
           <Efekt>false</Efekt>
@@ -79,6 +89,7 @@
             <Skladka>0</Skladka>
             <Podzialskl>0</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>0</Lata>
           </PakietKoncowy>
         </Zamowienie>
         <Zamowienie>
@@ -87,9 +98,10 @@
           <PakietKoncowy>
             <Id>0</Id>
             <Znizka>0</Znizka>
-            <Skladka>264</Skladka>
-            <Podzialskl>0</Podzialskl>
+            <Skladka>724.8</Skladka>
+            <Podzialskl>1</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>10</Lata>
           </PakietKoncowy>
         </Zamowienie>
       </historia>
@@ -110,6 +122,7 @@
             <Skladka>0</Skladka>
             <Podzialskl>0</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>0</Lata>
           </PakietKoncowy>
         </Zamowienie>
         <Zamowienie>
@@ -118,14 +131,19 @@
           <PakietKoncowy>
             <Id>0</Id>
             <Znizka>0</Znizka>
-            <Skladka>264</Skladka>
-            <Podzialskl>0</Podzialskl>
+            <Skladka>724.8</Skladka>
+            <Podzialskl>1</Podzialskl>
             <KosztKoncowy>0</KosztKoncowy>
+            <Lata>10</Lata>
           </PakietKoncowy>
         </Zamowienie>
       </Historia>
+      <Rodzina />
       <Choroba>brak</Choroba>
       <Chorobies />
+      <Hobbies>
+        <Pasje>gry_komputerowe</Pasje>
+      </Hobbies>
     </Klient>
   </Klienci>
 </ListaKlientow>
