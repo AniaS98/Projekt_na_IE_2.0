@@ -50,11 +50,11 @@ namespace GUI
                 plec = Plcie.K;
             else
                 plec = Plcie.M;
-            /*
-            RodzinnyWindow okno = new RodzinnyWindow();
+            
+            Klient2Window okno = new Klient2Window();
             this.Close();
             okno.ShowDialog();
-            */
+            
         }
 
         public PakietWindow(Klient klient) : this()

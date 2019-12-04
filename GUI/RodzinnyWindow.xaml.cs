@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace GUI
 {
     /// <summary>
-    /// Logika interakcji dla klasy Rodzinny2Window.xaml
+    /// Logika interakcji dla klasy RodzinnyWindow.xaml
     /// </summary>
-    public partial class Rodzinny2Window : Window
+    public partial class RodzinnyWindow : Window
     {
-        public Rodzinny2Window()
+        public RodzinnyWindow()
         {
             InitializeComponent();
         }
