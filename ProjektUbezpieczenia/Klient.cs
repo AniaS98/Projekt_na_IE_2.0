@@ -241,7 +241,6 @@ namespace ProjektUbezpieczenia
         /// Zawsze brane są pod uwagę pakiety dotyczące śmierci, a reszta jest podyktowana zawodem lub pasją
         /// W warunkach dodawane są pakiety dodatkowe
         /// W funkcji po raz pierwszy wspomniane będą takie klasy jak PakietKoncowy, PakietDodatkowy oraz Zamówienie, dlatego tu obiekty te zostaną stworzone oraz przypisane klientowi za pomocą argumentu historia.
-        /// 
         /// WYJŚCIE: przekazane przez referencje zamówienie, lista pokazująca plan składek
         /// </summary>
 
@@ -300,31 +299,22 @@ namespace ProjektUbezpieczenia
             pk.DodajPakiet2(pd);
             wskladka += 144.0;
 
+            
+
+            if (czas > 5)
+            {
+                double roznica = (double)czas-5.0;
+                wskladka = ((wskladka * roznica * 0.2) / roznica) + wskladka;
+            }
+
             if (podzial == 12)
                 wskladka = wskladka / 12;
             pk.Skladka = wskladka;
 
-            if (czas > 10)
-            {
-                if (podzial == 12)
-                    wskladka = wskladka / 12;
-                int len = planSkladek.Count;
-                for (int licznik = 0; licznik <= len; licznik++)
-                {
-                    if (czas > 10)
-                        planSkladek[licznik] += wskladka * 0.2;
-                    else
-                        planSkladek[licznik] += wskladka;
-
-                    licznik++;
-                }
-            }
 
             Zamowienie z = new Zamowienie(false, l, pk);
             k.DodajZamowienie(z);
             z.ZapiszXML();
-
-            return planSkladek;
         }
 
         /// <summary>
@@ -335,49 +325,24 @@ namespace ProjektUbezpieczenia
         //Justyna, tutaj trzeba dać jakiś warunek w GUI, żeby się wyświetlał teskt: 
         //"Plan ubezpieczenia dla składek rocznych: (roczny koszt)" i tu wypisana ta lista planSkladek, albo
         //"Plan ubezpieczenia dla składek miesięcznych: (miesięczny koszt)" i tu znowu ta lista planSkladek
-        public List<double> PakietPodstawowyIndywiduany(int czas, Klient k)
+        public void PakietPodstawowyIndywiduany(int czas, Klient k)
         {
             int l = k.historia.Count;
             int podzial = k.historia[l].PakietKoncowy.Podzialskl;
             double wynik = 480.0;
-
+            
 
             if (czas > 10)
             {
-                for (int i = 1; i <= 10; i++)
-                {
-                    if (podzial == 1)
-                        planSkladek.Add(wynik);
-                    else
-                        planSkladek.Add(wynik / 12);
+                double roznica = (double)czas - 5.0;
+                wynik = ((wynik * roznica * 0.2) / roznica) + wynik;
 
-                }
-                for (int i = 11; i <= czas; i++)
-                {
-                    wynik = 480.0 * 0.2;
-                    if (podzial == 1)
-                        planSkladek.Add(wynik);
-                    else
-                        planSkladek.Add(wynik / 12);
-                }
-            }
-            else if (czas <= 10)
-            {
-                for (int i = 10; i <= czas; i++)
-                {
-                    if (podzial == 1)
-                        planSkladek.Add(wynik);
-                    else
-                        planSkladek.Add(wynik / 12);
-                }
             }
 
-            wynik = 480.0;
+            //wynik = 480.0;
             if (wynik == 12)
                 wynik = wynik / 12;
             k.historia[l].PakietKoncowy.Skladka = wynik;
-            return planSkladek;
-
         }
 
         /// <summary>
