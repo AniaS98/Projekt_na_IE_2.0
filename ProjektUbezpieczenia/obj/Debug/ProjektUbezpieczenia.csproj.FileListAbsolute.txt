@@ -4,3 +4,10 @@ D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\bin\
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.pdb
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.exe
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.exe.config
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.exe
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csprojAssemblyReference.cache
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.CoreCompileInputs.cache
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.exe
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.pdb

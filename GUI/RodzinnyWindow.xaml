@@ -1,11 +1,11 @@
-﻿<Window x:Class="GUI.Rodzinny2Window"
+﻿<Window x:Class="GUI.RodzinnyWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Rodzinny2Window" Height="450" Width="800">
+        Title="RodzinnyWindow" Height="450" Width="800">
     <Grid>
         <Label Content="Chcę ubezpieczyć:" FontSize="22px" HorizontalAlignment="Left" Height="53" Margin="71,42,0,0" VerticalAlignment="Top" Width="480"/>
         <CheckBox Name="CheckBox_Dzieci" Content="Dzieci" FontSize="18px" HorizontalAlignment="Left" Height="28" Margin="71,95,0,0" VerticalAlignment="Top" Width="200"/>
@@ -23,6 +23,5 @@
         <Button Name="DodajDziecko" Content="Dodaj Dziecko" HorizontalAlignment="Left" Height="30" Margin="298,141,0,0" VerticalAlignment="Top" Width="199"/>
         <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="71,363,0,0" VerticalAlignment="Top" Width="131"/>
         <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="584,363,0,0" VerticalAlignment="Top" Width="137"/>
-
     </Grid>
 </Window>

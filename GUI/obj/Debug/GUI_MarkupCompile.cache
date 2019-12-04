@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\
 GUI
 none
 false
 DEBUG;TRACE
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\App.xaml
-10833370670
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\App.xaml
+101388914623
 
-141387535582
-14-1766073019
-AdminLogowanieWindow.xaml;AdminWindow.xaml;AgentLogowanieWindow.xaml;AgentWindow.xaml;DodatkowyPakietWindow.xaml;Klient2Window.xaml;KlientWindow.xaml;MainWindow.xaml;PakietWindow.xaml;Rodzinny2Window.xaml;
+14-1347821240
+14287851997
+AdminLogowanieWindow.xaml;AdminWindow.xaml;AgentLogowanieWindow.xaml;AgentWindow.xaml;DodatkowyPakietWindow.xaml;Klient2Window.xaml;KlientWindow.xaml;MainWindow.xaml;PakietWindow.xaml;RodzinnyWindow.xaml;
 
 False
 
