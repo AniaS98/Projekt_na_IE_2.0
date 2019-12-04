@@ -1,0 +1,14 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Name="Klient" Click="Klient_Click" Content="Klient" HorizontalAlignment="Left" Height="118" Margin="179,50,0,0" VerticalAlignment="Top" Width="402" FontSize="40px"/>
+        <Button Name="Przedstawiciel" Click="Przedstawiciel_Click" Content="Przedstawiciel" HorizontalAlignment="Left" Height="60" Margin="254,216,0,0" VerticalAlignment="Top" Width="249" FontSize="22px"/>
+        <Button Name="Administrator" Click="Administrator_Click" Content="Administrator" HorizontalAlignment="Left" Height="58" Margin="254,310,0,0" VerticalAlignment="Top" Width="249" FontSize="22px"/>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="GUI.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="383" Width="496">
+    <Grid>
+        <Label FontSize="20" Content="Panel Administratora" HorizontalAlignment="Left" Height="37" Margin="157,34,0,0" VerticalAlignment="Top" Width="198"/>
+        <Button Name="Button_ListaKlientow" Content="Baza Danych Klientów" HorizontalAlignment="Left" Height="58" Margin="49,103,0,0" VerticalAlignment="Top" Width="179"/>
+        <Button Name="Button_ListaAgentow" Content="Baza Danych Pracowników" HorizontalAlignment="Left" Height="58" Margin="270,103,0,0" VerticalAlignment="Top" Width="171"/>
+        <Button Content="Statystyki sprzedaży" HorizontalAlignment="Left" Height="58" Margin="157,181,0,0" VerticalAlignment="Top" Width="171"/>
+        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Height="28" Margin="49,298,0,0" VerticalAlignment="Top" Width="179"/>
+
+    </Grid>
+</Window>

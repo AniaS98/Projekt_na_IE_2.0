@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Zamowienie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Efekt>false</Efekt>
+  <Id>0</Id>
+  <PakietKoncowy>
+    <Id>0</Id>
+    <Znizka>0</Znizka>
+    <Skladka>264</Skladka>
+    <Podzialskl>0</Podzialskl>
+    <KosztKoncowy>0</KosztKoncowy>
+  </PakietKoncowy>
+</Zamowienie>

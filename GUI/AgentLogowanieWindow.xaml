@@ -1,0 +1,18 @@
+﻿<Window x:Class="GUI.AgentLogowanieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="AgentLogowanieWindow" Height="272" Width="391">
+    <Grid Margin="0,0,2,0">
+        <Label FontSize="18" Content="Logowanie Agenta" HorizontalAlignment="Left" Height="37" Margin="145,25,0,0" VerticalAlignment="Top" Width="157"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Height="32" Margin="68,78,0,0" VerticalAlignment="Top" Width="77"/>
+        <Label Content="Hasło:" HorizontalAlignment="Left" Height="31" Margin="68,110,0,0" VerticalAlignment="Top" Width="56"/>
+        <TextBox Name="TextBox_LoginAgent" HorizontalAlignment="Left" Height="23" Margin="145,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <PasswordBox Name="PasswordBox_HasloAgent" HorizontalAlignment="Left" Height="22" Margin="145,110,0,0" VerticalAlignment="Top" Width="156"/>
+        <Button Name="Cofnij" Click="Cofnij_Click" Content="Cofnij" HorizontalAlignment="Left" Margin="68,183,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Zaloguj" Click="Zaloguj_Click" Content="Zaloguj się" HorizontalAlignment="Left" Margin="227,183,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>

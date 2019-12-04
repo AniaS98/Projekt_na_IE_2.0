@@ -1,0 +1,23 @@
+﻿<Window x:Class="GUI.AdminLogowanieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="AdminLogowanieWindow" Height="254" Width="401">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Logowanie Administratora" FontSize="16" HorizontalAlignment="Left" Height="37" Margin="103,10,0,0" VerticalAlignment="Top" Width="199" Grid.RowSpan="2"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Height="32" Margin="68,12,0,0" VerticalAlignment="Top" Width="77" Grid.Row="1"/>
+        <Label Content="Hasło:" HorizontalAlignment="Left" Height="31" Margin="68,44,0,0" VerticalAlignment="Top" Width="56" Grid.Row="1"/>
+        <TextBox Name="TextBox_LoginAdmin" HorizontalAlignment="Left" Height="23" Margin="145,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Grid.Row="1"/>
+        <PasswordBox Name="PasswordBox_HasloAdmin" HorizontalAlignment="Left" Height="22" Margin="145,44,0,0" VerticalAlignment="Top" Width="156" Grid.Row="1"/>
+        <Button Name="Cofnij" Click="Cofnij_Click" Content="Cofnij" HorizontalAlignment="Left" Margin="68,117,0,0" VerticalAlignment="Top" Width="75" Height="23" Grid.Row="1"/>
+        <Button Name="Zaloguj" Click="Zaloguj_Click" Content="Zaloguj się" HorizontalAlignment="Left" Margin="227,117,0,0" VerticalAlignment="Top" Width="75" Height="23" Grid.Row="1"/>
+    </Grid>
+</Window>
+
