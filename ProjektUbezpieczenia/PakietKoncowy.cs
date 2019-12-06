@@ -15,6 +15,7 @@ namespace ProjektUbezpieczenia
         double skladka;
         int podzialskl;
         double kosztKoncowy;
+        int lata;
         //Pakiet pakiet; //hmmm
         //List<Pakiet> pakiety; //hmmm
 
@@ -24,6 +25,8 @@ namespace ProjektUbezpieczenia
         public int Podzialskl { get => podzialskl; set => podzialskl = value; }
         public double KosztKoncowy { get => kosztKoncowy; set => kosztKoncowy = value; }
         internal List<PakietDodatkowy> Dodatkowe { get => dodatkowe; set => dodatkowe = value; }
+        public int Lata { get => lata; set => lata = value; }
+
         //public Pakiet Pakiet { get => pakiet; set => pakiet = value; }
         //public List<Pakiet> Pakiety { get => pakiety; set => pakiety = value; }
 
@@ -35,17 +38,19 @@ namespace ProjektUbezpieczenia
             skladka = 0.0;
             podzialskl = 0;
             kosztKoncowy = 0.0;
+            lata = 0;
             // pakiet = new Pakiet();
             // pakiety = new List<Pakiet>();
         }
 
-        public PakietKoncowy(int id, double znizka, double skladka, int podzialskl, double kosztKoncowy)
+        public PakietKoncowy(int id, double znizka, double skladka, int podzialskl, double kosztKoncowy,int lata)
         {
             this.id = id;
             this.znizka = znizka;
             this.skladka = skladka;
             this.podzialskl = podzialskl;
             this.kosztKoncowy = kosztKoncowy;
+            this.lata = lata;
         }
 
         /*public PakietKoncowy(int id, double znizka, double skladka, int podzialskl,double kosztKoncowy)     {
@@ -119,7 +124,7 @@ namespace ProjektUbezpieczenia
             return null;
         }
 
-        /*public static ListaKlientow OdczytajXML(string nazwaPliku)
+        public static ListaKlientow OdczytajXML2(string nazwaPliku)
         {
             try
             {
@@ -136,6 +141,6 @@ namespace ProjektUbezpieczenia
                 Console.WriteLine("Plik o padanej nazwie ({0}) nie istnieje", nazwaPliku);
             }
             return null;
-        }*/
+        }
     }
 }

@@ -1,5 +1,4 @@
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csprojAssemblyReference.cache
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.CoreCompileInputs.cache
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.exe.config
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.exe
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\bin\Debug\ProjektUbezpieczenia.pdb
