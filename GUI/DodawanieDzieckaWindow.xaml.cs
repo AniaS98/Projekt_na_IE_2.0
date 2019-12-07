@@ -11,21 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProjektUbezpieczenia;
 
 namespace GUI
 {
     /// <summary>
-    /// Logika interakcji dla klasy Klient2Window.xaml
+    /// Logika interakcji dla klasy DodawanieDzieckaWindow.xaml
     /// </summary>
-    public partial class Klient2Window : Window
+    public partial class DodawanieDzieckaWindow : Window
     {
-        Klient klient;
-        public Klient2Window(Klient klient)
+        public DodawanieDzieckaWindow()
         {
             InitializeComponent();
-            this.klient = klient;
         }
-        //Klient.results;
+
+        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
