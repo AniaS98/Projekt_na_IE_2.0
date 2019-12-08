@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjektUbezpieczenia;
 
 namespace GUI
 {
@@ -19,9 +20,36 @@ namespace GUI
     /// </summary>
     public partial class RodzinnyWindow : Window
     {
-        public RodzinnyWindow()
+        Klient klient;
+        public RodzinnyWindow(Klient klient)
         {
             InitializeComponent();
+            this.klient = klient;
+        }
+
+
+
+
+        private void Cofnij_Click(object sender, RoutedEventArgs e)
+        {
+            PakietDlaRodzWindow okno = new PakietDlaRodzWindow(klient);
+            this.Close();
+            okno.ShowDialog();
+        }
+
+        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        {
+            Klient2Window okno = new Klient2Window(klient);
+            this.Close();
+            okno.ShowDialog();
+        }
+
+        private void DodajDziecko_Click(object sender, RoutedEventArgs e)
+        {
+            int liczba;
+            liczba = Convert.ToInt32(TextBox_LiczbaDzieci.Text);
+            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow();
+            okno.ShowDialog();
         }
     }
 }

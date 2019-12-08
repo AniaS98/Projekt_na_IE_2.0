@@ -12,16 +12,12 @@
         <CheckBox Name="CheckBox_Malzonek" Content="Małżonkę/ka" FontSize="18px" HorizontalAlignment="Left" Height="28" Margin="71,206,0,0" VerticalAlignment="Top" Width="200"/>
         <Label Content="Wiek" HorizontalAlignment="Left" Height="34" Margin="71,239,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.6,-0.015"/>
         <Label Content="Zawód" HorizontalAlignment="Left" Height="33" Margin="71,292,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label Content="Hobby" HorizontalAlignment="Left" Height="34" Margin="413,239,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Przewlekłe choroby" HorizontalAlignment="Left" Height="33" Margin="413,291,0,0" VerticalAlignment="Top" Width="117"/>
         <TextBox Name="TextBox_Wiek" HorizontalAlignment="Left" Height="34" Margin="173,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98"/>
         <ComboBox Name="ComboBox_Zawod" HorizontalAlignment="Left" Height="32" Margin="173,292,0,0" VerticalAlignment="Top" Width="98"/>
-        <ListBox Name="ListBox_Hobby" HorizontalAlignment="Left" Height="34" Margin="551,239,0,0" VerticalAlignment="Top" Width="170"/>
-        <ListBox Name="ListBox_Choroby" HorizontalAlignment="Left" Height="34" Margin="551,290,0,0" VerticalAlignment="Top" Width="170"/>
         <Label Content="Liczba dzieci:" HorizontalAlignment="Left" Height="30" Margin="71,141,0,0" VerticalAlignment="Top" Width="87"/>
-        <ComboBox Name="ComboBox_LiczbaDzieci" HorizontalAlignment="Left" Height="30" Margin="173,141,0,0" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.471,-0.15"/>
-        <Button Name="DodajDziecko" Content="Dodaj Dziecko" HorizontalAlignment="Left" Height="30" Margin="298,141,0,0" VerticalAlignment="Top" Width="199"/>
-        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="71,363,0,0" VerticalAlignment="Top" Width="131"/>
-        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="584,363,0,0" VerticalAlignment="Top" Width="137"/>
+        <TextBox Name="TextBox_LiczbaDzieci" HorizontalAlignment="Left" Height="30" Margin="173,141,0,0" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.471,-0.15"/>
+        <Button Name="DodajDziecko" Content="Dodaj Dziecko" HorizontalAlignment="Left" Height="30" Margin="298,141,0,0" VerticalAlignment="Top" Width="199" Click="DodajDziecko_Click"/>
+        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="71,363,0,0" VerticalAlignment="Top" Width="131" Click="Cofnij_Click"/>
+        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="584,363,0,0" VerticalAlignment="Top" Width="137" Click="Akceptuj_Click"/>
     </Grid>
 </Window>

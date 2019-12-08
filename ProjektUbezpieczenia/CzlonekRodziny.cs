@@ -16,6 +16,11 @@ namespace ProjektUbezpieczenia
             wiek = '0';
         }
 
+        public CzlonekRodziny(int wiek)
+        {
+            this.wiek = wiek;
+        }
+
         public CzlonekRodziny(string imie, string nazwisko, int wiek) : base(imie, nazwisko)
         {
             this.wiek = wiek;

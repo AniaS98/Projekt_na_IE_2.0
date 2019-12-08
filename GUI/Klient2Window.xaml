@@ -5,22 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Klient2Window" Height="659.433" Width="800">
+        Title="Klient2Window" Height="596.433" Width="800">
     <Grid>
         <Label Content="Pakiety wybrane dla Ciebie:" FontSize="16px" HorizontalAlignment="Left" Height="31" Margin="52,29,0,0" VerticalAlignment="Top" Width="256"/>
-        <ListView HorizontalAlignment="Left" Height="230" Margin="52,81,0,0" VerticalAlignment="Top" Width="256">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <Button Name="DodajPakiet" Content="Dodaj dodatkowy pakiet" FontSize="16px" HorizontalAlignment="Left" Height="71" Margin="398,155,0,0" VerticalAlignment="Top" Width="318"/>
         <Label Content="Suma:" FontSize="16px" HorizontalAlignment="Left" Height="40" Margin="65,374,0,0" VerticalAlignment="Top" Width="68"/>
         <TextBlock Name="Suma" FontSize="18px" HorizontalAlignment="Left" Height="40" Margin="206,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
-        <Button Name="Zakup" FontSize="16px" Content="Kupuję" HorizontalAlignment="Left" Height="41" Margin="238,419,0,0" VerticalAlignment="Top" Width="288"/>
-        <Button Name="Kontakt" FontSize="16px" Content="Proszę o kontakt z przedstawicielem" HorizontalAlignment="Left" Height="41" Margin="238,479,0,0" VerticalAlignment="Top" Width="288"/>
-        <Button Name="Powrot" FontSize="16px" Content="Powrót do strony głównej" HorizontalAlignment="Left" Height="42" Margin="238,540,0,0" VerticalAlignment="Top" Width="288"/>
+        <Button Name="Kontakt" FontSize="16px" Content="Kupuję i proszę o kontakt z przedstawicielem" HorizontalAlignment="Left" Height="41" Margin="206,419,0,0" VerticalAlignment="Top" Width="364"/>
+        <Button Name="Powrot" FontSize="16px" Content="Powrót do strony głównej" HorizontalAlignment="Left" Height="42" Margin="206,489,0,0" VerticalAlignment="Top" Width="364"/>
+        <TextBlock Name="TextBlock_Pakiety" HorizontalAlignment="Left" Height="228" Margin="52,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
 
     </Grid>
 </Window>

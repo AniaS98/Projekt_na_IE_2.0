@@ -18,12 +18,13 @@ namespace GUI
     /// <summary>
     /// Logika interakcji dla klasy KlientWindow.xaml
     /// </summary>
-
     public partial class KlientWindow : Window
     {
         //public bool decyzja;
+        Klient klient;
         public KlientWindow()
         {
+            klient = new Klient();
             InitializeComponent();
         }
 
@@ -34,22 +35,19 @@ namespace GUI
             okno.ShowDialog();
         }
         
-        private void Rodzinny_Click(object sender, RoutedEventArgs e)
+        public void Rodzinny_Click(object sender, RoutedEventArgs e)
         {
-            
             //decyzja = true;
-
-            PakietWindow okno = new PakietWindow();//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
+            PakietDlaRodzWindow okno = new PakietDlaRodzWindow(klient);//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
             
         }
 
-        private void Indywidualny_Click(object sender, RoutedEventArgs e)
+        public void Indywidualny_Click(object sender, RoutedEventArgs e)
         {
             //decyzja = false;
-
-            PakietWindow okno = new PakietWindow();//jeżeli decyzja jest false to jest to pakiet indywidualny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
+            PakietWindow okno = new PakietWindow(klient);//jeżeli decyzja jest false to jest to pakiet indywidualny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
 

@@ -1,0 +1,27 @@
+﻿<Window x:Class="GUI.HobbyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="HobbyWindow" Height="383" Width="358">
+    <Grid>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="sporty_ekstremalne" Content="Sporty ekstremalne" HorizontalAlignment="Left" Height="18" Margin="20,21,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="wspinaczka_gorska" Content="Wspinaczka górska" HorizontalAlignment="Left" Height="18" Margin="20,42,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="rower" Content="Rower" HorizontalAlignment="Left" Height="18" Margin="20,63,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="hobby_artystyczne" Content="Hobby artystyczne" HorizontalAlignment="Left" Height="18" Margin="20,84,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="hobby_techniczne" Content="Hobby techniczne" HorizontalAlignment="Left" Height="18" Margin="20,105,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="ksiazki" Content="Książki" HorizontalAlignment="Left" Height="18" Margin="20,125,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="gry_komputerowe" Content="Gry komputerowe" HorizontalAlignment="Left" Height="18" Margin="20,281,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="sporty_zimowe" Content="Sporty zimowe" HorizontalAlignment="Left" Height="18" Margin="20,262,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="podrozowanie" Content="Podróżowanie" HorizontalAlignment="Left" Height="18" Margin="20,243,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="rekonstrukcje_historyczne" Content="Rekonstrukcje historyczne" HorizontalAlignment="Left" Height="18" Margin="20,223,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="jazda_konna" Content="Jazda konna" HorizontalAlignment="Left" Height="18" Margin="20,203,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="sporty_wodne" Content="Sporty wodne" HorizontalAlignment="Left" Height="18" Margin="20,185,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="sporty_druzynowe" Content="Sporty drużynowe" HorizontalAlignment="Left" Height="18" Margin="20,166,0,0" VerticalAlignment="Top" Width="296"/>
+        <CheckBox Checked="CheckButton_Hobby" Unchecked="CheckButton_Hobby" Name="lekkoatletyka" Content="Lekkoatletyka" HorizontalAlignment="Left" Height="18" Margin="20,145,0,0" VerticalAlignment="Top" Width="296"/>
+        <Button Click="Zatwierdz_Click" Name="Zatwierdz" Content="Zatwierdź" HorizontalAlignment="Left" Height="26" Margin="93,316,0,0" VerticalAlignment="Top" Width="152"/>
+
+    </Grid>
+</Window>

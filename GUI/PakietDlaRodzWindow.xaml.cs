@@ -21,11 +21,11 @@ namespace GUI
     /// <summary>
     /// Logika interakcji dla klasy PakietWindow.xaml
     /// </summary>
-    public partial class PakietWindow : Window
+    public partial class PakietDlaRodzWindow : Window
     {
         Klient klient;
-        public PakietWindow(Klient klient)
-        {
+        public PakietDlaRodzWindow(Klient klient)
+        { 
             InitializeComponent();
             this.klient = klient;
         }
@@ -40,12 +40,12 @@ namespace GUI
 
         private void Dalej_Click(object sender, RoutedEventArgs e)
         {
-            if (ComboBox_Plec.Text == "" || TextBox_Wiek.Text == "" || ComboBox_Zawod.Text == "" )
+            if (ComboBox_Plec.Text == "" || TextBox_Wiek.Text == "" || ComboBox_Zawod.Text == "")
             {
                 MessageBox.Show("Uzupełnij wszystkie dane!!!");
                 return;
             }
-            
+
             Plcie plec;
             if (ComboBox_Plec.Text == "kobieta")
                 plec = Plcie.K;
@@ -88,9 +88,9 @@ namespace GUI
             int czas = Convert.ToInt32(this.TextBox_Czas.Text);
             klient = new Klient(Convert.ToInt32(this.TextBox_Wiek.Text), plec, zawod);
 
-           Klient2Window okno = new Klient2Window(klient);
-           this.Close();
-           okno.ShowDialog();
+            RodzinnyWindow okno = new RodzinnyWindow(klient);
+            this.Close();
+            okno.ShowDialog();
 
         }
 

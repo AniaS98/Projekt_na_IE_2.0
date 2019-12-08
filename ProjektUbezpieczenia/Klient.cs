@@ -133,6 +133,13 @@ namespace ProjektUbezpieczenia
             zawod = new Zawody();
         }
 
+        public Klient(int wiek, Plcie plec, Zawody zawod)
+        {
+            this.wiek = wiek;
+            this.plec = plec;
+            this.zawod = zawod;
+        }
+
 
         public Klient(string imie, string nazwisko, string PESEL, int wiek, Plcie plec, string numerTelefonu, bool malzonek, Zawody zawod) : base(imie, nazwisko)
         {
