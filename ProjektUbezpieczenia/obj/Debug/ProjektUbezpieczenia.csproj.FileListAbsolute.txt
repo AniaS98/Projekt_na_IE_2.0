@@ -11,4 +11,4 @@ C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.CoreCompileInputs.cache
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.exe
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.pdb
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.CoreCompileInputs.cache
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.ResolveComReference.cache
