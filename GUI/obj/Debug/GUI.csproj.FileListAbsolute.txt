@@ -21,9 +21,7 @@ D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\GUI.pdb
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\PakietWindow.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\PakietWindow.baml
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentLogowanieWindow.g.cs
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\Rodzinny2Window.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentLogowanieWindow.baml
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\Rodzinny2Window.baml
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AdminWindow.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentWindow.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AdminWindow.baml
@@ -71,3 +69,6 @@ C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\GUI.exe
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\GUI.pdb
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\RodzinnyWindow.g.cs
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\RodzinnyWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\RodzinnyWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\RodzinnyWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
