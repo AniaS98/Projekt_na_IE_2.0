@@ -21,9 +21,7 @@ D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\GUI.pdb
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\PakietWindow.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\PakietWindow.baml
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentLogowanieWindow.g.cs
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\Rodzinny2Window.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentLogowanieWindow.baml
-D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\Rodzinny2Window.baml
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AdminWindow.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentWindow.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AdminWindow.baml
@@ -81,3 +79,16 @@ C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\DodawanieDz
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\DodawanieDzieckaWindow.baml
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KontaktWindow.g.cs
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KontaktWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\ChorobyWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\DodawanieDzieckaWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\HobbyWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\KontaktWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\PakietDlaRodzWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\RodzinnyWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\ChorobyWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\DodawanieDzieckaWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\HobbyWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\KontaktWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\PakietDlaRodzWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\RodzinnyWindow.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache

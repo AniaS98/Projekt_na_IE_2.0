@@ -32,7 +32,7 @@ namespace GUI
         {
             CheckBox checkBox = (CheckBox)sender;
             string nazwa = checkBox.Content.ToString().ToLower();
-            Pasje p = klient.Hobbies.Where(i => i.ToString() == nazwa).First();
+            Pasje p = klient.Hobbies.Where(i => i.ToString() == nazwa).FirstOrDefault();
             if (checkBox.IsEnabled)
                 if (!klient.Hobbies.Contains(p))
                     klient.Hobbies.Add(p);
@@ -43,8 +43,8 @@ namespace GUI
         private void Zatwierdz_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            PakietWindow okno = new PakietWindow(klient);
-            okno.ShowDialog();
+            //PakietWindow okno = new PakietWindow(klient);
+            //okno.ShowDialog();
         }
     }
 }
