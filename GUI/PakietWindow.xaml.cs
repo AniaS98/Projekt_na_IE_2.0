@@ -23,9 +23,11 @@ namespace GUI
     /// </summary>
     public partial class PakietWindow : Window
     {
+        bool decyzja = false;
         Klient klient;
-        public PakietWindow(Klient klient)
+        public PakietWindow(Klient klient, bool d)
         {
+            decyzja = d;
             InitializeComponent();
             this.klient = klient;
         }
@@ -88,15 +90,24 @@ namespace GUI
             int czas = Convert.ToInt32(this.TextBox_Czas.Text);
             klient = new Klient(Convert.ToInt32(this.TextBox_Wiek.Text), plec, zawod);
 
-           Klient2Window okno = new Klient2Window(klient);
-           this.Close();
-           okno.ShowDialog();
+            if (decyzja == true)
+            {
+                RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas);
+                this.Close();
+                okno.ShowDialog();
+            }
+            else
+            {
+                Klient2Window okno1 = new Klient2Window(klient, decyzja, czas);
+                this.Close();
+                okno1.ShowDialog();
+            }
 
         }
 
         private void Hobby_Click(object sender, RoutedEventArgs e)
         {
-            HobbyWindow okno = new HobbyWindow(klient);
+            HobbyWindow okno = new HobbyWindow(klient, decyzja);
             okno.ShowDialog();
         }
 

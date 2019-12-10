@@ -20,9 +20,13 @@ namespace GUI
     /// </summary>
     public partial class RodzinnyWindow : Window
     {
+        int czas;
+        bool decyzja = true;
         Klient klient;
-        public RodzinnyWindow(Klient klient)
+        public RodzinnyWindow(Klient klient, bool d, int c)
         {
+            czas = c;
+            decyzja = d;
             InitializeComponent();
             this.klient = klient;
         }
@@ -32,14 +36,14 @@ namespace GUI
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
-            PakietDlaRodzWindow okno = new PakietDlaRodzWindow(klient);
+            PakietWindow okno = new PakietWindow(klient, decyzja);
             this.Close();
             okno.ShowDialog();
         }
 
         private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            Klient2Window okno = new Klient2Window(klient);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas);
             this.Close();
             okno.ShowDialog();
         }

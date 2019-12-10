@@ -5,19 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="KontaktWindow" Height="450" Width="800">
-    <Grid>
-        <Label Content="Dziękujemy za zainteresowanie naszą ofertą." FontSize="18" HorizontalAlignment="Left" Height="41" Margin="185,34,0,0" VerticalAlignment="Top" Width="495"/>
-        <Label Content="Nasz agent wkrótce się z Państwem skontaktuje." FontSize="18" HorizontalAlignment="Left" Height="46" Margin="168,75,0,0" VerticalAlignment="Top" Width="512"/>
-        <Label Content="W tym celu prosimy o uzupełnienie niezbędnych danych osobowych:" FontSize="18" HorizontalAlignment="Left" Height="36" Margin="109,111,0,0" VerticalAlignment="Top" Width="561"/>
+        Title="KontaktWindow" Height="435" Width="800">
+    <Grid Margin="0,0,2,-1" Height="405" VerticalAlignment="Top">
+        <Label Content="Dziękujemy za zainteresowanie naszą ofertą." FontSize="18" HorizontalAlignment="Left" Height="41" Margin="55,34,0,0" VerticalAlignment="Top" Width="495"/>
+        <Label Content="Nasz agent wkrótce się z Państwem skontaktuje." FontSize="18" HorizontalAlignment="Left" Height="46" Margin="55,75,0,0" VerticalAlignment="Top" Width="512"/>
+        <Label Content="W tym celu prosimy o uzupełnienie niezbędnych danych osobowych:" FontSize="18" HorizontalAlignment="Left" Height="36" Margin="55,110,0,0" VerticalAlignment="Top" Width="561"/>
         <Label Content="Imie:" HorizontalAlignment="Left" Height="31" Margin="55,177,0,0" VerticalAlignment="Top" Width="101"/>
         <Label Content="Nazwisko:" HorizontalAlignment="Left" Height="29" Margin="55,208,0,0" VerticalAlignment="Top" Width="74"/>
         <Label Content="Telefon Komórkowy:" HorizontalAlignment="Left" Height="25" Margin="55,242,0,0" VerticalAlignment="Top" Width="118"/>
-        <Label Content="PESEL:" HorizontalAlignment="Left" Height="28" Margin="55,281,0,0" VerticalAlignment="Top" Width="101"/>
         <TextBox Name="TextBox_Imie" HorizontalAlignment="Left" Height="17" Margin="194,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
         <TextBox Name="TextBox_Nazwisko" HorizontalAlignment="Left" Height="16" Margin="194,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
         <TextBox Name="TextBox_Telefon" HorizontalAlignment="Left" Height="19" Margin="194,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
-        <TextBox Name="TextBox_Pesel" HorizontalAlignment="Left" Height="18" Margin="194,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
-        <Button Content="Akceptuj" FontSize="20" HorizontalAlignment="Left" Height="45" Margin="194,351,0,0" VerticalAlignment="Top" Width="346"/>
+        <Button Content="Akceptuj" FontSize="20" HorizontalAlignment="Left" Margin="194,311,0,63" Width="373" Click="Button_Click"/>
     </Grid>
 </Window>
