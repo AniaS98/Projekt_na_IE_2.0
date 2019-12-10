@@ -73,8 +73,6 @@ C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\HobbyWindow
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\HobbyWindow.baml
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\ChorobyWindow.g.cs
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\ChorobyWindow.baml
-C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\PakietDlaRodzWindow.g.cs
-C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\PakietDlaRodzWindow.baml
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\DodawanieDzieckaWindow.g.cs
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\DodawanieDzieckaWindow.baml
 C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KontaktWindow.g.cs

@@ -41,9 +41,7 @@ namespace GUI
 
         private void Zatwierdz_Click(object sender, RoutedEventArgs e)
         {
-            PakietWindow okno = new PakietWindow(klient);
             this.Close();
-            okno.ShowDialog();
         }
 
     }

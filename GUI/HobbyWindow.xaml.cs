@@ -21,9 +21,10 @@ namespace GUI
     public partial class HobbyWindow : Window
     {
         Klient klient;
-
-        public HobbyWindow(Klient klient)
+        bool decyzja;
+        public HobbyWindow(Klient klient, bool d)
         {
+            decyzja = d;
             InitializeComponent();
             this.klient = klient;
         }
@@ -42,9 +43,8 @@ namespace GUI
 
         private void Zatwierdz_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            //PakietWindow okno = new PakietWindow(klient);
-            //okno.ShowDialog();
+            PakietWindow okno = new PakietWindow(klient, decyzja);
+            okno.ShowDialog();
         }
     }
 }
