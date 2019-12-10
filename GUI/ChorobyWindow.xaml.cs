@@ -31,7 +31,7 @@ namespace GUI
         {
             CheckBox checkBox = (CheckBox)sender;
             string nazwa = checkBox.Content.ToString().ToLower();
-            Choroby c = klient.Chorobies.Where(i => i.ToString() == nazwa).First();
+            Choroby c = klient.Chorobies.Where(i => i.ToString() == nazwa).FirstOrDefault();
             if (checkBox.IsEnabled)
                 if (!klient.Chorobies.Contains(c))
                     klient.Chorobies.Add(c);
@@ -41,9 +41,7 @@ namespace GUI
 
         private void Zatwierdz_Click(object sender, RoutedEventArgs e)
         {
-            PakietWindow okno = new PakietWindow(klient);
             this.Close();
-            okno.ShowDialog();
         }
 
     }

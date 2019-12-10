@@ -9,7 +9,7 @@ namespace ProjektUbezpieczenia
     [Serializable]
     public class PakietKoncowy
     {
-        List<PakietDodatkowy> dodatkowe = new List<PakietDodatkowy>();
+        public List<PakietDodatkowy> dodatkowe = new List<PakietDodatkowy>();
         int id;
         double znizka;
         double skladka;

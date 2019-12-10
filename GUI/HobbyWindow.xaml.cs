@@ -21,9 +21,10 @@ namespace GUI
     public partial class HobbyWindow : Window
     {
         Klient klient;
-
-        public HobbyWindow(Klient klient)
+        bool decyzja;
+        public HobbyWindow(Klient klient, bool d)
         {
+            decyzja = d;
             InitializeComponent();
             this.klient = klient;
         }
@@ -32,7 +33,7 @@ namespace GUI
         {
             CheckBox checkBox = (CheckBox)sender;
             string nazwa = checkBox.Content.ToString().ToLower();
-            Pasje p = klient.Hobbies.Where(i => i.ToString() == nazwa).First();
+            Pasje p = klient.Hobbies.Where(i => i.ToString() == nazwa).FirstOrDefault();
             if (checkBox.IsEnabled)
                 if (!klient.Hobbies.Contains(p))
                     klient.Hobbies.Add(p);
@@ -42,8 +43,7 @@ namespace GUI
 
         private void Zatwierdz_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            PakietWindow okno = new PakietWindow(klient);
+            PakietWindow okno = new PakietWindow(klient, decyzja);
             okno.ShowDialog();
         }
     }
