@@ -39,15 +39,4 @@ LP.,IMIĘ,NAZWISKO,WIEK,PŁEĆ,DZIECI,0-5,6-12,13-18,LICZBA UBEZPIECZONYCH OS. D
 38,Paweł,Czulak,30,M,2,2,0,0,2,4,Nie,Nie,Tak,Tak,Tak,Tak,Tak,Miesięczna,30,110,10,140,5.05.2019,134.5,0,0,10,10,10,10,10,50,0,0,5,5,5,5,5,0,0,10,10,10,10,10,184.5,184.5,1.
 39,Krzysztof,Michalik,28,M,1,0,1,0,1,2,Nie,Tak,Nie,Nie,Nie,Tak,Tak,Roczna,20,55,10,75,0,75,0,5,0,0,0,5,5,15,0,5,0,0,0,5,5,0,5,0,0,0,5,5,90,1026,3.
 40,Anita,Mędrzycka,37,K,2,0,2,0,1,3,Nie,Tak,Nie,Tak,Nie,Tak,Nie,Miesięczna,40,55,5,95,0,95,0,5,0,5,0,5,0,15,0,5,0,10,0,10,0,0,5,0,10,0,10,0,120,120,2.
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Tak,Nie,Tak,Tak,gry_komputerowe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,gry_komputerowe
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,gry_komputerowe
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,0
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna
-41,Anna,Szmit,21,K,-1,0,0,0,2,2,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna
-41,Anna,Szmit,21,K,-1,0,0,0,2,2,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0,40
-41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0,40
+41,Anna,Szmit,21,K,0,0,0,0,1,1,Nie,Nie,Nie,Nie,Nie,Tak,Tak,Roczna,0,40,10
