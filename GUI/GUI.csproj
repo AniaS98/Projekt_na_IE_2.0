@@ -121,9 +121,6 @@
     <Compile Include="KontaktWindow.xaml.cs">
       <DependentUpon>KontaktWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PakietDlaRodzWindow.xaml.cs">
-      <DependentUpon>PakietDlaRodzWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RodzinnyWindow.xaml.cs">
       <DependentUpon>RodzinnyWindow.xaml</DependentUpon>
     </Compile>
@@ -194,10 +191,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PakietDlaRodzWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PakietWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

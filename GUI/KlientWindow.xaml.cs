@@ -15,11 +15,14 @@ using ProjektUbezpieczenia;
 
 namespace GUI
 {
+    
     /// <summary>
     /// Logika interakcji dla klasy KlientWindow.xaml
     /// </summary>
     public partial class KlientWindow : Window
     {
+        bool decyzja = false;//false tzn. indywidualny
+
         //public bool decyzja;
         Klient klient;
         public KlientWindow()
@@ -35,10 +38,11 @@ namespace GUI
             okno.ShowDialog();
         }
         
+
         public void Rodzinny_Click(object sender, RoutedEventArgs e)
         {
-            //decyzja = true;
-            PakietDlaRodzWindow okno = new PakietDlaRodzWindow(klient);//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
+            decyzja = true;
+            PakietWindow okno = new PakietWindow(klient, decyzja);//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
             
@@ -46,8 +50,7 @@ namespace GUI
 
         public void Indywidualny_Click(object sender, RoutedEventArgs e)
         {
-            //decyzja = false;
-            PakietWindow okno = new PakietWindow(klient);//jeżeli decyzja jest false to jest to pakiet indywidualny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
+            PakietWindow okno = new PakietWindow(klient, decyzja);//jeżeli decyzja jest false to jest to pakiet indywidualny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
 
