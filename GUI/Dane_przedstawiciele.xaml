@@ -1,0 +1,16 @@
+﻿<Window x:Class="GUI.Dane_przedstawiciele"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="Dane_przedstawiciele" Height="450" Width="800">
+    <Grid>
+        <Button Content="Odśwież dane" HorizontalAlignment="Left" Margin="563,196,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" Height="38"/>
+        <DataGrid x:Name="DataGridView" HorizontalAlignment="Left" Height="224" Margin="46,98,0,0" VerticalAlignment="Top" Width="406"/>
+        <Label Content="Dane Przedstawicieli" HorizontalAlignment="Left" Height="35" Margin="46,33,0,0" VerticalAlignment="Top" Width="356" FontSize="20"/>
+        <Button Content="Cofnij" HorizontalAlignment="Left" Margin="578,366,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

@@ -8,10 +8,10 @@
         Title="AdminWindow" Height="383" Width="496">
     <Grid>
         <Label FontSize="20" Content="Panel Administratora" HorizontalAlignment="Left" Height="37" Margin="157,34,0,0" VerticalAlignment="Top" Width="198"/>
-        <Button Name="Button_ListaKlientow" Content="Baza Danych Klientów" HorizontalAlignment="Left" Height="58" Margin="49,103,0,0" VerticalAlignment="Top" Width="179"/>
-        <Button Name="Button_ListaAgentow" Content="Baza Danych Pracowników" HorizontalAlignment="Left" Height="58" Margin="270,103,0,0" VerticalAlignment="Top" Width="171"/>
+        <Button Name="Button_ListaKlientow" Content="Baza Danych Klientów" HorizontalAlignment="Left" Height="58" Margin="49,103,0,0" VerticalAlignment="Top" Width="179" Click="Button_ListaKlientow_Click"/>
+        <Button Name="Button_ListaAgentow" Content="Baza Danych Pracowników" HorizontalAlignment="Left" Height="58" Margin="270,103,0,0" VerticalAlignment="Top" Width="171" Click="Button_ListaAgentow_Click"/>
         <Button Content="Statystyki sprzedaży" HorizontalAlignment="Left" Height="58" Margin="157,181,0,0" VerticalAlignment="Top" Width="171"/>
-        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Height="28" Margin="49,298,0,0" VerticalAlignment="Top" Width="179"/>
+        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Height="28" Margin="49,298,0,0" VerticalAlignment="Top" Width="179" Click="Cofnij_Click"/>
 
     </Grid>
 </Window>

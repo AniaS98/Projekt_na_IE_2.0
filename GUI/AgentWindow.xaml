@@ -13,16 +13,21 @@
         </Grid.ColumnDefinitions>
         <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="49,357,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
         <Button Name="Wyjdz" Content="Wyjdż" HorizontalAlignment="Left" Margin="336,357,0,0" VerticalAlignment="Top" Width="140" Height="30" Grid.Column="1"/>
-        <Button Name="statystyki_button" FontSize="16" Content="Statystyki" HorizontalAlignment="Left" Height="51" Margin="310,162,0,0" VerticalAlignment="Top" Width="166" Grid.Column="1"/>
+        <Button Name="statystyki_button" FontSize="16" Content="Statystyki" HorizontalAlignment="Left" Height="51" Margin="310,242,0,0" VerticalAlignment="Top" Width="166" Grid.Column="1"/>
         <Label Content="Panel Agenta" FontSize="20" HorizontalAlignment="Left" Height="45" Margin="92,10,0,0" VerticalAlignment="Top" Width="132" Grid.Column="1"/>
-        <Label Content="Moi klienci:" HorizontalAlignment="Left" Height="30" Margin="49,51,0,0" VerticalAlignment="Top" Width="74"/>
-        <ListView Name="Klienci_ListView" HorizontalAlignment="Left" Height="239" Margin="49,86,0,0" VerticalAlignment="Top" Width="408" Grid.ColumnSpan="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Label Content="Moi klienci:" HorizontalAlignment="Left" Height="37" Margin="49,51,0,0" VerticalAlignment="Top" Width="134" FontSize="20" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.417"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DataGrid x:Name="dataGridView" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="231" Margin="49,86,0,0" VerticalAlignment="Top" Width="439" />
+        <Button Content="Pokaż moich klientów" Grid.Column="1" HorizontalAlignment="Left" Margin="310,86,0,0" VerticalAlignment="Top" Width="166" Click="Button_Click" Height="32"/>
+        <Button Content="Pokaż kończące się polisy" HorizontalAlignment="Left" Height="39" Margin="310,153,0,0" VerticalAlignment="Top" Width="166" Grid.Column="1" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +13,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjektUbezpieczenia;
 
 namespace GUI
 {
-    /// <summary>
+        /// <summary>
     /// Logika interakcji dla klasy AgentLogowanieWindow.xaml
     /// </summary>
     public partial class AgentLogowanieWindow : Window
     {
-        public string login = "agent";
-        public string haslo = "agent";
-
+                public string login; //= "agent";
+        public string haslo; //= "agent";
+ 
         public AgentLogowanieWindow()
         {
             InitializeComponent();
@@ -36,11 +39,33 @@ namespace GUI
 
         private void Zaloguj_Click(object sender, RoutedEventArgs e)
         {
+            ListaAgentow listaA= ListaAgentow.OdczytajXML("C:\\Users\\Tala\\Source\\Repos\\AniaS98\\Projekt_na_IE_2.0\\ProjektUbezpieczenia\\bin\\Debug\\ListaAgentow.xml");
+            Console.WriteLine(listaA.agenci.Count);
+            bool dostep = false;
+            foreach(Agent a in listaA.agenci)
+            {
+                if(a.haslo==PasswordBox_HasloAgent.Password)
+                {
+                    dostep = true;
+                    AgentWindow okno = new AgentWindow(a.Nazwisko);
+                    this.Close();
+                    okno.ShowDialog();
+                }
+
+            }
+            if(dostep==false)
+            {
+                MessageBox.Show("Złe hasło lub login");
+                return;
+            }
+
+
+            /*
             if ((login == TextBox_LoginAgent.Text))
             {
                 if (haslo == PasswordBox_HasloAgent.Password)
                 {
-                    AgentWindow okno = new AgentWindow();
+                    AgentWindow okno = new AgentWindow(login);
                     this.Close();
                     okno.ShowDialog();
                 }
@@ -49,7 +74,8 @@ namespace GUI
             {
                 MessageBox.Show("Złe hasło lub login");
                 return;
-            }
+            }*/
         }
+
     }
 }

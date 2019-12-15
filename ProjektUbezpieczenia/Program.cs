@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,7 @@ namespace ProjektUbezpieczenia
             ListaKlientow listak = new ListaKlientow();
             listak.DodajKlienta(K1);
 
-
+            DodawanieAgentowdobazy();
             // int l = K1.historia.Count;
             // Console.WriteLine(l);
             //K1.historia.Add(new Zamowienie());
@@ -30,7 +32,7 @@ namespace ProjektUbezpieczenia
 
             listak.ZapiszXML();
 
-            NadpisywanieDanychKlienci(K1);
+            //NadpisywanieDanychKlienci(K1);
 
 
 
@@ -108,19 +110,48 @@ namespace ProjektUbezpieczenia
                 "," + dodat[4].ToString() + "," + dodat[5].ToString() + "," + dodat[6].ToString() + ","+pod + "," + results[0] + "," + results[1] + "," + 
                 k.historia[index].PakietKoncowy.Lata);
             wpis.Append(newLine);
-            using (FileStream fs = new FileStream("D:\\adm\\Documents\\Programowanie_C#\\ProjektUbezpieczenia\\ProjektUbezpieczenia\\DaneKlienci.csv", FileMode.Append, FileAccess.Write))
+            /*using (FileStream fs = new FileStream("D:\\adm\\Documents\\Programowanie_C#\\ProjektUbezpieczenia\\ProjektUbezpieczenia\\DaneKlienci.csv", FileMode.Append, FileAccess.Write))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
                 {
                     sw.WriteLine(wpis);
                 }
-            }
+            }*/
+
+
+            
 
 
 
         }
 
+        static void DodawanieAgentowdobazy()
+        {
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "D:\\!!!_PULPET_D\\Studia\\V semestr\\IE\\DanePrzedstawiciele.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            OleDbConnection conn = new OleDbConnection(PathConn);
 
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * From [" + "Arkusz1" + "$]", conn);
+            DataSet dt = new DataSet();
+
+            myDataAdapter.Fill(dt, "Arkusz1");
+
+
+            int rozmiar = dt.Tables["Arkusz1"].Rows.Count;
+            //(string imie, string nazwisko, int idAgenta, string haslo, ListaKlientow lista_klientow) : base(imie, nazwisko)
+            Agent[] A = new Agent[rozmiar];
+            ListaAgentow la = new ListaAgentow();
+            for(int i=0;i<rozmiar;i++)
+            {
+                int zmienna;
+                Int32.TryParse(dt.Tables["Arkusz1"].Rows[i][0].ToString(),out zmienna);
+                A[i] = new Agent(dt.Tables["Arkusz1"].Rows[i][1].ToString(), dt.Tables["Arkusz1"].Rows[i][2].ToString(), zmienna, dt.Tables["Arkusz1"].Rows[i][4].ToString());
+
+                la.DodajAgenta(A[i]);
+            }
+
+            la.ZapiszXML();
+
+        }
 
 
 

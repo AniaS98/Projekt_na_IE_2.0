@@ -23,6 +23,15 @@ namespace ProjektUbezpieczenia
             lista_klientow = new ListaKlientow();
         }
 
+        public Agent(string imie, string nazwisko, int idAgenta, string haslo) : base(imie, nazwisko)
+        {
+            this.Imie = imie;
+            this.Nazwisko = nazwisko;
+            this.idAgenta = idAgenta;
+            this.haslo = haslo;
+
+        }
+
         public Agent(string imie, string nazwisko, int idAgenta, string haslo, ListaKlientow lista_klientow) : base(imie, nazwisko)
         {
             this.Imie = imie;
