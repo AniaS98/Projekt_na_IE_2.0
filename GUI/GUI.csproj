@@ -56,6 +56,12 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -94,6 +100,15 @@
     <Compile Include="AgentLogowanieWindow.xaml.cs">
       <DependentUpon>AgentLogowanieWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AgentStatystyki.xaml.cs">
+      <DependentUpon>AgentStatystyki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgentStatystykiPlec.xaml.cs">
+      <DependentUpon>AgentStatystykiPlec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgentStatystykiWiek.xaml.cs">
+      <DependentUpon>AgentStatystykiWiek.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AgentWindow.xaml.cs">
       <DependentUpon>AgentWindow.xaml</DependentUpon>
     </Compile>
@@ -124,6 +139,9 @@
     <Compile Include="RodzinnyWindow.xaml.cs">
       <DependentUpon>RodzinnyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StatystykiAdmin.xaml.cs">
+      <DependentUpon>StatystykiAdmin.xaml</DependentUpon>
+    </Compile>
     <Page Include="AdminLogowanieWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +151,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AgentLogowanieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgentStatystyki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgentStatystykiPlec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgentStatystykiWiek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RodzinnyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatystykiAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,6 +16,7 @@ using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
 using System.Threading;
+using ProjektUbezpieczenia;
 
 namespace GUI
 {
@@ -30,11 +31,10 @@ namespace GUI
             InitializeComponent();
             przedstawiciel= a;
         }
-        string plik = "D:\\!!!_PULPET_D\\Studia\\V semestr\\IE\\Klienci_dane.xls";
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
             OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [" + przedstawiciel+ "$]", conn);
@@ -139,7 +139,7 @@ namespace GUI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
             OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [" + przedstawiciel+"_koniec" + "$]", conn);
@@ -148,6 +148,25 @@ namespace GUI
             myDataAdapter.Fill(dt, przedstawiciel + "_koniec");
 
             dataGridView.ItemsSource = dt.Tables[przedstawiciel + "_koniec"].DefaultView;
+        }
+
+        private void Statystyki_button_Click(object sender, RoutedEventArgs e)
+        {
+            AgentStatystyki okno = new AgentStatystyki(przedstawiciel);
+            this.Close();
+            okno.ShowDialog();
+        }
+
+        private void Cofnij_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow okno = new MainWindow();
+            this.Close();
+            okno.ShowDialog();
+        }
+
+        private void Wyjdz_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

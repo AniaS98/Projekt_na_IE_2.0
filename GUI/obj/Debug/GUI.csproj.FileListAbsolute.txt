@@ -100,7 +100,6 @@ C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\Klient2Window
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KlientWindow.g.cs
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KontaktWindow.g.cs
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\MainWindow.g.cs
-C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\PakietDlaRodzWindow.g.cs
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\PakietWindow.g.cs
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\RodzinnyWindow.g.cs
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\App.g.cs
@@ -118,7 +117,6 @@ C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\Klient2Window
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KlientWindow.baml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\KontaktWindow.baml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\MainWindow.baml
-C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\PakietDlaRodzWindow.baml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\PakietWindow.baml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\RodzinnyWindow.baml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\GUI.g.resources
@@ -139,3 +137,17 @@ C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\BazaDanych.g.
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\BazaDanych.baml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\Dane_przedstawiciele.g.cs
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\Dane_przedstawiciele.baml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\bin\Debug\LiveCharts.dll
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\bin\Debug\LiveCharts.pdb
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\bin\Debug\LiveCharts.xml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\StatystykiAdmin.g.cs
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\StatystykiAdmin.baml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\AgentStatystyki.g.cs
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\AgentStatystykiPlec.g.cs
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\AgentStatystyki.baml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\AgentStatystykiPlec.baml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\AgentStatystykiWiek.g.cs
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\AgentStatystykiWiek.baml

@@ -27,3 +27,9 @@ C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\De
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csprojAssemblyReference.cache
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.dll
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.pdb
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.xml
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.Wpf.xml

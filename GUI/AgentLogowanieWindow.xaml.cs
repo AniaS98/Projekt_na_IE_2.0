@@ -39,7 +39,7 @@ namespace GUI
 
         private void Zaloguj_Click(object sender, RoutedEventArgs e)
         {
-            ListaAgentow listaA= ListaAgentow.OdczytajXML("C:\\Users\\Tala\\Source\\Repos\\AniaS98\\Projekt_na_IE_2.0\\ProjektUbezpieczenia\\bin\\Debug\\ListaAgentow.xml");
+            ListaAgentow listaA= ListaAgentow.OdczytajXML("C:\\Users\\Tala\\source\\repos\\AniaS98\\Projekt_na_IE_2.0\\ProjektUbezpieczenia\\bin\\Debug\\ListaAgentow.xml");
             Console.WriteLine(listaA.agenci.Count);
             bool dostep = false;
             foreach(Agent a in listaA.agenci)

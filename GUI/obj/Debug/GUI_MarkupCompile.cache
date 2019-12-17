@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Tala\Source\Repos\AniaS98\Projekt_na_IE_2.0\GUI\App.xaml
-17805259645
+201811133070
 
-21-1438949042
-25-1677565915
-AdminLogowanieWindow.xaml;AdminWindow.xaml;AgentLogowanieWindow.xaml;AgentWindow.xaml;BazaDanych.xaml;ChorobyWindow.xaml;Dane_przedstawiciele.xaml;DodatkowyPakietWindow.xaml;DodawanieDzieckaWindow.xaml;HobbyWindow.xaml;Klient2Window.xaml;KlientWindow.xaml;KontaktWindow.xaml;MainWindow.xaml;PakietDlaRodzWindow.xaml;PakietWindow.xaml;RodzinnyWindow.xaml;
+241312216714
+27-877783878
+AdminLogowanieWindow.xaml;AdminWindow.xaml;AgentLogowanieWindow.xaml;AgentStatystyki.xaml;AgentStatystykiPlec.xaml;AgentStatystykiWiek.xaml;AgentWindow.xaml;BazaDanych.xaml;ChorobyWindow.xaml;Dane_przedstawiciele.xaml;DodatkowyPakietWindow.xaml;DodawanieDzieckaWindow.xaml;HobbyWindow.xaml;Klient2Window.xaml;KlientWindow.xaml;KontaktWindow.xaml;MainWindow.xaml;PakietWindow.xaml;RodzinnyWindow.xaml;StatystykiAdmin.xaml;
 
 False
 
