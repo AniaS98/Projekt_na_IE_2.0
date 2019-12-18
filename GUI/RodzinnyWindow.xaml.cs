@@ -20,19 +20,18 @@ namespace GUI
     /// </summary>
     public partial class RodzinnyWindow : Window
     {
+        int dzieci = 0;
         int czas;
         bool decyzja = true;
         Klient klient;
-        public RodzinnyWindow(Klient klient, bool d, int c)
+        public RodzinnyWindow(Klient klient, bool d, int c, int dz)
         {
             czas = c;
             decyzja = d;
+            dzieci = dz;
             InitializeComponent();
             this.klient = klient;
         }
-
-
-
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
@@ -43,6 +42,7 @@ namespace GUI
 
         private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
+
             Klient2Window okno = new Klient2Window(klient, decyzja, czas);
             this.Close();
             okno.ShowDialog();
@@ -50,9 +50,7 @@ namespace GUI
 
         private void DodajDziecko_Click(object sender, RoutedEventArgs e)
         {
-            int liczba;
-            liczba = Convert.ToInt32(TextBox_LiczbaDzieci.Text);
-            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow();
+            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, dzieci);
             okno.ShowDialog();
         }
     }
