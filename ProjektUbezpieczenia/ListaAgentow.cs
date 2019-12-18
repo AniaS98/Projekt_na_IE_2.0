@@ -7,10 +7,10 @@ using System.IO;
 namespace ProjektUbezpieczenia
 {
     [Serializable]
-    class ListaAgentow
+    public class ListaAgentow
     {
         int id;
-        List<Agent> agenci;
+        public List<Agent> agenci;
 
         public int Id { get => id; set => id = value; }
         public List<Agent> Agenci { get => agenci; set => agenci = value; }
@@ -53,14 +53,14 @@ namespace ProjektUbezpieczenia
             }
         }
 
-        public static ListaKlientow OdczytajXML(string nazwaPliku)
+        public static ListaAgentow OdczytajXML(string nazwaPliku)
         {
             try
             {
                 FileStream fstream = new FileStream(nazwaPliku, FileMode.Open);
-                XmlSerializer oSerializer = new XmlSerializer(typeof(ListaKlientow));
+                XmlSerializer oSerializer = new XmlSerializer(typeof(ListaAgentow));
                 fstream.Position = 0;
-                ListaKlientow lk = (ListaKlientow)oSerializer.Deserialize(fstream);
+                ListaAgentow lk = (ListaAgentow)oSerializer.Deserialize(fstream);
                 fstream.Close();
                 return lk;
             }

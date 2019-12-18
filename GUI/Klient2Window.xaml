@@ -9,13 +9,11 @@
     <Grid>
         <Label Content="Pakiety wybrane dla Ciebie:" FontSize="16px" HorizontalAlignment="Left" Height="31" Margin="52,29,0,0" VerticalAlignment="Top" Width="256"/>
         <Button Name="DodajPakiet" Content="Dodaj dodatkowy pakiet" FontSize="16px" HorizontalAlignment="Left" Height="71" Margin="398,155,0,0" VerticalAlignment="Top" Width="318"/>
-        <Label Content="Składka roczna:" FontSize="16px" HorizontalAlignment="Left" Height="40" Margin="65,374,0,0" VerticalAlignment="Top" Width="136"/>
-        <TextBox IsReadOnly="True" Name="Suma" FontSize="14px" HorizontalAlignment="Left" Height="40" Margin="206,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
-        <Button Name="Kontakt" FontSize="16px" Content="Kupuję i proszę o kontakt z przedstawicielem" HorizontalAlignment="Left" Height="38" Margin="206,432,0,0" VerticalAlignment="Top" Width="364" Click="Kontakt_Click"/>
+        <Label Content="Suma:" FontSize="16px" HorizontalAlignment="Left" Height="40" Margin="65,374,0,0" VerticalAlignment="Top" Width="68"/>
+        <TextBox Name="Suma" FontSize="18px" HorizontalAlignment="Left" Height="40" Margin="206,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <Button Name="Kontakt" FontSize="16px" Content="Kupuję i proszę o kontakt z przedstawicielem" HorizontalAlignment="Left" Height="41" Margin="206,419,0,0" VerticalAlignment="Top" Width="364" Click="Kontakt_Click"/>
         <Button Name="Powrot" FontSize="16px" Content="Powrót do strony głównej" HorizontalAlignment="Left" Height="42" Margin="206,489,0,0" VerticalAlignment="Top" Width="364" Click="Powrot_Click"/>
         <TextBox IsReadOnly="True" Name="TextBox_Pakiety" HorizontalAlignment="Left" Height="246" Margin="65,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302"/>
-        <TextBox IsReadOnly="True" Name="kosztKoncowy" FontSize="14px" HorizontalAlignment="Left" Height="40" Margin="555,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
-        <Label Content="Całkowita suma:" FontSize="16px" HorizontalAlignment="Left" Height="40" Margin="398,374,0,0" VerticalAlignment="Top" Width="136"/>
 
     </Grid>
 </Window>

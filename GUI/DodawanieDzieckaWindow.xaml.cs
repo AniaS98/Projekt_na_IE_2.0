@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProjektUbezpieczenia;
 
 namespace GUI
 {
@@ -20,31 +19,14 @@ namespace GUI
     /// </summary>
     public partial class DodawanieDzieckaWindow : Window
     {
-        int dzieci = 0;
-        bool decyzja;
-        int czas;
-        Klient klient;
-        public DodawanieDzieckaWindow(Klient klient, bool d, int c, int dz)
+        public DodawanieDzieckaWindow()
         {
-            decyzja = d;
-            dzieci = dz;
-            czas = c;
             InitializeComponent();
-            this.klient = klient;
         }
 
         private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            CzlonekRodziny dziecko = new CzlonekRodziny();
-            if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
-            {
-                MessageBox.Show("Dziecko nie może mieć powyżej 18 lat.");
-            }
-            TextBox_WiekDziecka.Text = dziecko.Wiek.ToString();
-            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, dzieci);
-            okno.Activate();
-            Console.WriteLine(dziecko.Wiek.ToString());
-            
+
         }
     }
 }

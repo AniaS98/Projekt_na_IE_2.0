@@ -21,9 +21,14 @@ namespace ProjektUbezpieczenia
             this.wiek = wiek;
         }
 
+        public CzlonekRodziny(string imie, string nazwisko, int wiek) : base(imie, nazwisko)
+        {
+            this.wiek = wiek;
+        }
+
         public override string ToString()
         {
-            string s = "wiek:" + wiek;
+            string s = Imie + " " + Nazwisko + " " + wiek;
             return s;
         }
     }

@@ -22,13 +22,13 @@ namespace GUI
     {
         bool decyzja;
         int czas;
+        Klient klient;
         public Klient2Window(Klient klient, bool d, int c)
         {
-            
             czas = c;
             decyzja = d;
             InitializeComponent();
-            Console.WriteLine(klient.Zawod.ToString());
+            this.klient = klient;
             klient.FunkcjaPakietDodatkowy(czas, klient);
             if (decyzja == true)
             {
@@ -48,7 +48,8 @@ namespace GUI
             }
             TextBox_Pakiety.Text = sb.ToString();
             Suma.Text = klient.historia[k].PakietKoncowy.Skladka.ToString();
-            kosztKoncowy.Text = klient.historia[k].PakietKoncowy.KosztKoncowy.ToString();
+
+            //TextBox_Pakiety.ItemSources 
         }
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)
