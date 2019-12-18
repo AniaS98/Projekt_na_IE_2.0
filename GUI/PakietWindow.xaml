@@ -18,7 +18,7 @@
             <ComboBoxItem x:Name="M">mężczyzna</ComboBoxItem>
         </ComboBox>
         <ComboBox Name="ComboBox_Zawod" HorizontalAlignment="Left" Height="23" Margin="219,167,0,0" VerticalAlignment="Top" Width="184">
-            <ComboBoxItem x:Name="Gornik">Górnik</ComboBoxItem>
+            <ComboBoxItem x:Name="gornik">Górnik</ComboBoxItem>
             <ComboBoxItem x:Name="Zolnierz">Żołnierz</ComboBoxItem>
             <ComboBoxItem x:Name="Rybak">Rybak</ComboBoxItem>
             <ComboBoxItem x:Name="Pilot">Pilot samolotu</ComboBoxItem>
