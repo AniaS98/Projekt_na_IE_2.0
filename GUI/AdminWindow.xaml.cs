@@ -27,14 +27,14 @@ namespace GUI
 
         private void Button_ListaKlientow_Click(object sender, RoutedEventArgs e)
         {
-           BazaDanych okno = new BazaDanych ("Klienci_dane.xls");
+           BazaDanych okno = new BazaDanych ();
            this.Close();
            okno.ShowDialog();
         }
 
         private void Button_ListaAgentow_Click(object sender, RoutedEventArgs e)
         {
-            Dane_przedstawiciele okno = new Dane_przedstawiciele("DanePrzedstawiciele.xls");
+            Dane_przedstawiciele okno = new Dane_przedstawiciele();
             this.Close();
             okno.ShowDialog();
         }

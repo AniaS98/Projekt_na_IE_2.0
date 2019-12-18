@@ -24,19 +24,17 @@ namespace GUI
     /// </summary>
     public partial class BazaDanych : Window
     {
-        string plik;
-        public BazaDanych(string p)
+        public BazaDanych()
         {
             InitializeComponent();
-            plik = p;
         }
       
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from ["+ "Sheet1" + "$]", conn);
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select Imię,Nazwisko,Wiek,Dzieci,Ubezpieczeni,Typ,Składka,Telefon,Początek,Koniec from ["+ "Sheet1" + "$]", conn);
             DataSet dt = new DataSet();
 
             myDataAdapter.Fill(dt,"Sheet1");

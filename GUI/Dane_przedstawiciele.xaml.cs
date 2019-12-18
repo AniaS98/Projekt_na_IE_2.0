@@ -22,16 +22,14 @@ namespace GUI
     /// </summary>
     public partial class Dane_przedstawiciele : Window
     {
-        string dane;
-        public Dane_przedstawiciele(string p)
+        public Dane_przedstawiciele()
         {
             InitializeComponent();
-            dane = p;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + dane + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "DanePrzedstawiciele" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
             OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * From [" + "Arkusz1" + "$]", conn);

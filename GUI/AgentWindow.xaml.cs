@@ -16,7 +16,8 @@ using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
 using System.Threading;
-using ProjektUbezpieczenia;
+using System.IO;
+using ExcelDataReader;
 
 namespace GUI
 {
@@ -33,121 +34,38 @@ namespace GUI
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
-            OleDbConnection conn = new OleDbConnection(PathConn);
+        { 
+          
+             string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+             OleDbConnection conn = new OleDbConnection(PathConn);
 
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [" + przedstawiciel+ "$]", conn);
-            DataSet dt = new DataSet();
-            DataSet ds = new DataSet();
-            DataTable dataTab = new DataTable();
-            myDataAdapter.Fill(dt, przedstawiciel);
-            dataGridView.ItemsSource = dt.Tables[przedstawiciel].DefaultView;
-
-            /*
-            //foreach(DataRow row in dt.Tables[przedstawiciel].Rows)
-            //{
-            //int d = 1;
-            foreach (DataRow dr in dt.Tables[przedstawiciel].Rows)
-            {
-                if (!dr.ToString().Equals(""))
-                {
-                    Monitor.Enter(this);
-                    try
-                    {
-                        DataRow drow = dataTab.NewRow();
-                        for (int i = 0; i <= 29; i++)
-                        {
-                            drow[i] = dr[i];
-                        }
-                        dataTab.Rows.Add(drow);
-                    }
-                    finally
-                    {
-                        Monitor.Exit(this);
-                    }
-                    
-
-                }
-            }
-            ds.Tables.Add(dataTab);
+             OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [" +"Sheet1"+ "$]", conn);
+             DataSet dt = new DataSet();
+             myDataAdapter.Fill(dt, "Sheet1");
 
 
-            /*
-                int n = dt.Tables[przedstawiciel].Rows.Count-1;
-                for (int i=1;i<=n;i++)
-                {
-                    if(!dt.Tables[przedstawiciel].Rows[i][0].ToString().Equals(""))
-                    {
-                    for (int j = 1; j <= n; j++)
-                    {
-                        dataTab.Rows[d][j] = dt.Tables[przedstawiciel].Rows[i][j].ToString();
-                    }
-                    d++;
-                    }
-                    
-
-                        
-                }
-            ds=dataTab.DataSet;
-            
-           
-            for (int i=1;i<dt.Tables[przedstawiciel].Rows.Count ;i++)
-            {
-                DataRow row = dt.Tables[przedstawiciel].Rows[i];
-                if(row[0].Equals(""))
-                {
-                    dt.Tables[przedstawiciel].Rows.RemoveAt(i);
-                }
-            }
-            dataGridView.ItemsSource = dt.Tables[przedstawiciel].DefaultView;
-
-            
-            int index = 0;
-             foreach (DataRow row in dt.Tables[przedstawiciel].Rows)
-                {
-                object o = row.ItemArray;
-                if (String.IsNullOrEmpty(row.ToString()))
-                {
-                    dt.Tables[przedstawiciel].Rows.RemoveAt(index);
-                }
-                index++;
-                }
-
-            dataGridView.ItemsSource = dt.Tables[przedstawiciel].DefaultView;
-           foreach (DataRow row in dt.Tables[przedstawiciel].Rows)
-           {
-               bool IsEmpty = false;
-               foreach (object obj in row.ItemArray)
-               {
-                   if (String.IsNullOrEmpty(obj.ToString()))
-                   {
-                       IsEmpty = true;
-                   }
-                   else
-                   {
-                       IsEmpty = false;
-                   }
-              }
-               if (IsEmpty)
-               {
-                   dt.Tables[przedstawiciel].Rows.Remove(row);
-               }
-           }*/
+            dataGridView.ItemsSource= ((dt.Tables["Sheet1"].DefaultView).RowFilter = string.Format("id = '{0}'", przedstawiciel.ToString()));
+            dataGridView.ItemsSource = dt.Tables["Sheet1"].DefaultView;
+       
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
             string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [" + przedstawiciel+"_koniec" + "$]", conn);
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [" + "Sheet1" + "$]", conn);
             DataSet dt = new DataSet();
 
-            myDataAdapter.Fill(dt, przedstawiciel + "_koniec");
+            myDataAdapter.Fill(dt, "Sheet1");
 
-            dataGridView.ItemsSource = dt.Tables[przedstawiciel + "_koniec"].DefaultView;
+            DateTime dateT = DateTime.Now.AddMonths(1);
+            dataGridView.ItemsSource = ((dt.Tables["Sheet1"].DefaultView).RowFilter = string.Format("Koniec<= '{0}' AND id = '{1}'", dateT.ToString("yyyy-MM-dd"), przedstawiciel.ToString()));
+
+
+           dataGridView.ItemsSource = dt.Tables["Sheet1"].DefaultView;
         }
 
         private void Statystyki_button_Click(object sender, RoutedEventArgs e)

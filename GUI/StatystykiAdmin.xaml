@@ -9,14 +9,8 @@
         Title="Statystyki" Height="500" Width="850">
 
     <Grid>
-        <wpf:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left">
-            <wpf:CartesianChart.AxisX>
-                <wpf:Axis Title="Przedstawiciele" Labels="{Binding Labels}"></wpf:Axis>
-            </wpf:CartesianChart.AxisX>
-            <wpf:CartesianChart.AxisY>
-                <wpf:Axis Title="Sprzedaż" LabelFormatter="{Binding Formatter}"></wpf:Axis>
-            </wpf:CartesianChart.AxisY>
-        </wpf:CartesianChart>
+        <wpf:PieChart Series="{Binding SeriesCollection}" LegendLocation="Left">
+        </wpf:PieChart>
         <Button Content="Powrót" HorizontalAlignment="Left" Margin="0,439,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
     

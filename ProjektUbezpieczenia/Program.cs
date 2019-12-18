@@ -127,10 +127,10 @@ namespace ProjektUbezpieczenia
 
         static void DodawanieAgentowdobazy()
         {
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "D:\\!!!_PULPET_D\\Studia\\V semestr\\IE\\DanePrzedstawiciele.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "DanePrzedstawiciele.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * From [" + "Arkusz1" + "$]", conn);
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * From [Arkusz1$]", conn);
             DataSet dt = new DataSet();
 
             myDataAdapter.Fill(dt, "Arkusz1");
@@ -150,7 +150,7 @@ namespace ProjektUbezpieczenia
             }
 
             la.ZapiszXML();
-
+            Console.WriteLine("Dziala");
         }
 
 
