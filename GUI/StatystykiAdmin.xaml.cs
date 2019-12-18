@@ -73,10 +73,10 @@ namespace GUI
             pie2.DataLabels = true;
             pie2.LabelPoint = labelPoint;
             pieChart1.Series.Add(pie2);
-            pieChart1.LegendLocation = LegendLocation.Top;
+            pieChart1.LegendLocation = LegendLocation.Top;*/
         }
         
-        SeriesCollection = new SeriesCollection
+        /*SeriesCollection = new SeriesCollection
             {
                 new ColumnSeries
                 {
@@ -121,12 +121,13 @@ namespace GUI
 
     */
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AdminWindow okno = new AdminWindow();
-            this.Close();
-            okno.ShowDialog();
+            private void Button_Click(object sender, RoutedEventArgs e)
+            {
+                AdminWindow okno = new AdminWindow();
+                this.Close();
+                okno.ShowDialog();
+            }
         }
     }
-}
+
 
