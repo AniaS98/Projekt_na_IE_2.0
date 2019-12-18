@@ -6,12 +6,20 @@
         xmlns:local="clr-namespace:GUI"
         xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Statystyki" Height="500" Width="850">
+        Title="Statystyki przedstawicieli" Height="650" Width="1050">
 
     <Grid>
-        <wpf:PieChart Series="{Binding SeriesCollection}" LegendLocation="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" MinWidth="100"/>
+        </Grid.ColumnDefinitions>
+        <wpf:PieChart x:Name="pieChart1" LegendLocation="Bottom"  Margin="0,98,0,90">
         </wpf:PieChart>
-        <Button Content="Powrót" HorizontalAlignment="Left" Margin="0,439,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <wpf:PieChart x:Name="pieChart2" LegendLocation="Bottom" DataTooltip="{x:Null}" Margin="0,98,0,90" Grid.Column="1">
+        </wpf:PieChart>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="10,584,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Content="Sprzedaż polis" HorizontalAlignment="Left" Margin="168,10,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Sprzedaż pakietów dodatkowych" HorizontalAlignment="Left" Margin="89,10,0,0" VerticalAlignment="Top" FontSize="24" Grid.Column="1"/>
     </Grid>
-    
+
 </Window>

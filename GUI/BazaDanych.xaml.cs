@@ -34,7 +34,7 @@ namespace GUI
             string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + "Klienci_dane.xls" + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
 
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select Imię,Nazwisko,Wiek,Dzieci,Ubezpieczeni,Typ,Składka,Telefon,Początek,Koniec from ["+ "Sheet1" + "$]", conn);
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select Imię,Nazwisko,Wiek,Dzieci,Ubezpieczeni,Typ,Składka,Telefon,Początek,Koniec,id from ["+ "Sheet1" + "$]", conn);
             DataSet dt = new DataSet();
 
             myDataAdapter.Fill(dt,"Sheet1");
