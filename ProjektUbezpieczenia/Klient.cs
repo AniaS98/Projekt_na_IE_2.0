@@ -79,12 +79,12 @@ namespace ProjektUbezpieczenia
         string numerTelefonu;
         bool malzonek;
         public List<CzlonekRodziny> rodzina=new List<CzlonekRodziny>();
-        Zawody zawod;
+        public Zawody zawod;
         Pasje hobby;
         public List<Zamowienie> historia = new List<Zamowienie>();
         Choroby choroba;
-        List<Choroby> chorobies = new List<Choroby>();
-        List<Pasje> hobbies =new List<Pasje>();
+        public List<Choroby> chorobies = new List<Choroby>();
+        public List<Pasje> hobbies =new List<Pasje>();
 
 
         /*
@@ -140,6 +140,16 @@ namespace ProjektUbezpieczenia
             this.zawod = zawod;
         }
 
+        public Klient(int wiek, Plcie plec, string numerTelefonu, bool malzonek, Zawody zawod, List<Choroby> chorobies, List<Pasje> hobbies)
+        {
+            this.wiek = wiek;
+            this.plec = plec;
+            this.numerTelefonu = numerTelefonu;
+            this.malzonek = malzonek;
+            this.zawod = zawod;
+            this.chorobies = chorobies;
+            this.hobbies = hobbies;
+        }
 
         public Klient(string imie, string nazwisko, string PESEL, int wiek, Plcie plec, string numerTelefonu, bool malzonek, Zawody zawod) : base(imie, nazwisko)
         {
@@ -149,6 +159,18 @@ namespace ProjektUbezpieczenia
             this.numerTelefonu = numerTelefonu;
             this.malzonek = malzonek;
             this.zawod = zawod;
+        }
+
+        public Klient(string imie, string nazwisko, string PESEL, int wiek, Plcie plec, string numerTelefonu, bool malzonek, Zawody zawod, List<Choroby> chorobies, List<Pasje> hobbies) : base(imie, nazwisko)
+        {
+            this.PESEL = PESEL;
+            this.wiek = wiek;
+            this.plec = plec;
+            this.numerTelefonu = numerTelefonu;
+            this.malzonek = malzonek;
+            this.zawod = zawod;
+            this.chorobies = chorobies;
+            this.hobbies = hobbies;
         }
 
         public void DodajCzlonkaRodziny(CzlonekRodziny c)
