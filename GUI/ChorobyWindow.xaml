@@ -5,23 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="ChorobyWindow" Height="399" Width="358">
+        Title="ChorobyWindow" Height="469" Width="356">
     <Grid>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="brak" Content="Brak" HorizontalAlignment="Left" Height="18" Margin="20,21,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="nowotwory" Content="Nowotwory" HorizontalAlignment="Left" Height="18" Margin="20,42,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="stwardnienie_rozsiane" Content="Stwardnienie rozsiane" HorizontalAlignment="Left" Height="18" Margin="20,63,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="choroby_ukladu_krazenia" Content="Choroby układu krążenia" HorizontalAlignment="Left" Height="18" Margin="20,84,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="choroby_wiencowe" Content="Choroby wieńcowe" HorizontalAlignment="Left" Height="18" Margin="20,105,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="epilepsja" Content="Epilepsja" HorizontalAlignment="Left" Height="18" Margin="20,125,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="cukrzyca" Content="Cukrzyca" HorizontalAlignment="Left" Height="18" Margin="20,281,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="astma" Content="Astma" HorizontalAlignment="Left" Height="18" Margin="20,262,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="nadcisnienie" Content="Nadciśnienie" HorizontalAlignment="Left" Height="18" Margin="20,243,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="silne_alergie" Content="Silne alergie" HorizontalAlignment="Left" Height="18" Margin="20,223,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="przewlekle_choroby_ukladu_oddechowego" Content="Przewlekłe choroby układu oddechowego" HorizontalAlignment="Left" Height="18" Margin="20,203,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="choroba_Alzheimera" Content="Choroba Alzheimera" HorizontalAlignment="Left" Height="18" Margin="20,185,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="zespol_Parkinsona" Content="Zespół Parkinsona" HorizontalAlignment="Left" Height="18" Margin="20,166,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="osteoporoza" Content="Osteoporoza" HorizontalAlignment="Left" Height="18" Margin="20,145,0,0" VerticalAlignment="Top" Width="296"/>
-        <CheckBox Checked="CheckButton_Choroby" Unchecked="CheckButton_Choroby" Name="niedoczynnosc_tarczycy" Content="Niedoczynność tarczycy" HorizontalAlignment="Left" Height="18" Margin="20,299,0,0" VerticalAlignment="Top" Width="296"/>
-        <Button Click="Zatwierdz_Click" Name="Zatwierdz" Content="Zatwierdź" HorizontalAlignment="Left" Height="26" Margin="91,332,0,0" VerticalAlignment="Top" Width="152"/>
+        <ListBox Name="ListBox_Choroby" HorizontalAlignment="Left" Height="348" Margin="29,27,0,0" VerticalAlignment="Top" Width="292">
+            <CheckBox Name="brak" Content="brak" Height="18" Width="265"/>
+            <CheckBox Name="nowotwory" Content="Nowotwory" Height="18" Width="265"/>
+            <CheckBox Name="stwardnienie_rozsiane" Content="Stwardnienie rozsiane" Height="18" Width="265"/>
+            <CheckBox Name="choroby_ukladu_krazenia" Content="Choroby układu krążenia" Height="18" Width="265"/>
+            <CheckBox Name="choroby_wiencowe" Content="Choroby wieńcowe" Height="18" Width="265"/>
+            <CheckBox Name="epilepsja" Content="Epilepsja" Height="18" Width="265"/>
+            <CheckBox Name="cukrzyca" Content="Cukrzyca" Height="18" Width="265"/>
+            <CheckBox Name="astma" Content="Astma" Height="18" Width="265"/>
+            <CheckBox Name="nadcisnienie" Content="Nadciśnienie" Height="18" Width="265"/>
+            <CheckBox Name="silne_alergie" Content="Silne alergie" Height="18" Width="265"/>
+            <CheckBox Name="przewlekle_choroby_ukladu_oddechowego" Content="Przewlekłe choroby układu oddechowego" Height="18" Width="265"/>
+            <CheckBox Name="choroba_Alzheimera" Content="Choroba Alzheimera" Height="18" Width="265"/>
+            <CheckBox Name="zespol_Parkinsona" Content="Zespół Parkinsona" Height="18" Width="265"/>
+            <CheckBox Name="osteoporoza" Content="Osteoporoza" Height="18" Width="265"/>
+            <CheckBox Name="niedoczynnosc_tarczycy" Content="Niedoczynność tarczycy" Height="18" Width="265"/>
+        </ListBox>
+        <Button Click="Zatwierdz_Click" Name="Zatwierdz" Content="Zatwierdź" HorizontalAlignment="Left" Margin="91,380,0,21" Width="152"/>
     </Grid>
 </Window>

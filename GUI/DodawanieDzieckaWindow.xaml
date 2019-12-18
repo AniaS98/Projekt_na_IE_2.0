@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="DodawanieDzieckaWindow" Height="181" Width="277">
+        Title="DodawanieDzieckaWindow" Height="167" Width="223">
     <Grid Margin="0,0,2,1">
-        <TextBlock Name="TextBlock_WiekDziecka" HorizontalAlignment="Left" Height="20" Margin="53,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
-        <Label Content="dziecko" HorizontalAlignment="Left" Height="32" Margin="90,10,-96,0" VerticalAlignment="Top" Width="79"/>
-        <Label Content="Wiek:" HorizontalAlignment="Left" Height="24" Margin="42,64,-19,-39" VerticalAlignment="Top" Width="50"/>
-        <TextBox Name="TextBox_WiekDziecka" HorizontalAlignment="Left" Height="24" Margin="97,64,-96,-39" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
-        <Button Click="Akceptuj_Click" Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Height="25" Margin="62,110,-128,-86" VerticalAlignment="Top" Width="139"/>
+        <Label Content="Potrzebne dane dziecka:" HorizontalAlignment="Left" Height="32" Margin="42,10,0,0" VerticalAlignment="Top" Width="159"/>
+        <Label Content="Wiek:" HorizontalAlignment="Left" Height="24" Margin="42,47,0,0" VerticalAlignment="Top" Width="50"/>
+        <TextBox Name="TextBox_WiekDziecka" HorizontalAlignment="Left" Height="24" Margin="97,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72"/>
+        <Button Click="Akceptuj_Click" Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Height="25" Margin="42,91,0,0" VerticalAlignment="Top" Width="138"/>
     </Grid>
 </Window>

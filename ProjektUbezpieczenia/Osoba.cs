@@ -7,8 +7,8 @@ namespace ProjektUbezpieczenia
     [Serializable]
     public class Osoba
     {
-        string imie;
-        string nazwisko;
+        public string imie;
+        public string nazwisko;
 
         public string Imie { get => imie; set => imie = value; }
         public string Nazwisko { get => nazwisko; set => nazwisko = value; }
