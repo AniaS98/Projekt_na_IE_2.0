@@ -3,6 +3,24 @@
   <Efekt>false</Efekt>
   <Id>0</Id>
   <PakietKoncowy>
+    <dodatkowe>
+      <PakietDodatkowy>
+        <Nazwa>SmiercWK</Nazwa>
+        <Koszt>100000</Koszt>
+        <Idd>6</Idd>
+        <Lata>5</Lata>
+        <Skladka>60</Skladka>
+        <Podzialskl>0</Podzialskl>
+      </PakietDodatkowy>
+      <PakietDodatkowy>
+        <Nazwa>smiercNW</Nazwa>
+        <Koszt>50000</Koszt>
+        <Idd>7</Idd>
+        <Lata>5</Lata>
+        <Skladka>144</Skladka>
+        <Podzialskl>0</Podzialskl>
+      </PakietDodatkowy>
+    </dodatkowe>
     <Id>0</Id>
     <Znizka>0</Znizka>
     <Skladka>244.8</Skladka>

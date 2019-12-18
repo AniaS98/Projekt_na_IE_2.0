@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProjektUbezpieczenia;
 
 namespace GUI
 {
@@ -23,34 +22,6 @@ namespace GUI
         public AdminWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_ListaKlientow_Click(object sender, RoutedEventArgs e)
-        {
-           BazaDanych okno = new BazaDanych ("Klienci_dane.xls");
-           this.Close();
-           okno.ShowDialog();
-        }
-
-        private void Button_ListaAgentow_Click(object sender, RoutedEventArgs e)
-        {
-            Dane_przedstawiciele okno = new Dane_przedstawiciele("DanePrzedstawiciele.xls");
-            this.Close();
-            okno.ShowDialog();
-        }
-
-        private void Cofnij_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow okno = new MainWindow();
-            this.Close();
-            okno.ShowDialog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            StatystykiAdmin okno = new StatystykiAdmin();
-            this.Close();
-            okno.ShowDialog();
         }
     }
 }

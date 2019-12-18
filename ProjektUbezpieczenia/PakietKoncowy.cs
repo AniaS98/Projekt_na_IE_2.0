@@ -124,14 +124,14 @@ namespace ProjektUbezpieczenia
             return null;
         }
 
-        public static PakietKoncowy OdczytajXML2(string nazwaPliku)
+        public static ListaKlientow OdczytajXML2(string nazwaPliku)
         {
             try
             {
                 FileStream fstream = new FileStream(nazwaPliku, FileMode.Open);
-                XmlSerializer oSerializer = new XmlSerializer(typeof(PakietKoncowy));
+                XmlSerializer oSerializer = new XmlSerializer(typeof(ListaKlientow));
                 fstream.Position = 0;
-                PakietKoncowy lk = (PakietKoncowy)oSerializer.Deserialize(fstream);
+                ListaKlientow lk = (ListaKlientow)oSerializer.Deserialize(fstream);
                 fstream.Close();
                 return lk;
             }

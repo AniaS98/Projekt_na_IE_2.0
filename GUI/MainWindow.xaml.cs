@@ -33,16 +33,17 @@ namespace GUI
 
         private void Przedstawiciel_Click(object sender, RoutedEventArgs e)
         {
+            
             AgentLogowanieWindow okno = new AgentLogowanieWindow();
             this.Close();
             okno.ShowDialog();
         }
 
         private void Administrator_Click(object sender, RoutedEventArgs e)
-        {
+        {/*
             AdminLogowanieWindow okno = new AdminLogowanieWindow();
             this.Close();
-            okno.ShowDialog();
+            okno.ShowDialog();*/
         }
     }
 }
