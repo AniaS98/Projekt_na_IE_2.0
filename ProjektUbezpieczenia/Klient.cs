@@ -227,15 +227,44 @@ namespace ProjektUbezpieczenia
 
         public override string ToString()
         {
-            string s = Imie + " " + Nazwisko + " " + PESEL + " " + Wiek + " " + Plec + " " + NumerTelefonu + " " + Malzonek + " " + Zawod;
-            /*foreach (Osoba i in rodzina) 
+            int ldzieci = 0;
+            int dzieci_5 = 0;
+            int dzieci_12 = 0;
+            int dzieci_18 = 0;
+            int lUbezpieczonych = 1;
+            if (rodzina != null)
             {
-                s = s + "\n" + i;
+                lUbezpieczonych += rodzina.Count;
+                if (malzonek == false)
+                    ldzieci = rodzina.Count;
+                else
+                    ldzieci = rodzina.Count - 1;
+                foreach (CzlonekRodziny cr in Rodzina)
+                {
+                    if(cr.Wiek <6)
+                    {
+                        dzieci_5++;
+                    }
+                    if(cr.Wiek <13)
+                    {
+                        dzieci_12++;
+                    }
+                    if(cr.Wiek <19)
+                    {
+                        dzieci_18++;
+                    }
+                }
             }
-            foreach (Zamowienie i in Historia)
+            
+
+            string s = Imie + " " + Nazwisko + " " + " " + Wiek + " " + Plec + " " +ldzieci + " "+dzieci_5 + " "+dzieci_12 + " "+dzieci_18+" " + lUbezpieczonych+ historia[historia.Count-1].PakietKoncowy.Lata  + " ";
+            if(rodzina!=null)
             {
-                s = s + "\n" + i;
-            }*/
+                foreach (Osoba i in rodzina)
+                {
+                    s = s + "\n" + i.ToString();
+                }
+            }
             foreach (Pasje i in hobbies)
             {
                 s = s + " " + i;

@@ -100,6 +100,9 @@
     <Compile Include="AgentLogowanieWindow.xaml.cs">
       <DependentUpon>AgentLogowanieWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AgentOczekujacyNaKontakt.xaml.cs">
+      <DependentUpon>AgentOczekujacyNaKontakt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AgentStatystyki.xaml.cs">
       <DependentUpon>AgentStatystyki.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AgentLogowanieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgentOczekujacyNaKontakt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

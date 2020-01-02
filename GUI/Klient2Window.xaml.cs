@@ -20,11 +20,12 @@ namespace GUI
     /// </summary>
     public partial class Klient2Window : Window
     {
+        Klient klient;
         bool decyzja;
         int czas;
         public Klient2Window(Klient klient, bool d, int c)
         {
-
+            this.klient = klient;
             czas = c;
             decyzja = d;
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace GUI
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)
         {
-            KontaktWindow okno = new KontaktWindow();
+            KontaktWindow okno = new KontaktWindow(klient);
             this.Close();
             okno.ShowDialog();
         }
@@ -64,7 +65,11 @@ namespace GUI
             this.Close();
             okno.ShowDialog();
         }
-        
 
+        private void DodajPakiet_Click(object sender, RoutedEventArgs e)
+        {
+            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas);
+            okno.ShowDialog();
+        }
     }
 }

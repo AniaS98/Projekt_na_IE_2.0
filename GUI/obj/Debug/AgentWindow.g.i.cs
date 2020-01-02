@@ -148,6 +148,14 @@ namespace GUI {
             #line default
             #line hidden
             return;
+            case 7:
+            
+            #line 31 "..\..\AgentWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click_2);
+            
+            #line default
+            #line hidden
+            return;
             }
             this._contentLoaded = true;
         }

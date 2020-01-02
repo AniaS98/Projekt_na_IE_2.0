@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\futura\Source\Repos\Projekt_na_IE_2.0\GUI\obj\Debug\
+C:\Users\Tala\source\repos\AniaS98\Projekt_na_IE_2.0\GUI\obj\Debug\
 GUI
 none
 false
 DEBUG;TRACE
-C:\Users\futura\Source\Repos\Projekt_na_IE_2.0\GUI\App.xaml
-201811133070
+C:\Users\Tala\source\repos\AniaS98\Projekt_na_IE_2.0\GUI\App.xaml
+211595958798
 
-28364587036
-271358834165
-AdminLogowanieWindow.xaml;AdminWindow.xaml;AgentLogowanieWindow.xaml;AgentStatystyki.xaml;AgentStatystykiPlec.xaml;AgentStatystykiWiek.xaml;AgentWindow.xaml;BazaDanych.xaml;ChorobyWindow.xaml;Dane_przedstawiciele.xaml;DodatkowyPakietWindow.xaml;DodawanieDzieckaWindow.xaml;HobbyWindow.xaml;Klient2Window.xaml;KlientWindow.xaml;KontaktWindow.xaml;MainWindow.xaml;PakietWindow.xaml;RodzinnyWindow.xaml;StatystykiAdmin.xaml;
+29-2106174487
+27-1234528253
+AdminLogowanieWindow.xaml;AdminWindow.xaml;AgentLogowanieWindow.xaml;AgentOczekujacyNaKontakt.xaml;AgentStatystyki.xaml;AgentStatystykiPlec.xaml;AgentStatystykiWiek.xaml;AgentWindow.xaml;BazaDanych.xaml;ChorobyWindow.xaml;Dane_przedstawiciele.xaml;DodatkowyPakietWindow.xaml;DodawanieDzieckaWindow.xaml;HobbyWindow.xaml;Klient2Window.xaml;KlientWindow.xaml;KontaktWindow.xaml;MainWindow.xaml;PakietWindow.xaml;RodzinnyWindow.xaml;StatystykiAdmin.xaml;
 
-True
+False
 
