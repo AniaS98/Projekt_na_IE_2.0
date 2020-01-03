@@ -256,8 +256,11 @@ namespace ProjektUbezpieczenia
                 }
             }
             
+            string sb = Imie + " " + Nazwisko + " " + Wiek + " " + Plec + " ";
+            sb = sb + ldzieci + " " + dzieci_5 + " " + dzieci_12 + " " + dzieci_18 + " " + lUbezpieczonych;
+            sb=sb+ historia[historia.Count-1].PakietKoncowy.Lata  + " ";
 
-            string s = Imie + " " + Nazwisko + " " + " " + Wiek + " " + Plec + " " +ldzieci + " "+dzieci_5 + " "+dzieci_12 + " "+dzieci_18+" " + lUbezpieczonych+ historia[historia.Count-1].PakietKoncowy.Lata  + " ";
+            string s = Imie + " " + Nazwisko + " " + PESEL + " " + Wiek + " " + Plec + " " + NumerTelefonu + " " + Malzonek + " " + Zawod;
             if(rodzina!=null)
             {
                 foreach (Osoba i in rodzina)
@@ -270,7 +273,7 @@ namespace ProjektUbezpieczenia
                 s = s + " " + i;
             }
             s = s + "\n";
-
+            
             return s;
         }
 
