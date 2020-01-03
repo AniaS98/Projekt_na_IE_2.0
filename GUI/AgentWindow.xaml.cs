@@ -86,5 +86,12 @@ namespace GUI
         {
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AgentOczekujacyNaKontakt okno = new AgentOczekujacyNaKontakt(przedstawiciel);
+            this.Close();
+            okno.ShowDialog();
+        }
     }
 }

@@ -43,9 +43,9 @@ namespace ProjektUbezpieczenia
                 }
             }
         }
-        public void ZapiszXML()
+        public void ZapiszXML(string nazwaPliku)
         {
-            using (Stream s = File.Create("ListaKlientow.xml"))
+            using (Stream s = File.Create(nazwaPliku+".xml"))
             {
                 XmlSerializer oSerializer = new XmlSerializer(typeof(ListaKlientow));
                 oSerializer.Serialize(s, this);

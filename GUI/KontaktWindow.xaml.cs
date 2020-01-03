@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjektUbezpieczenia;
 
 namespace GUI
 {
@@ -19,13 +20,21 @@ namespace GUI
     /// </summary>
     public partial class KontaktWindow : Window
     {
-        public KontaktWindow()
+        Klient klient;
+        public KontaktWindow(Klient k)
         {
+            klient = k;
             InitializeComponent();
         }
-
+        //W panelu agenta powinna być listbox z info z ListaKlientówDoKontaktu.XML i tam agent będzie mógł się skontktować z klientami i zapisać wynik rozmowy
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            klient.Imie = TextBox_Imie.Text;
+            klient.Nazwisko = TextBox_Nazwisko.Text;
+            klient.NumerTelefonu = TextBox_Telefon.Text;
+            ListaKlientow ListaKlientowDoKontaktu = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.XML");
+            ListaKlientowDoKontaktu.DodajKlienta(klient);
+            ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
             this.Close();
         }
     }

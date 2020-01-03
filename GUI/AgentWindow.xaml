@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="28,369,0,0" VerticalAlignment="Top" Width="111" Height="30" Click="Cofnij_Click"/>
         <Button Name="Wyjdz" Content="Wyjdż" HorizontalAlignment="Left" Margin="453,359,0,0" VerticalAlignment="Top" Width="140" Height="30" Grid.Column="1" Click="Wyjdz_Click"/>
-        <Button Name="statystyki_button" FontSize="16" Content="Statystyki" HorizontalAlignment="Left" Height="51" Margin="427,231,0,0" VerticalAlignment="Top" Width="166" Grid.Column="1" Click="Statystyki_button_Click"/>
+        <Button Name="statystyki_button" FontSize="16" Content="Statystyki" HorizontalAlignment="Left" Height="51" Margin="427,270,0,0" VerticalAlignment="Top" Width="166" Grid.Column="1" Click="Statystyki_button_Click"/>
         <Label Content="Panel Agenta" FontSize="20" HorizontalAlignment="Left" Height="45" Margin="92,10,0,0" VerticalAlignment="Top" Width="132" Grid.Column="1"/>
         <Label Content="Moi klienci:" HorizontalAlignment="Left" Height="37" Margin="49,34,0,0" VerticalAlignment="Top" Width="134" FontSize="20" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -28,6 +28,7 @@
         <DataGrid x:Name="dataGridView" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="262" Margin="28,86,0,0" VerticalAlignment="Top" Width="604" />
         <Button Content="Pokaż moich klientów" Grid.Column="1" HorizontalAlignment="Left" Margin="427,86,0,0" VerticalAlignment="Top" Width="166" Click="Button_Click" Height="32"/>
         <Button Content="Pokaż kończące się polisy" HorizontalAlignment="Left" Height="39" Margin="427,145,0,0" VerticalAlignment="Top" Width="166" Grid.Column="1" Click="Button_Click_1"/>
+        <Button Content="Oczekujący na kontakt" Grid.Column="1" HorizontalAlignment="Left" Margin="427,212,0,0" VerticalAlignment="Top" Width="166" Height="32" Background="#FF85E87B" Click="Button_Click_2"/>
 
     </Grid>
 </Window>
