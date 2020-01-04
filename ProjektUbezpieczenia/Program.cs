@@ -16,7 +16,7 @@ namespace ProjektUbezpieczenia
             Klient K1 = new Klient("Anna", "Szmit", "12345678910", 21, Plcie.K, "123456798", false, Zawody.pracownik_biurowy);
             K1.DodajHobby(Pasje.gry_komputerowe);
             ListaKlientow listak = new ListaKlientow();
-            listak.DodajKlienta(K1);
+            //listak.DodajKlienta(K1);
 
             DodawanieAgentowdobazy();
             // int l = K1.historia.Count;
@@ -25,10 +25,10 @@ namespace ProjektUbezpieczenia
             //int podzial = K1.historia[l].PakietKoncowy.Podzialskl;
             //Console.WriteLine(podzial);
 
-            K1.FunkcjaPakietDodatkowy(10, K1);
+            //K1.FunkcjaPakietDodatkowy(10, K1,1);
             
-            K1.historia[K1.historia.Count - 1].PakietKoncowy.Podzialskl = 1;
-            K1.PakietPodstawowyIndywiduany(10, K1);
+            //K1.historia[K1.historia.Count - 1].PakietKoncowy.Podzialskl = 1;
+            //K1.PakietPodstawowyIndywiduany(10, K1);
 
             listak.ZapiszXML("ListaKlientow");
 
