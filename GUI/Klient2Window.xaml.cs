@@ -30,7 +30,7 @@ namespace GUI
             decyzja = d;
             InitializeComponent();
             Console.WriteLine(klient.Zawod.ToString());
-            klient.FunkcjaPakietDodatkowy(czas, klient);
+            klient.FunkcjaPakietDodatkowy(czas, klient,1);
             if (decyzja == true)
             {
                 klient.PakietRodzinny(czas, klient);

@@ -52,5 +52,6 @@ namespace GUI
             this.Close();
             okno.ShowDialog();
         }
+
     }
 }

@@ -31,8 +31,8 @@ namespace GUI
             InitializeComponent();
 
             //Testowanie
-            ListaKlientow lk = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
-            Console.WriteLine(lk.klienci[0].ToString());
+            //ListaKlientow lk = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
+            //Console.WriteLine(lk.klienci[0].ToString());
 
         }
 

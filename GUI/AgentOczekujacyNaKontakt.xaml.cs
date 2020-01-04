@@ -28,12 +28,12 @@ namespace GUI
 
             ListaKlientow lista = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
             StringBuilder sb = new StringBuilder();
+            List<string> wpisy = new List<string>();
             foreach(Klient k in lista.klienci)
             {
-                sb.Append(k.ToString());
-                sb.Append("\n");
+                wpisy.Add(k.ToString());
             }
-            //ListBox = sb.ToString();
+            ListBoxKlienci.ItemsSource = wpisy;
 
 
         }
@@ -43,6 +43,27 @@ namespace GUI
             AgentWindow okno = new AgentWindow(agent);
             this.Close();
             okno.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {//Tu trzeba dodać try catch
+            string wybrany = ListBoxKlienci.SelectedItem.ToString();
+            ListaKlientow lista = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
+            ListaKlientow lista2 = ListaKlientow.OdczytajXML("ListaKlientow.xml");
+            Klient result = new Klient();
+            foreach (Klient k in lista.klienci)
+            {
+                if(k.ToString()==wybrany)
+                {
+                    k.PESEL1 = TextBoxPESEL.ToString();
+                    result = k;
+                    lista.klienci.Remove(k);
+                }
+            }
+            lista.ZapiszXML("ListaKlientówDoKontaktu");
+            lista2.DodajKlienta(result);
+            lista2.ZapiszXML("ListaKlientow");
+
         }
     }
 }
