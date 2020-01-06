@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjektUbezpieczenia;
 
 namespace GUI
 {
@@ -19,14 +20,20 @@ namespace GUI
     /// </summary>
     public partial class KontaktWindow : Window
     {
-        public KontaktWindow()
+        Klient klient;
+        public KontaktWindow(Klient klient)
         {
+            this.klient = klient;
             InitializeComponent();
+            TextBox_Imie.Text = klient.Imie;
+            TextBox_Nazwisko.Text = klient.Nazwisko;
+            TextBox_Telefon.Text = klient.NumerTelefonu;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
     }
 }

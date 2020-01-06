@@ -22,9 +22,9 @@ namespace GUI
     {
         Klient klient;
         bool decyzja;
-        public HobbyWindow(Klient klient, bool d)
+        public HobbyWindow(Klient klient, bool de)
         {
-            decyzja = d;
+            decyzja = de;
             InitializeComponent();
             this.klient = klient;
         }

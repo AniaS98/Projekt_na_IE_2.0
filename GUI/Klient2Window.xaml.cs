@@ -20,15 +20,16 @@ namespace GUI
     /// </summary>
     public partial class Klient2Window : Window
     {
+        Klient klient;
         bool decyzja;
         int czas;
-        public Klient2Window(Klient klient, bool d, int c)
+        public Klient2Window(Klient klient, bool de, int c)
         {
-
+            this.klient = klient;
             czas = c;
-            decyzja = d;
+            decyzja = de;
             InitializeComponent();
-            Console.WriteLine(klient.Zawod.ToString());
+            //Console.WriteLine(klient.Zawod.ToString());
             klient.FunkcjaPakietDodatkowy(czas, klient);
             if (decyzja == true)
             {
@@ -38,6 +39,7 @@ namespace GUI
             {
                 klient.PakietPodstawowyIndywiduany(czas, klient);
             }
+
             int k = klient.historia.Count - 1;
             List<PakietDodatkowy> lista = klient.historia[k].PakietKoncowy.dodatkowe;
             StringBuilder sb = new StringBuilder();
@@ -53,7 +55,7 @@ namespace GUI
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)
         {
-            KontaktWindow okno = new KontaktWindow();
+            KontaktWindow okno = new KontaktWindow(klient);
             this.Close();
             okno.ShowDialog();
         }
@@ -64,7 +66,19 @@ namespace GUI
             this.Close();
             okno.ShowDialog();
         }
-        
 
+        private void DodajPakiet_Click(object sender, RoutedEventArgs e)
+        {
+            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, decyzja, czas);
+            this.Close();
+            okno.ShowDialog();
+        }
+
+        private void UsunPakiet_Click(object sender, RoutedEventArgs e)
+        {
+            UsunPakietWindow okno = new UsunPakietWindow();
+            this.Close();
+            okno.ShowDialog();
+        }
     }
 }

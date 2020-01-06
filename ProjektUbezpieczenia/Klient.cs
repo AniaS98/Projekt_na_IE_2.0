@@ -381,8 +381,6 @@ namespace ProjektUbezpieczenia
 
             double wskladka = 0.0;
 
-
-
             for (int d = 1; d <= k.rodzina.Count; d++)
             {
                 if (d == 0 && k.malzonek == true)
@@ -433,4 +431,3 @@ namespace ProjektUbezpieczenia
 
     }
 }
-//133

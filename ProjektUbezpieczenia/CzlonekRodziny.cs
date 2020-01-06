@@ -13,7 +13,7 @@ namespace ProjektUbezpieczenia
 
         public CzlonekRodziny()
         {
-            wiek = '0';
+            wiek = 0;
         }
 
         public CzlonekRodziny(int wiek)

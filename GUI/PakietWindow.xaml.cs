@@ -26,9 +26,9 @@ namespace GUI
         List<Choroby> chorobies = new List<Choroby>();
         List<Pasje> hobbies = new List<Pasje>();
 
-
         bool decyzja = false;
         Klient klient;
+
         public PakietWindow()
         {
             InitializeComponent();
@@ -52,10 +52,10 @@ namespace GUI
 
             if (ComboBox_Plec.Text == "kobieta")
                 klient.Plec = Plcie.K;
-            else
+            else if (ComboBox_Plec.Text == "mężczyzna")
                 klient.Plec = Plcie.M;
 
-            if (ComboBox_Zawod.Text == "gornik")
+            if (ComboBox_Zawod.Text == "Górnik")
                 klient.Zawod = Zawody.gornik;
             if (ComboBox_Zawod.Text == "Żołnierz")
                 klient.Zawod = Zawody.zolnierz;
@@ -86,6 +86,17 @@ namespace GUI
             else if (ComboBox_Zawod.Text == "bezrobotny")
                 klient.Zawod = Zawody.bezrobotny;
 
+            /*int k = klient.historia.Count;
+            int podzial = klient.historia[k].PakietKoncowy.Podzialskl;
+            if (ComboBox_Typ.Text == "miesięczna")
+            {
+                 podzial = 12;
+            }
+            else if (ComboBox_Typ.Text == "roczna")
+            {
+                 podzial = 1;
+            }*/
+
             int czas = Convert.ToInt32(TextBox_Czas.Text);
 
 
@@ -93,8 +104,7 @@ namespace GUI
             {
                 if (decyzja == true)
                 {
-                    int dzieci = 0;
-                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, dzieci);
+                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas);
                     this.Close();
                     okno.ShowDialog();
                 }
@@ -111,19 +121,19 @@ namespace GUI
             }
         }
 
-        public PakietWindow(Klient klient, bool d) : this()
+        public PakietWindow(Klient klient, bool de) : this()
         {
-            decyzja = d;
+            decyzja = de;
             this.klient = klient;
             TextBox_Wiek.Text = klient.Wiek.ToString();
 
             if ((klient.Plec) == Plcie.K)
                 ComboBox_Plec.Text = "kobieta";
-            else
+            else if ((klient.Plec) == Plcie.M)
                 ComboBox_Plec.Text = "mężczyzna";
 
             if (klient.Zawod == Zawody.gornik)
-                ComboBox_Zawod.Text = "gornik";
+                ComboBox_Zawod.Text = "Górnik";
             if (klient.Zawod == Zawody.zolnierz)
                 ComboBox_Zawod.Text = "Żołnierz";
             if (klient.Zawod == Zawody.rybak)
@@ -152,6 +162,17 @@ namespace GUI
                 ComboBox_Zawod.Text = "Student";
             else if (klient.Zawod == Zawody.bezrobotny)
                 ComboBox_Zawod.Text = "Bezrobotny";
+
+            /*int l = klient.historia.Count;
+            int podzial = klient.historia[l].PakietKoncowy.Podzialskl;
+            if (podzial == 12)
+            {
+                ComboBox_Typ.Text = "miesięczna";
+            }
+            else if (podzial == 1)
+            {
+                ComboBox_Typ.Text = "roczna";   
+            }*/
 
         }
 

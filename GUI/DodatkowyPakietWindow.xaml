@@ -5,12 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="DodatkowyPakietWindow" Height="279" Width="438">
+        Title="DodatkowyPakietWindow" Height="288.662" Width="438">
     <Grid>
         <Label Content="Wybierz pakiety dodatkowe:" HorizontalAlignment="Left" Height="28" Margin="43,10,0,0" VerticalAlignment="Top" Width="250"/>
-        <ListBox HorizontalAlignment="Left" Height="135" Margin="43,43,0,0" VerticalAlignment="Top" Width="327"/>
-        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="43,198,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="295,198,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListBox Name="ListBox_Pakiety" HorizontalAlignment="Left" Height="165" Margin="43,43,0,0" VerticalAlignment="Top" Width="327">
+            <CheckBox x:Name="Onkolog" Content="Onkolog" Height="18" Width="265"/>
+            <CheckBox x:Name="SportyEkstremalne" Content="Sporty ekstremalne" Height="18" Width="265"/>
+            <CheckBox x:Name="Ortopeda" Content="Ortopeda" Height="18" Width="265"/>
+            <CheckBox x:Name="PowazneZD" Content="Poważne zachorowanie dziecka" Height="18" Width="265"/>
+            <CheckBox x:Name="Niezdolność" Content="Niezdolność" Height="18" Width="265"/>
+            <CheckBox x:Name="SmiercWK" Content="ŚmierćWK" Height="18" Width="265"/>
+            <CheckBox x:Name="SmiercNW" Content="ŚmierćNW" Height="18" Width="265"/>
+        </ListBox>
+        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="43,213,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Dodaj" Content= "Dodaj" HorizontalAlignment="Left" Margin="295,218,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

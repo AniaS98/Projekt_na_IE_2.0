@@ -18,7 +18,7 @@
             <ComboBoxItem x:Name="M">mężczyzna</ComboBoxItem>
         </ComboBox>
         <ComboBox Name="ComboBox_Zawod" HorizontalAlignment="Left" Height="23" Margin="219,167,0,0" VerticalAlignment="Top" Width="184">
-            <ComboBoxItem x:Name="gornik">Górnik</ComboBoxItem>
+            <ComboBoxItem x:Name="Gornik">Górnik</ComboBoxItem>
             <ComboBoxItem x:Name="Zolnierz">Żołnierz</ComboBoxItem>
             <ComboBoxItem x:Name="Rybak">Rybak</ComboBoxItem>
             <ComboBoxItem x:Name="Pilot">Pilot samolotu</ComboBoxItem>
@@ -36,9 +36,14 @@
         </ComboBox>
         <Button Name="Powrot" Click="Powrot_Click" Content="Powrót" HorizontalAlignment="Left" Height="32" Margin="42,362,0,0" VerticalAlignment="Top" Width="175"/>
         <Button Name="Dalej" Click="Dalej_Click" Content="Dalej" HorizontalAlignment="Left" Height="32" Margin="552,362,0,0" VerticalAlignment="Top" Width="175"/>
-        <Label Content="Okres trwania ubezpieczenia w latach:" FontSize="18px" HorizontalAlignment="Left" Height="40" Margin="42,288,0,0" VerticalAlignment="Top" Width="314"/>
-        <TextBox Name="TextBox_Czas" HorizontalAlignment="Left" Margin="361,288,0,0" VerticalAlignment="Top" Width="273" Height="40"/>
+        <Label Content="Okres trwania ubezpieczenia w latach:" FontSize="18px" HorizontalAlignment="Left" Height="40" Margin="42,304,0,0" VerticalAlignment="Top" Width="314"/>
+        <TextBox Name="TextBox_Czas" HorizontalAlignment="Left" Margin="361,304,0,0" VerticalAlignment="Top" Width="273" Height="40"/>
         <Button Name="Hobby" Click="Hobby_Click" Content="Wybór hobby" HorizontalAlignment="Left" Height="22" Margin="219,131,0,0" VerticalAlignment="Top" Width="184"/>
         <Button Name="Choroby" Click="Choroby_Click" Content="Choroby" HorizontalAlignment="Left" Height="22" Margin="219,207,0,0" VerticalAlignment="Top" Width="184"/>
+        <Label Content="Typ opłat" FontSize="18px" HorizontalAlignment="Left" Height="38" Margin="28,244,0,0" VerticalAlignment="Top" Width="172"/>
+        <ComboBox Name="ComboBox_Typ" HorizontalAlignment="Left" Height="25" Margin="219,244,0,0" VerticalAlignment="Top" Width="184">
+            <ComboBoxItem x:Name="miesieczna">miesięczna</ComboBoxItem>
+            <ComboBoxItem x:Name="roczna">roczna</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

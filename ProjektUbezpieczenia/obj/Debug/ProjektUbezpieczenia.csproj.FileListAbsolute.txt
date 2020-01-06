@@ -54,3 +54,16 @@ C:\Users\futura\Source\Repos\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\Pr
 C:\Users\futura\Source\Repos\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.CopyComplete
 C:\Users\futura\Source\Repos\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.exe
 C:\Users\futura\Source\Repos\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.dll
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.dll
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.xml
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.xml
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\futura\Source\Repos\AniaS98\Projekt_na_IE_2.0\ProjektUbezpieczenia\obj\Debug\ProjektUbezpieczenia.csproj.CopyComplete

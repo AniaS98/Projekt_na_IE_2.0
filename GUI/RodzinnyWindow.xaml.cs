@@ -20,17 +20,23 @@ namespace GUI
     /// </summary>
     public partial class RodzinnyWindow : Window
     {
-        int dzieci = 0;
         int czas;
         bool decyzja = true;
         Klient klient;
-        public RodzinnyWindow(Klient klient, bool d, int c, int dz)
+        //CzlonekRodziny dziecko;
+        int count = 0;
+
+        public RodzinnyWindow()
         {
-            czas = c;
-            decyzja = d;
-            dzieci = dz;
             InitializeComponent();
-            this.klient = klient;
+        }
+
+        public void DodajDziecko_Click(object sender, RoutedEventArgs e)
+        {
+            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
+            okno.ShowDialog();
+            count++;
+            TextBox_LiczbaDzieci.Text = count.ToString();
         }
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
@@ -40,18 +46,43 @@ namespace GUI
             okno.ShowDialog();
         }
 
-        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
+            if (CheckBox_Dzieci.IsChecked == true)
+            {
+                for (int d = 1; d <= klient.rodzina.Count; d++)
+                {
+                    DodawanieDzieckaWindow dodawanie = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
+                    //dodawanie.
+                }
+
+            }
+            else if (CheckBox_Dzieci.IsChecked == false)
+            {
+                int d = klient.rodzina.Count;
+                d = 0;
+            }
+
+            if (CheckBox_Malzonek.IsChecked == true)
+            {
+                klient.Malzonek = true;
+            }
+            else if (CheckBox_Malzonek.IsChecked == false)
+            {
+                klient.Malzonek = false;
+            }
 
             Klient2Window okno = new Klient2Window(klient, decyzja, czas);
             this.Close();
             okno.ShowDialog();
         }
 
-        private void DodajDziecko_Click(object sender, RoutedEventArgs e)
+        public RodzinnyWindow(Klient klient, bool de, int c) : this()
         {
-            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, dzieci);
-            okno.ShowDialog();
+            czas = c;
+            decyzja = de;
+            this.klient = klient;
         }
+
     }
 }
