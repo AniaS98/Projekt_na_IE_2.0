@@ -21,39 +21,62 @@ namespace GUI
     public partial class DodatkowyPakietWindow : Window
     {
         Klient klient;
-        bool decyzja;
         int czas;
-        PakietDodatkowy pd;
-        public DodatkowyPakietWindow(Klient klient, bool de, int c)
+        public DodatkowyPakietWindow(Klient k, int c)
         {
-            this.klient = klient;
+            klient = k;
             czas = c;
-            decyzja = de;
             InitializeComponent();
-
-            klient.FunkcjaPakietDodatkowy(czas, klient);
-            if (decyzja == true)
-            {
-                klient.PakietRodzinny(czas, klient);
-            }
-            else
-            {
-                klient.PakietPodstawowyIndywiduany(czas, klient);
-            }
-            int k = klient.historia.Count - 1;
-            List<PakietDodatkowy> lista = klient.historia[k].PakietKoncowy.dodatkowe;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < lista.Count; i++)
-            {
-                sb.Append(lista[i].Nazwa.ToString());
-                sb.Append("\n");
-            }
-            
-            /*if(lista.Contains.Onkolog == false)
-            {
-                sb.Add(Onkolog);
-            }*/
-            //TextBox_Pakiety.Text = sb.ToString();
         }
+        //Justyna, w listboxsie powinny się pokazać wszystkie pakiet, a te które są wybrane powinny być zaznaczone i wtedy użtkownik może je odznaczyć i zaznaczyć coś innego, a po kliknięciu zatwierdź przez wszystkie zaznaczone przejdzie foreach, który zapisze je do zamówienia
+        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        {
+            PakietDodatkowy p = new PakietDodatkowy();
+            PakietKoncowy pk = new PakietKoncowy();
+            foreach (ListBoxItem pd in ListBoxPakiet.SelectedItems)
+            {
+                if (pd.Content.ToString() == Edodat.Niezdolnosc.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.Niezdolnosc.ToString(), 50000.0, 5, 5, 120.0);
+                    pk.DodajPakiet2(p);
+                }
+                else if (pd.Content.ToString() == Edodat.Onkolog.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0);
+                    pk.DodajPakiet2(p);
+                }
+                else if (pd.Content.ToString() == Edodat.Ortopeda.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.Ortopeda.ToString(), 10000.0, 3, 5, 96.0);
+                    pk.DodajPakiet2(p);
+                }
+                else if (pd.Content.ToString() == Edodat.PowazneZachorowanieDziecka.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.PowazneZachorowanieDziecka.ToString(), 20000.0, 4, 5, 120.0);
+                    pk.DodajPakiet2(p);
+                }
+                else if (pd.Content.ToString() == Edodat.smiercNW.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.smiercNW.ToString(), 100000.0, 6, 5, 60.0);
+                    pk.DodajPakiet2(p);
+                }
+                else if (pd.Content.ToString() == Edodat.SmiercWK.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.SmiercWK.ToString(), 50000.0, 7, 5, 144.0);
+                    pk.DodajPakiet2(p);
+                }
+                else if (pd.Content.ToString() == Edodat.SportyEkstremalne.ToString())
+                {
+                    p = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0);
+                    pk.DodajPakiet2(p);
+                }
+
+
+            }
+            klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe = pk.dodatkowe;
+
+        }
+
+
     }
 }

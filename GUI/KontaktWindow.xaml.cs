@@ -21,19 +21,21 @@ namespace GUI
     public partial class KontaktWindow : Window
     {
         Klient klient;
-        public KontaktWindow(Klient klient)
+        public KontaktWindow(Klient k)
         {
-            this.klient = klient;
+            klient = k;
             InitializeComponent();
-            TextBox_Imie.Text = klient.Imie;
-            TextBox_Nazwisko.Text = klient.Nazwisko;
-            TextBox_Telefon.Text = klient.NumerTelefonu;
         }
-
-        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        //W panelu agenta powinna być listbox z info z ListaKlientówDoKontaktu.XML i tam agent będzie mógł się skontktować z klientami i zapisać wynik rozmowy
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            klient.Imie = TextBox_Imie.Text;
+            klient.Nazwisko = TextBox_Nazwisko.Text;
+            klient.NumerTelefonu = TextBox_Telefon.Text;
+            ListaKlientow ListaKlientowDoKontaktu = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.XML");
+            ListaKlientowDoKontaktu.DodajKlienta(klient);
+            ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
             this.Close();
         }
-
     }
 }

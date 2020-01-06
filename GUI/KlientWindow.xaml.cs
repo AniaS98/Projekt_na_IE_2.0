@@ -29,6 +29,11 @@ namespace GUI
         {
             klient = new Klient();
             InitializeComponent();
+
+            //Testowanie
+            //ListaKlientow lk = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
+            //Console.WriteLine(lk.klienci[0].ToString());
+
         }
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
