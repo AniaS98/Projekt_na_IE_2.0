@@ -257,3 +257,5 @@ D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\StatystykiA
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentOczekujacyNaKontakt.g.cs
 D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\AgentOczekujacyNaKontakt.baml
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\UsunPakietWindow.g.cs
+D:\adm\Documents\Programowanie_C#\ProjektUbezpieczenia\GUI\obj\Debug\UsunPakietWindow.baml

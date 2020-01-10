@@ -23,6 +23,7 @@ namespace GUI
         Klient klient;
         bool decyzja;
         int czas;
+        int liczba_ubezpieczonych;
         public Klient2Window(Klient klient, bool de, int c)
         {
             this.klient = klient;
@@ -30,7 +31,7 @@ namespace GUI
             decyzja = de;
             InitializeComponent();
             //Console.WriteLine(klient.Zawod.ToString());
-            klient.FunkcjaPakietDodatkowy(czas, klient);
+            klient.FunkcjaPakietDodatkowy(czas, klient,liczba_ubezpieczonych);
             if (decyzja == true)
             {
                 klient.PakietRodzinny(czas, klient);
@@ -69,7 +70,7 @@ namespace GUI
 
         private void DodajPakiet_Click(object sender, RoutedEventArgs e)
         {
-            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, decyzja, czas);
+            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas);
             this.Close();
             okno.ShowDialog();
         }
