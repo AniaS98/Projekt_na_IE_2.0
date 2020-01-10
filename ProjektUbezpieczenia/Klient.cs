@@ -232,7 +232,7 @@ namespace ProjektUbezpieczenia
             string s = Imie + " " + Nazwisko + " " + PESEL + " " + Wiek + " " + Plec + " " + NumerTelefonu + " " + Malzonek + " " + Zawod;
             if(rodzina!=null)
             {
-                foreach (Osoba i in rodzina)
+                foreach (CzlonekRodziny i in rodzina)
                 {
                     s = s + "\n" + i.ToString();
                 }
@@ -242,7 +242,12 @@ namespace ProjektUbezpieczenia
                 s = s + " " + i;
             }
             s = s + "\n";
-            
+            foreach (Choroby i in chorobies)
+            {
+                s = s + " " + i;
+            }
+            s = s + "\n";
+
             return s;
         }
 
@@ -537,7 +542,7 @@ namespace ProjektUbezpieczenia
 
             double wskladka = 0.0;
 
-            for (int d = 1; d <= k.rodzina.Count; d++)
+            for (int d = 1; d < k.rodzina.Count; d++)
             {
                 if (d == 0 && k.malzonek == true)
                     d++;
