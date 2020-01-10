@@ -25,9 +25,12 @@ namespace GUI
 
         //public bool decyzja;
         Klient klient;
+        Zamowienie z;
         public KlientWindow()
         {
             klient = new Klient();
+            z = new Zamowienie();
+            klient.historia.Add(z);
             InitializeComponent();
 
             //Testowanie
@@ -47,7 +50,7 @@ namespace GUI
         public void Rodzinny_Click(object sender, RoutedEventArgs e)
         {
             decyzja = true;
-            PakietWindow okno = new PakietWindow(klient, decyzja);//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
+            PakietWindow okno = new PakietWindow(klient, decyzja, z);//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
 
@@ -55,7 +58,7 @@ namespace GUI
 
         public void Indywidualny_Click(object sender, RoutedEventArgs e)
         {
-            PakietWindow okno = new PakietWindow(klient, decyzja);//jeżeli decyzja jest false to jest to pakiet indywidualny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
+            PakietWindow okno = new PakietWindow(klient, decyzja, z);//jeżeli decyzja jest false to jest to pakiet indywidualny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
 

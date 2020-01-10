@@ -27,7 +27,7 @@ namespace GUI
             InitializeComponent();
         }
         //W panelu agenta powinna być listbox z info z ListaKlientówDoKontaktu.XML i tam agent będzie mógł się skontktować z klientami i zapisać wynik rozmowy
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
             klient.Imie = TextBox_Imie.Text;
             klient.Nazwisko = TextBox_Nazwisko.Text;
@@ -37,5 +37,6 @@ namespace GUI
             ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
             this.Close();
         }
+
     }
 }

@@ -28,6 +28,7 @@ namespace GUI
 
         bool decyzja = false;
         Klient klient;
+        Zamowienie zamowienie;
 
         public PakietWindow()
         {
@@ -39,6 +40,61 @@ namespace GUI
             KlientWindow okno = new KlientWindow();
             this.Close();
             okno.ShowDialog();
+
+        }
+        public PakietWindow(Klient klient, bool de, Zamowienie z) : this()
+        {
+            zamowienie = z;
+            decyzja = de;
+            this.klient = klient;
+            //klient.Wiek = Convert.ToInt32(TextBox_Wiek.Text);
+
+            if ((klient.Plec) == Plcie.K)
+                ComboBox_Plec.Text = "kobieta";
+            else if ((klient.Plec) == Plcie.M)
+                ComboBox_Plec.Text = "mężczyzna";
+
+            if (klient.Zawod == Zawody.gornik)
+                ComboBox_Zawod.Text = "Górnik";
+            if (klient.Zawod == Zawody.zolnierz)
+                ComboBox_Zawod.Text = "Żołnierz";
+            if (klient.Zawod == Zawody.rybak)
+                ComboBox_Zawod.Text = "Rybak";
+            if (klient.Zawod == Zawody.pilot_samolotu)
+                ComboBox_Zawod.Text = "Pilot samolotu";
+            if (klient.Zawod == Zawody.policjant)
+                ComboBox_Zawod.Text = "Policjant";
+            if (klient.Zawod == Zawody.strazak)
+                ComboBox_Zawod.Text = "Strażak";
+            if (klient.Zawod == Zawody.budowlaniec)
+                ComboBox_Zawod.Text = "Budowlaniec";
+            if (klient.Zawod == Zawody.pracownik_przemysłu_ciezkiego)
+                ComboBox_Zawod.Text = "Pracownik przemysłu ciężkiego";
+            if (klient.Zawod == Zawody.osoba_pracujaca_na_wysokosci)
+                ComboBox_Zawod.Text = "Osoba pracująca na wysokościach";
+            if (klient.Zawod == Zawody.pracownik_biurowy)
+                ComboBox_Zawod.Text = "Pracownik biurowy";
+            if (klient.Zawod == Zawody.nauczyciel)
+                ComboBox_Zawod.Text = "Nauczyciel";
+            if (klient.Zawod == Zawody.lekarz)
+                ComboBox_Zawod.Text = "Lekarz";
+            if (klient.Zawod == Zawody.prawnik)
+                ComboBox_Zawod.Text = "Prawnik";
+            if (klient.Zawod == Zawody.student)
+                ComboBox_Zawod.Text = "Student";
+            else if (klient.Zawod == Zawody.bezrobotny)
+                ComboBox_Zawod.Text = "Bezrobotny";
+
+            int l = klient.historia.Count;
+
+            if (ComboBox_Typ.Text == "miesięczna")
+            {
+                z.PakietKoncowy.Podzialskl = 12;
+            }
+            else if (ComboBox_Typ.Text == "roczna")
+            {
+                z.PakietKoncowy.Podzialskl = 1;
+            }
 
         }
 
@@ -86,16 +142,18 @@ namespace GUI
             else if (ComboBox_Zawod.Text == "bezrobotny")
                 klient.Zawod = Zawody.bezrobotny;
 
-            /*int k = klient.historia.Count;
-            int podzial = klient.historia[k].PakietKoncowy.Podzialskl;
+            int l = klient.historia.Count;
+
+            klient.Wiek = Convert.ToInt32(TextBox_Wiek.Text);
+
             if (ComboBox_Typ.Text == "miesięczna")
             {
-                 podzial = 12;
+                zamowienie.PakietKoncowy.Podzialskl = 12;
             }
             else if (ComboBox_Typ.Text == "roczna")
             {
-                 podzial = 1;
-            }*/
+                zamowienie.PakietKoncowy.Podzialskl = 1;
+            }
 
             int czas = Convert.ToInt32(TextBox_Czas.Text);
 
@@ -104,7 +162,7 @@ namespace GUI
             {
                 if (decyzja == true)
                 {
-                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas);
+                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, 0);
                     this.Close();
                     okno.ShowDialog();
                 }
@@ -119,72 +177,27 @@ namespace GUI
             {
                 MessageBox.Show("Ubezpieczający nie może być młodszy niż 18 lat");
             }
-        }
 
-        public PakietWindow(Klient klient, bool de) : this()
-        {
-            decyzja = de;
-            this.klient = klient;
-            TextBox_Wiek.Text = klient.Wiek.ToString();
+            if (klient.Hobbies == null)
+                klient.Hobbies = new List<Pasje>();
+            if (klient.Chorobies == null)
+                klient.Chorobies = new List<Choroby>();
 
-            if ((klient.Plec) == Plcie.K)
-                ComboBox_Plec.Text = "kobieta";
-            else if ((klient.Plec) == Plcie.M)
-                ComboBox_Plec.Text = "mężczyzna";
+            Console.WriteLine(klient.ToString());
+            Console.WriteLine(zamowienie.PakietKoncowy.Podzialskl.ToString());
 
-            if (klient.Zawod == Zawody.gornik)
-                ComboBox_Zawod.Text = "Górnik";
-            if (klient.Zawod == Zawody.zolnierz)
-                ComboBox_Zawod.Text = "Żołnierz";
-            if (klient.Zawod == Zawody.rybak)
-                ComboBox_Zawod.Text = "Rybak";
-            if (klient.Zawod == Zawody.pilot_samolotu)
-                ComboBox_Zawod.Text = "Pilot samolotu";
-            if (klient.Zawod == Zawody.policjant)
-                ComboBox_Zawod.Text = "Policjant";
-            if (klient.Zawod == Zawody.strazak)
-                ComboBox_Zawod.Text = "Strażak";
-            if (klient.Zawod == Zawody.budowlaniec)
-                ComboBox_Zawod.Text = "Budowlaniec";
-            if (klient.Zawod == Zawody.pracownik_przemysłu_ciezkiego)
-                ComboBox_Zawod.Text = "Pracownik przemysłu ciężkiego";
-            if (klient.Zawod == Zawody.osoba_pracujaca_na_wysokosci)
-                ComboBox_Zawod.Text = "Osoba pracująca na wysokościach";
-            if (klient.Zawod == Zawody.pracownik_biurowy)
-                ComboBox_Zawod.Text = "Pracownik biurowy";
-            if (klient.Zawod == Zawody.nauczyciel)
-                ComboBox_Zawod.Text = "Nauczyciel";
-            if (klient.Zawod == Zawody.lekarz)
-                ComboBox_Zawod.Text = "Lekarz";
-            if (klient.Zawod == Zawody.prawnik)
-                ComboBox_Zawod.Text = "Prawnik";
-            if (klient.Zawod == Zawody.student)
-                ComboBox_Zawod.Text = "Student";
-            else if (klient.Zawod == Zawody.bezrobotny)
-                ComboBox_Zawod.Text = "Bezrobotny";
-
-            /*int l = klient.historia.Count;
-            int podzial = klient.historia[l].PakietKoncowy.Podzialskl;
-            if (podzial == 12)
-            {
-                ComboBox_Typ.Text = "miesięczna";
-            }
-            else if (podzial == 1)
-            {
-                ComboBox_Typ.Text = "roczna";   
-            }*/
 
         }
 
         public void Hobby_Click(object sender, RoutedEventArgs e)
         {
-            HobbyWindow okno = new HobbyWindow(klient, decyzja);
+            HobbyWindow okno = new HobbyWindow(klient, decyzja, zamowienie);
             okno.ShowDialog();
         }
 
         public void Choroby_Click(object sender, RoutedEventArgs e)
         {
-            ChorobyWindow okno = new ChorobyWindow(klient, decyzja);
+            ChorobyWindow okno = new ChorobyWindow(klient, decyzja, zamowienie);
             okno.ShowDialog();
         }
     }

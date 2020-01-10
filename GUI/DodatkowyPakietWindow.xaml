@@ -8,7 +8,7 @@
         Title="DodatkowyPakietWindow" Height="279" Width="438">
     <Grid>
         <Label Content="Wybierz pakiety dodatkowe:" HorizontalAlignment="Left" Height="28" Margin="43,10,0,0" VerticalAlignment="Top" Width="250"/>
-        <ListBox Name="ListBoxPakiet" HorizontalAlignment="Left" Height="135" Margin="43,43,0,0" VerticalAlignment="Top" Width="327"/>
+        <ListBox Name="ListBox_Pakiet" HorizontalAlignment="Left" Height="150" Margin="43,43,0,0" VerticalAlignment="Top" Width="327"/>
         <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="43,198,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="295,198,0,0" VerticalAlignment="Top" Width="75" Click="Akceptuj_Click"/>
 

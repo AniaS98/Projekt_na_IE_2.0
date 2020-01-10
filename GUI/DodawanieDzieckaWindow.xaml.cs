@@ -25,6 +25,7 @@ namespace GUI
         int czas;
         int count;
         Klient klient;
+        Zamowienie zamowienie;
         public DodawanieDzieckaWindow()
         {
             InitializeComponent(); 
@@ -32,36 +33,33 @@ namespace GUI
 
         public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            
-            for (int d = 1; d <= klient.rodzina.Count; d++)
-            {
-                Console.WriteLine(klient.rodzina[d].Wiek);
-            }
 
+            CzlonekRodziny dziecko = new CzlonekRodziny();
+            dziecko.Wiek =Convert.ToInt32( TextBox_WiekDziecka.Text);
+            klient.DodajCzlonkaRodziny(dziecko);
+            count++;
             /*if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
             {
                 MessageBox.Show("Dziecko nie może mieć powyżej 18 lat.");
             }*/
+            Console.WriteLine(count);
+            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count);
 
-            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas);
-            okno.Activate();
+
+
+
+            okno.CheckBox_Dzieci.IsChecked=true;
             this.Close();
-        }
+            okno.ShowDialog();
+      }
 
         public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co) : this()
         {
             decyzja = de;
             czas = c;
             count = co;
-            /*if(Akceptuj.IsInitialized == false)
-            {
-                count--;
-            }*/
             this.klient = klient;
-            for (int d = 1; d <= klient.rodzina.Count; d++)
-            {
-                TextBox_WiekDziecka.Text = klient.rodzina[d].Wiek.ToString();
-            }
+            //klient.rodzina[d].Wiek = Convert.ToInt32(TextBox_WiekDziecka);
         }
     }
 }

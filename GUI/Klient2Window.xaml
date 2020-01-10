@@ -13,10 +13,10 @@
         <TextBox IsReadOnly="True" Name="Suma" FontSize="14px" HorizontalAlignment="Left" Height="40" Margin="206,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
         <Button Name="Kontakt" FontSize="16px" Content="Kupuję i proszę o kontakt z przedstawicielem" HorizontalAlignment="Left" Height="38" Margin="206,432,0,0" VerticalAlignment="Top" Width="364" Click="Kontakt_Click"/>
         <Button Name="Powrot" FontSize="16px" Content="Powrót do strony głównej" HorizontalAlignment="Left" Height="42" Margin="206,489,0,0" VerticalAlignment="Top" Width="364" Click="Powrot_Click"/>
-        <TextBox IsReadOnly="True" Name="TextBox_Pakiety" HorizontalAlignment="Left" Height="246" Margin="65,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302"/>
         <TextBox IsReadOnly="True" Name="kosztKoncowy" FontSize="14px" HorizontalAlignment="Left" Height="40" Margin="555,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
         <Label Content="? jakaś suma" FontSize="16px" HorizontalAlignment="Left" Height="40" Margin="398,374,0,0" VerticalAlignment="Top" Width="136"/>
         <Button x:Name="UsunPakiet" Content="Usuń dodatkowy pakiet" FontSize="16px" HorizontalAlignment="Left" Height="72" Margin="398,225,0,0" VerticalAlignment="Top" Width="318" Click="UsunPakiet_Click"/>
+        <ListBox Name="ListBox_Pakiety" HorizontalAlignment="Left" Height="235" Margin="65,84,0,0" VerticalAlignment="Top" Width="270" RenderTransformOrigin="-1.435,-0.305"/>
 
     </Grid>
 </Window>

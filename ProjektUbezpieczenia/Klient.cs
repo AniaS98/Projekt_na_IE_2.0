@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
 using System.Text;
+using System.Data.OleDb;
+using System.Data;
 
 namespace ProjektUbezpieczenia
 {
@@ -230,7 +232,7 @@ namespace ProjektUbezpieczenia
             string s = Imie + " " + Nazwisko + " " + PESEL + " " + Wiek + " " + Plec + " " + NumerTelefonu + " " + Malzonek + " " + Zawod;
             if(rodzina!=null)
             {
-                foreach (Osoba i in rodzina)
+                foreach (CzlonekRodziny i in rodzina)
                 {
                     s = s + "\n" + i.ToString();
                 }
@@ -240,7 +242,12 @@ namespace ProjektUbezpieczenia
                 s = s + " " + i;
             }
             s = s + "\n";
-            
+            foreach (Choroby i in chorobies)
+            {
+                s = s + " " + i;
+            }
+            s = s + "\n";
+
             return s;
         }
 
@@ -254,8 +261,16 @@ namespace ProjektUbezpieczenia
         double skladkaMiesieczna = 0;
         double skladkaKoncowa = 0;
 
-        public void ZapisKlientaDoCSV(Klient k)
+        public void ZapisKlientaDoXLSX(Klient k)
         {
+            string plik = "TestyKlientow";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            OleDbConnection conn = new OleDbConnection(PathConn);
+            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [TestyKlientow$]", conn);
+            DataTable table = new DataTable();
+            DataRow dr;
+            //myDataAdapter.Update();
+
             Skl_Dzieci = 0;
             Skl_Dorosli = 55.0;
             pakietyOdp = new string[7];
@@ -372,6 +387,8 @@ namespace ProjektUbezpieczenia
             }
             sb = sb + id;
             var csv = new StringBuilder();
+            //dr = table.NewRow();
+            //table.Rows.Add(new DataRow(sb));
             csv.Append(sb);
             File.WriteAllText("TestyKlientow.csv", csv.ToString());
         }
@@ -525,7 +542,7 @@ namespace ProjektUbezpieczenia
 
             double wskladka = 0.0;
 
-            for (int d = 1; d <= k.rodzina.Count; d++)
+            for (int d = 1; d < k.rodzina.Count; d++)
             {
                 if (d == 0 && k.malzonek == true)
                     d++;
