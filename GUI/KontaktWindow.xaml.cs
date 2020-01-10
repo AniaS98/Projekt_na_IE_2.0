@@ -37,5 +37,13 @@ namespace GUI
             ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
             this.Close();
         }
+
+        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        {
+            ListaKlientow LK = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
+            LK.DodajKlienta(klient);
+            LK.ZapiszXML("ListaKlientówDoKontaktu");
+            this.Close();
+        }
     }
 }
