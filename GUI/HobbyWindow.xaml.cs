@@ -22,11 +22,13 @@ namespace GUI
     {
         Klient klient;
         bool decyzja;
-        public HobbyWindow(Klient klient, bool de)
+        Zamowienie zamowienie;
+        public HobbyWindow(Klient klient, bool de, Zamowienie z)
         {
             decyzja = de;
             InitializeComponent();
             this.klient = klient;
+            z = zamowienie;
         }
 
         private void Zatwierdz_Click(object sender, RoutedEventArgs e)
@@ -95,7 +97,7 @@ namespace GUI
             {
                 Console.WriteLine(p);
             }
-            PakietWindow okno = new PakietWindow(klient, decyzja);
+            PakietWindow okno = new PakietWindow(klient, decyzja, zamowienie);
             okno.Activate();
             this.Close();
         }

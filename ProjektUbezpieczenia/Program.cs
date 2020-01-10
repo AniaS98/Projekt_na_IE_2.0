@@ -34,8 +34,8 @@ namespace ProjektUbezpieczenia
 
             //NadpisywanieDanychKlienci(K1);
 
-            //ListaKlientow ListaDoKontaktu = new ListaKlientow();
-            //ListaDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
+            ListaKlientow ListaDoKontaktu = new ListaKlientow();
+            ListaDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
             
 
 

@@ -23,6 +23,7 @@ namespace GUI
         Klient klient;
         bool decyzja;
         int czas;
+        int liczba_ubezpieczonych;
         public Klient2Window(Klient klient, bool de, int c)
         {
             this.klient = klient;
@@ -30,7 +31,7 @@ namespace GUI
             decyzja = de;
             InitializeComponent();
             //Console.WriteLine(klient.Zawod.ToString());
-            klient.FunkcjaPakietDodatkowy(czas, klient);
+            klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych);
             if (decyzja == true)
             {
                 klient.PakietRodzinny(czas, klient);
@@ -43,12 +44,12 @@ namespace GUI
             int k = klient.historia.Count - 1;
             List<PakietDodatkowy> lista = klient.historia[k].PakietKoncowy.dodatkowe;
             StringBuilder sb = new StringBuilder();
+            List<string> LS = new List<string>();
             for (int i = 0; i < lista.Count; i++)
             {
-                sb.Append(lista[i].Nazwa.ToString());
-                sb.Append("\n");
+                LS.Add(lista[i].Nazwa.ToString());
             }
-            TextBox_Pakiety.Text = sb.ToString();
+            ListBox_Pakiety.ItemsSource = LS;
             Suma.Text = klient.historia[k].PakietKoncowy.Skladka.ToString();
             kosztKoncowy.Text = klient.historia[k].PakietKoncowy.KosztKoncowy.ToString();
         }
@@ -69,14 +70,29 @@ namespace GUI
 
         private void DodajPakiet_Click(object sender, RoutedEventArgs e)
         {
-            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, decyzja, czas);
+
+
+
+
+            List<string> lista = new List<string>();
+            foreach(string s in ListBox_Pakiety.Items)
+            {
+                lista.Add(s.ToString());
+            }
+
+            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas, lista);
             this.Close();
             okno.ShowDialog();
         }
 
         private void UsunPakiet_Click(object sender, RoutedEventArgs e)
         {
-            UsunPakietWindow okno = new UsunPakietWindow();
+            List<string> lista = new List<string>();
+            foreach (string s in ListBox_Pakiety.Items)
+            {
+                lista.Add(s.ToString());
+            }
+            UsunPakietWindow okno = new UsunPakietWindow(klient, czas, lista);
             this.Close();
             okno.ShowDialog();
         }
