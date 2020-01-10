@@ -20,31 +20,48 @@ namespace GUI
     /// </summary>
     public partial class DodawanieDzieckaWindow : Window
     {
-        int dzieci = 0;
+
         bool decyzja;
         int czas;
+        int count;
         Klient klient;
-        public DodawanieDzieckaWindow(Klient klient, bool d, int c, int dz)
+        public DodawanieDzieckaWindow()
         {
-            decyzja = d;
-            dzieci = dz;
-            czas = c;
-            InitializeComponent();
-            this.klient = klient;
+            InitializeComponent(); 
         }
 
-        private void Akceptuj_Click(object sender, RoutedEventArgs e)
+        public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            CzlonekRodziny dziecko = new CzlonekRodziny();
-            if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
+            
+            for (int d = 1; d <= klient.rodzina.Count; d++)
+            {
+                Console.WriteLine(klient.rodzina[d].Wiek);
+            }
+
+            /*if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
             {
                 MessageBox.Show("Dziecko nie może mieć powyżej 18 lat.");
-            }
-            TextBox_WiekDziecka.Text = dziecko.Wiek.ToString();
-            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, dzieci);
-            okno.Activate();
-            Console.WriteLine(dziecko.Wiek.ToString());
+            }*/
 
+            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas);
+            okno.Activate();
+            this.Close();
+        }
+
+        public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co) : this()
+        {
+            decyzja = de;
+            czas = c;
+            count = co;
+            /*if(Akceptuj.IsInitialized == false)
+            {
+                count--;
+            }*/
+            this.klient = klient;
+            for (int d = 1; d <= klient.rodzina.Count; d++)
+            {
+                TextBox_WiekDziecka.Text = klient.rodzina[d].Wiek.ToString();
+            }
         }
     }
 }

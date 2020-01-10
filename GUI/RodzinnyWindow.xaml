@@ -5,18 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="RodzinnyWindow" Height="390" Width="610">
+        Title="RodzinnyWindow" Height="342.931" Width="610">
     <Grid Margin="0,0,0,2">
         <Label Content="Chcę ubezpieczyć:" FontSize="22px" HorizontalAlignment="Left" Height="53" Margin="71,42,0,0" VerticalAlignment="Top" Width="480"/>
         <CheckBox Name="CheckBox_Dzieci" Content="Dzieci" FontSize="18px" HorizontalAlignment="Left" Height="28" Margin="71,95,0,0" VerticalAlignment="Top" Width="200"/>
         <CheckBox Name="CheckBox_Malzonek" Content="Małżonkę/ka" FontSize="18px" HorizontalAlignment="Left" Height="28" Margin="71,206,0,0" VerticalAlignment="Top" Width="200"/>
-        <Label Content="Wiek" HorizontalAlignment="Left" Height="34" Margin="71,239,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.6,-0.015"/>
-        <TextBox Name="TextBox_Wiek" HorizontalAlignment="Left" Height="34" Margin="173,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98"/>
         <Label Content="Wpisana liczba dzieci:" HorizontalAlignment="Left" Height="30" Margin="71,141,0,0" VerticalAlignment="Top" Width="131"/>
         <TextBox IsReadOnly="True" Name="TextBox_LiczbaDzieci" HorizontalAlignment="Left" Height="30" Margin="220,141,0,0" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.471,-0.15"/>
-        <Button Name="DodajDziecko" Content="Dodaj Dziecko" HorizontalAlignment="Left" Height="30" Margin="352,141,0,0" VerticalAlignment="Top" Width="199" Click="DodajDziecko_Click"/>
-        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="71,313,0,0" VerticalAlignment="Top" Width="131" Click="Cofnij_Click"/>
-        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="414,313,0,0" VerticalAlignment="Top" Width="137" Click="Akceptuj_Click"/>
+        <Button Name="DodajDziecko_Button" Content="Dodaj Dziecko" HorizontalAlignment="Left" Height="30" Margin="352,141,0,0" VerticalAlignment="Top" Width="199" Click="DodajDziecko_Click"/>
+        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="71,268,0,0" VerticalAlignment="Top" Width="131" Click="Cofnij_Click"/>
+        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="414,268,0,0" VerticalAlignment="Top" Width="137" Click="Akceptuj_Click"/>
     </Grid>
 </Window>
 
