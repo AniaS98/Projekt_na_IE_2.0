@@ -187,8 +187,8 @@ namespace GUI
             if (klient.Chorobies == null)
                 klient.Chorobies = new List<Choroby>();
 
-            Console.WriteLine(klient.ToString());
-            Console.WriteLine(zamowienie.PakietKoncowy.Podzialskl.ToString());
+            //Console.WriteLine(klient.ToString());
+            //Console.WriteLine(zamowienie.PakietKoncowy.Podzialskl.ToString());
 
 
         }

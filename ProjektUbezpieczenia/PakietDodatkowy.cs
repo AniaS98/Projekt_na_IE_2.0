@@ -11,9 +11,12 @@ namespace ProjektUbezpieczenia
         SportyEkstremalne, Onkolog, Ortopeda, PowazneZachorowanieDziecka, Niezdolnosc, SmiercWK, smiercNW
     }
 
+
     [Serializable]
     public class PakietDodatkowy
     {
+
+
         string nazwa;
         double koszt;
         int idd;

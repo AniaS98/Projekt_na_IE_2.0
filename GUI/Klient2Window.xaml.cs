@@ -30,8 +30,14 @@ namespace GUI
         PakietDodatkowy p = new PakietDodatkowy();
         bool czyDodano;
 
+
         public Klient2Window(Klient klient, bool de, int c, bool czy)
         {
+            Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
+            {
+                { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet: Onkolog" }, {"Ortopeda","Pakiet: Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
+            };
+
             czyDodano = czy;
             pk = klient.historia[klient.historia.Count - 1].PakietKoncowy;
             foreach (PakietDodatkowy p in klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe)
@@ -44,7 +50,7 @@ namespace GUI
             InitializeComponent();
             if (czyDodano == false)
             {
-                klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych, 12);
+                klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych,12);
                 if (decyzja == true)
                 {
                     klient.PakietRodzinny(czas, klient);
@@ -56,21 +62,21 @@ namespace GUI
             }
 
             int k = klient.historia.Count - 1;
-            List<PakietDodatkowy> lista = klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe;
+            List <PakietDodatkowy> lista = klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe;
             foreach (PakietDodatkowy p in klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe)
                 Console.WriteLine(p.ToString());
-            //Console.WriteLine(lista.Count);
-            List<string> LS = new List<string>();
+            Console.WriteLine(lista.Count);
+            List<string>  LS = new List<string>();
             ListBox_Pakiety.ItemsSource = new List<String>();
             for (int i = 0; i < lista.Count; i++)
             {
-                LS.Add(lista[i].Nazwa.ToString());
+                //LS.Add(lista[i].Nazwa.ToString());
+                LS.Add(NazwyPakietow[lista[i].Nazwa]);
+
             }
             ListBox_Pakiety.ItemsSource = LS;
             Suma.Text = klient.historia[k].PakietKoncowy.Skladka.ToString();
             kosztKoncowy.Text = klient.historia[k].PakietKoncowy.KosztKoncowy.ToString();
-
-            
         }
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)
