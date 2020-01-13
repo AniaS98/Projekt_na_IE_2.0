@@ -80,13 +80,13 @@ namespace ProjektUbezpieczenia
         Plcie plec;
         string numerTelefonu;
         bool malzonek;
-        public List<CzlonekRodziny> rodzina=new List<CzlonekRodziny>();
+        public List<CzlonekRodziny> rodzina = new List<CzlonekRodziny>();
         Zawody zawod;
         Pasje hobby;
         public List<Zamowienie> historia = new List<Zamowienie>();
         Choroby choroba;
         List<Choroby> chorobies = new List<Choroby>();
-        List<Pasje> hobbies =new List<Pasje>();
+        List<Pasje> hobbies = new List<Pasje>();
 
 
         /*
@@ -228,9 +228,9 @@ namespace ProjektUbezpieczenia
 
 
         public override string ToString()
-        { 
+        {
             string s = Imie + " " + Nazwisko + " " + PESEL + " " + Wiek + " " + Plec + " " + NumerTelefonu + " " + Malzonek + " " + Zawod;
-            if(rodzina!=null)
+            if (rodzina != null)
             {
                 foreach (CzlonekRodziny i in rodzina)
                 {
@@ -282,7 +282,7 @@ namespace ProjektUbezpieczenia
             skladkaKoncowa = 0;
 
 
-            List<double> pomocnik1= new List<double>();
+            List<double> pomocnik1 = new List<double>();
             List<double> pomocnik2 = new List<double>();
             int ldzieci = 0;
             int dzieci_5 = 0;
@@ -293,7 +293,7 @@ namespace ProjektUbezpieczenia
             double DorosliZnizka = 0;
             double DodatkiSum = 0;
             double[] pakietyZnizki = new double[7];
-            int id=0;
+            int id = 0;
 
             String typ = "Roczna";
 
@@ -319,7 +319,7 @@ namespace ProjektUbezpieczenia
             }*/
             if (rodzina != null)
             {
-                pomocnik2= PakietRodzinny(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k);
+                pomocnik2 = PakietRodzinny(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k);
                 lUbezpieczonych += k.rodzina.Count;
                 if (malzonek == false)
                     ldzieci = k.rodzina.Count;
@@ -346,9 +346,9 @@ namespace ProjektUbezpieczenia
                 }
             }
             else
-                pomocnik1=PakietPodstawowyIndywiduany(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k);
+                pomocnik1 = PakietPodstawowyIndywiduany(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k);
 
-            FunkcjaPakietDodatkowy(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k, ldorosli,1);
+            FunkcjaPakietDodatkowy(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k, ldorosli, 1);
 
             if (k.Historia[k.historia.Count - 1].PakietKoncowy.Podzialskl == 12)
                 typ = "Miesięczna";
@@ -357,7 +357,7 @@ namespace ProjektUbezpieczenia
             dr[1] = k.Imie;
             dr[2] = k.Nazwisko;
             dr[3] = k.Wiek;
-            dr[4]=k.Plec;
+            dr[4] = k.Plec;
             dr[5] = ldzieci;
             dr[6] = dzieci_5;
             dr[7] = dzieci_12;
@@ -365,38 +365,38 @@ namespace ProjektUbezpieczenia
             dr[9] = ldorosli;
             dr[10] = lUbezpieczonych;
             for (int i = 0; i < 7; i++)
-                dr[11+i]=pakietyOdp[1];
+                dr[11 + i] = pakietyOdp[1];
             dr[18] = typ;
             dr[19] = Skl_Dzieci;
             dr[20] = Skl_Dorosli;
             dr[21] = k.Historia[k.historia.Count - 1].PakietKoncowy.Lata;
             dr[22] = (Skl_Dorosli + Skl_Dzieci);
             dr[23] = DorosliZnizka;
-            dr[24] = (Skl_Dorosli + Skl_Dzieci-DorosliZnizka);
+            dr[24] = (Skl_Dorosli + Skl_Dzieci - DorosliZnizka);
             for (int i = 0; i < 7; i++)
             {
-                dr[25+i] = pakietySum[i];
+                dr[25 + i] = pakietySum[i];
                 DodatkiSum += pakietySum[i];
             }
             dr[33] = DodatkiSum;
             for (int i = 0; i < 7; i++)
             {
                 pakietyCzas[i] = pakietySum[i] * k.Historia[k.historia.Count - 1].PakietKoncowy.Lata;
-                dr[34+i] = pakietyCzas[i];
+                dr[34 + i] = pakietyCzas[i];
                 if (czasdodatkowych > 5)
                     pakietyZnizki[i] = pakietySum[i] * 0.2 * (czasdodatkowych - 5) + pakietySum[i];
                 else
-                    pakietyZnizki[i]= pakietySum[i];
+                    pakietyZnizki[i] = pakietySum[i];
             }
             for (int i = 0; i < 7; i++)
             {
-                dr[42+i] = pakietyZnizki[i];
+                dr[42 + i] = pakietyZnizki[i];
 
             }
             dr[50] = skladkaMiesieczna;
             dr[51] = skladkaKoncowa;
             ListaAgentow LA = ListaAgentow.OdczytajXML("ListaAgentow.xml");
-            foreach(Agent a in LA.Agenci)
+            foreach (Agent a in LA.Agenci)
             {
                 if (a.Lista_klientow.Klienci.Contains(k))
                     id = a.idAgenta;
@@ -420,13 +420,13 @@ namespace ProjektUbezpieczenia
         /// W funkcji po raz pierwszy wspomniane będą takie klasy jak PakietKoncowy, PakietDodatkowy oraz Zamówienie, dlatego tu obiekty te zostaną stworzone oraz przypisane klientowi za pomocą argumentu historia.
         /// WYJŚCIE: przekazane przez referencje zamówienie
         /// </summary>
-        public void FunkcjaPakietDodatkowy(int czas, Klient k, int LiczbaUbezpieczonych,int podzial)
+        public void FunkcjaPakietDodatkowy(int czas, Klient k, int LiczbaUbezpieczonych, int podzial)
         {
             czasdodatkowych = czas;
             //to SAMO ZE SKLADKA, BO NA RAZIE NIE MA POWIAZANIA Z RODZAJEM UBEZPIECZENIA
             int l = k.historia.Count;
             k.DodajZamowienie(new Zamowienie());
-            PakietKoncowy pk = new PakietKoncowy(0, k.historia[l].PakietKoncowy.Skladka, 0, 0, 0,czas);
+            PakietKoncowy pk = new PakietKoncowy(0, k.historia[l].PakietKoncowy.Skladka, 0, 0, 0, czas);
             PakietDodatkowy pd = new PakietDodatkowy();
             double wskladka = 0.0;
 
@@ -435,20 +435,20 @@ namespace ProjektUbezpieczenia
             if (k.Hobbies.Contains(Pasje.sporty_ekstremalne))
             {
                 pakietyOdp[0] = "Tak";
-                pakietySum[0] = 5.0* LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0* LiczbaUbezpieczonych);
+                pakietySum[0] = 5.0 * LiczbaUbezpieczonych;
+                pd = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0 * LiczbaUbezpieczonych);
                 pk.DodajPakiet2(pd);
                 wskladka += 60.0;
                 Console.WriteLine(1);
             }
-            
+
 
             //górnik (rak płuc, oskrzeli, itp), pilot (promieniowanie kosmiczne)
             if (k.Chorobies.Contains(Choroby.nowotwory) || k.Zawod == Zawody.gornik || k.Zawod == Zawody.pilot_samolotu)
             {
                 pakietyOdp[1] = "Tak";
                 pakietySum[1] = 10.0 * LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0* LiczbaUbezpieczonych);
+                pd = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0 * LiczbaUbezpieczonych);
                 pk.DodajPakiet2(pd);
                 wskladka += 120.0;
                 Console.WriteLine(2);
@@ -463,7 +463,7 @@ namespace ProjektUbezpieczenia
                 wskladka += 96.0;
                 Console.WriteLine(3);
             }
-            if ((k.malzonek==false && k.Rodzina.Count!=0) || (k.malzonek == true && k.Rodzina.Count != 1))
+            if ((k.malzonek == false && k.Rodzina.Count != 0) || (k.malzonek == true && k.Rodzina.Count != 1))
             {
                 pakietyOdp[3] = "Tak";
                 pakietySum[3] = 10.0 * LiczbaUbezpieczonych;
@@ -501,7 +501,7 @@ namespace ProjektUbezpieczenia
 
             if (czas > 5)
             {
-                double roznica = (double)czas-5.0;
+                double roznica = (double)czas - 5.0;
                 wskladka = ((wskladka * roznica * 0.2) / roznica) + wskladka;
             }
 
@@ -509,7 +509,7 @@ namespace ProjektUbezpieczenia
             {
                 wskladka = wskladka / 12;
                 Console.WriteLine("Pakiety Dodatkowe - składka miesięczna {0}", wskladka);
-            }     
+            }
             pk.Skladka += wskladka;
 
 
@@ -532,7 +532,7 @@ namespace ProjektUbezpieczenia
 
         public List<double> PakietPodstawowyIndywiduany(int czas, Klient k)
         {
-            int l = k.historia.Count-1;
+            int l = k.historia.Count - 1;
             int podzial = k.historia[l].PakietKoncowy.Podzialskl;
             double wynik = 480.0;
 
@@ -555,7 +555,7 @@ namespace ProjektUbezpieczenia
         }
 
 
-                                  
+
 
         /// <summary>
         /// Funkcja obliczająca sumę składek miesięcznych/rocznych dla pakietu rodzinnego
@@ -570,7 +570,7 @@ namespace ProjektUbezpieczenia
         public List<double> PakietRodzinny(int czas, Klient k)
         {
             double czyMalzonek = 0.0;
-            int l = k.historia.Count-1;
+            int l = k.historia.Count - 1;
             int podzial = k.historia[l].PakietKoncowy.Podzialskl; //te szalone odwołania XD
 
             double wskladka = 0.0;
@@ -605,7 +605,7 @@ namespace ProjektUbezpieczenia
                 results[1] += 55.0;
                 Skl_Dorosli += 55.0;
             }
-                
+
 
             if (podzial == 1)
             {

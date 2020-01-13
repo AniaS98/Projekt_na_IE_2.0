@@ -26,6 +26,7 @@ namespace GUI
         Zamowienie zamowienie;
         CzlonekRodziny dziecko = new CzlonekRodziny();
         CzlonekRodziny malzonek = new CzlonekRodziny();
+        PakietKoncowy pk;
 
         int count = 0;
 
@@ -76,7 +77,7 @@ namespace GUI
             }
 
             
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas,false);
             this.Close();
             okno.ShowDialog();
         }

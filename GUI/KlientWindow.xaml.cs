@@ -24,6 +24,7 @@ namespace GUI
         bool decyzja = false;//false tzn. indywidualny
 
         //public bool decyzja;
+        PakietKoncowy pk;
         Klient klient;
         Zamowienie z;
         public KlientWindow()

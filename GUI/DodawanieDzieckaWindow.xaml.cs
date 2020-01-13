@@ -45,13 +45,10 @@ namespace GUI
             Console.WriteLine(count);
             RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count);
 
-
-
-
             okno.CheckBox_Dzieci.IsChecked=true;
             this.Close();
             okno.ShowDialog();
-      }
+        }
 
         public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co) : this()
         {
