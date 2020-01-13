@@ -5,6 +5,8 @@ using System.IO;
 using System.Text;
 using System.Data.OleDb;
 using System.Data;
+using Microsoft.Office.Interop.Excel;
+//using Microsoft.VisualStudio.Tools.Applications.Runtime;
 
 namespace ProjektUbezpieczenia
 {
@@ -263,14 +265,27 @@ namespace ProjektUbezpieczenia
 
         public void ZapisKlientaDoXLSX(Klient k)
         {
-            string plik = "DaneDoTestów";
-            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string plik = "DaneDoTestów.xls";
+            Microsoft.Office.Interop.Excel.Application application = new Application();
+
+            Workbook workbook = application.Workbooks.Open(plik);
+            Worksheet sheet = application.ActiveSheet; //as application.Worksheet;
+
+            Range range = sheet.UsedRange;
+            int nrow = range.Rows.Count;
+            int ncol = range.Columns.Count;
+
+
+
+            /*string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
             OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [Arkusz1$]", conn);
-            OleDbCommandBuilder builder = new OleDbCommandBuilder(myDataAdapter);
-            DataTable table = new DataTable();
+            OleDbCommandBuilder builder = new OleDbCommandBuilder(myDataAdapter);*/
+            DataSet dt = new DataSet();
+            //DataTable table = new DataTable();
             DataRow dr;
-            myDataAdapter.Fill(table);
+            //myDataAdapter.Fill(dt);
+            int rozmiar = 0;//dt.Tables.Count;
 
             Skl_Dzieci = 0;
             Skl_Dorosli = 55.0;
@@ -353,7 +368,7 @@ namespace ProjektUbezpieczenia
             if (k.Historia[k.historia.Count - 1].PakietKoncowy.Podzialskl == 12)
                 typ = "Miesięczna";
 
-            dr = table.NewRow();
+            dr = dt.Tables[rozmiar].NewRow();
             dr[1] = k.Imie;
             dr[2] = k.Nazwisko;
             dr[3] = k.Wiek;
@@ -402,10 +417,20 @@ namespace ProjektUbezpieczenia
                     id = a.idAgenta;
             }
             dr[52] = id;
-            DataRow[] dataRows = new DataRow[1];
-            dataRows[0] = dr;
-            myDataAdapter.UpdateCommand = builder.GetUpdateCommand();
-            myDataAdapter.Update(dataRows);
+
+            for(int i=1;i<ncol;i++)
+            {
+                sheet.Cells[nrow + 1, i+1]=dr[i];
+            }
+
+            workbook.Close(true);
+            application.Quit();
+
+            //dt.Tables[rozmiar].Rows.Add(dr);
+
+            
+            //myDataAdapter.UpdateCommand = builder.GetUpdateCommand();
+            //myDataAdapter.Update(dt);
 
             //File.WriteAllText("TestyKlientow.csv", csv.ToString());
         }
@@ -423,7 +448,6 @@ namespace ProjektUbezpieczenia
         public void FunkcjaPakietDodatkowy(int czas, Klient k, int LiczbaUbezpieczonych, int podzial)
         {
             czasdodatkowych = czas;
-            //to SAMO ZE SKLADKA, BO NA RAZIE NIE MA POWIAZANIA Z RODZAJEM UBEZPIECZENIA
             int l = k.historia.Count;
             k.DodajZamowienie(new Zamowienie());
             PakietKoncowy pk = new PakietKoncowy(0, k.historia[l].PakietKoncowy.Skladka, 0, 0, 0, czas);
@@ -548,6 +572,7 @@ namespace ProjektUbezpieczenia
             if (wynik == 12)
                 wynik = wynik / 12;
             k.historia[l].PakietKoncowy.Skladka += wynik;
+            Console.WriteLine("Składka pakietu indywidualnego");
             results.Add(wynik);//Składka
             results.Add(100000.0);//Suma
 
