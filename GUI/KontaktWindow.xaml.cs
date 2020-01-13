@@ -35,6 +35,7 @@ namespace GUI
             ListaKlientow ListaKlientowDoKontaktu = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.XML");
             ListaKlientowDoKontaktu.DodajKlienta(klient);
             ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
+            klient.ZapisKlientaDoXLSX(klient);
             this.Close();
         }
 

@@ -31,7 +31,7 @@ namespace GUI
             decyzja = de;
             InitializeComponent();
             //Console.WriteLine(klient.Zawod.ToString());
-            klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych);
+            klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych,1);//Zamiast 12 ma być podział (składka miesięczna czy roczna)
             if (decyzja == true)
             {
                 klient.PakietRodzinny(czas, klient);
