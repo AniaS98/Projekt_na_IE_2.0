@@ -97,6 +97,17 @@ namespace ProjektUbezpieczenia
             }
         }
 
+        public void LiczenieSumySkladek(PakietKoncowy pk)
+        {
+            double suma = 0.0;
+            foreach(PakietDodatkowy p in pk.dodatkowe)
+            {
+                suma += p.Skladka;
+            }
+            pk.Skladka += suma;
+        }
+
+
         public void ZapiszXML()
         {
             using (Stream s = File.Create("PakietKoncowy.xml"))

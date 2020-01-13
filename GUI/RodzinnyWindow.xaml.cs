@@ -24,6 +24,10 @@ namespace GUI
         bool decyzja = true;
         Klient klient;
         Zamowienie zamowienie;
+        CzlonekRodziny dziecko = new CzlonekRodziny();
+        CzlonekRodziny malzonek = new CzlonekRodziny();
+        PakietKoncowy pk;
+
         int count = 0;
 
         public RodzinnyWindow()
@@ -52,7 +56,6 @@ namespace GUI
                 for (int d = 1; d <= klient.rodzina.Count; d++)
                 {
                     DodawanieDzieckaWindow dodawanie = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
-                    //dodawanie
                 }
 
             }
@@ -65,13 +68,16 @@ namespace GUI
             if (CheckBox_Malzonek.IsChecked == true)
             {
                 klient.Malzonek = true;
+                malzonek.Wiek = Convert.ToInt32(TextBox_WiekMalzonka.Text);
+                klient.DodajCzlonkaRodziny(malzonek);
             }
             else if (CheckBox_Malzonek.IsChecked == false)
             {
                 klient.Malzonek = false;
             }
 
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas);
+            
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas,false);
             this.Close();
             okno.ShowDialog();
         }

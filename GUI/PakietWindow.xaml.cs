@@ -26,9 +26,12 @@ namespace GUI
         List<Choroby> chorobies = new List<Choroby>();
         List<Pasje> hobbies = new List<Pasje>();
 
+        bool czyDodano = false;
         bool decyzja = false;
         Klient klient;
         Zamowienie zamowienie;
+        PakietKoncowy pk;
+
 
         public PakietWindow()
         {
@@ -95,6 +98,7 @@ namespace GUI
             {
                 z.PakietKoncowy.Podzialskl = 1;
             }
+
 
         }
 
@@ -168,7 +172,7 @@ namespace GUI
                 }
                 else
                 {
-                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas);
+                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, czyDodano);
                     this.Close();
                     okno1.ShowDialog();
                 }

@@ -33,11 +33,10 @@ namespace GUI
 
         public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            
-            for (int d = 1; d <= klient.rodzina.Count; d++)
-            {
-                Console.WriteLine(klient.rodzina[d].Wiek);
-            }
+
+            CzlonekRodziny dziecko = new CzlonekRodziny();
+            dziecko.Wiek =Convert.ToInt32( TextBox_WiekDziecka.Text);
+            klient.DodajCzlonkaRodziny(dziecko);
             count++;
             /*if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
             {
@@ -45,19 +44,11 @@ namespace GUI
             }*/
             Console.WriteLine(count);
             RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count);
-            /*if (!okno.IsVisible)
-            {
-                okno.Show();
-            }
 
-            if (okno.WindowState == WindowState.Minimized)
-            {
-                okno.WindowState = WindowState.Normal;
-            }*/
             okno.CheckBox_Dzieci.IsChecked=true;
             this.Close();
             okno.ShowDialog();
-      }
+        }
 
         public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co) : this()
         {
@@ -65,10 +56,7 @@ namespace GUI
             czas = c;
             count = co;
             this.klient = klient;
-            for (int d = 1; d <= klient.rodzina.Count; d++)
-            {
-                klient.rodzina[d].Wiek = Convert.ToInt32(TextBox_WiekDziecka);
-            }
+            //klient.rodzina[d].Wiek = Convert.ToInt32(TextBox_WiekDziecka);
         }
     }
 }
