@@ -29,13 +29,18 @@ namespace GUI
         //W panelu agenta powinna być listbox z info z ListaKlientówDoKontaktu.XML i tam agent będzie mógł się skontktować z klientami i zapisać wynik rozmowy
         private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
+            if (TextBox_Imie.Text == "" || TextBox_Nazwisko.Text == "" || TextBox_Telefon.Text.Length != 9)
+            {
+                MessageBox.Show("Proszę poprawnie uzupełnić dane!\n Numer telefonu powinien zawierać 9 cyfr.");
+                return;
+            }
+
             klient.Imie = TextBox_Imie.Text;
             klient.Nazwisko = TextBox_Nazwisko.Text;
             klient.NumerTelefonu = TextBox_Telefon.Text;
             ListaKlientow ListaKlientowDoKontaktu = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.XML");
             ListaKlientowDoKontaktu.DodajKlienta(klient);
             ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
-            //klient.ZapisKlientaDoXLSX(klient);
             this.Close();
         }
 

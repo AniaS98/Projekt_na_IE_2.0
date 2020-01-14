@@ -29,6 +29,10 @@ namespace GUI
         PakietDodatkowy p = new PakietDodatkowy();
         PakietKoncowy pk;
         PakietKoncowy pkdod = new PakietKoncowy();
+        Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
+            {
+                { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet Onkolog" }, {"Ortopeda","Pakiet Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
+            };
         public DodatkowyPakietWindow(Klient klient, int c, List<string> lista, PakietKoncowy pk)
         {
             foreach (var item in Enum.GetNames(typeof(Edodat)))
@@ -40,7 +44,6 @@ namespace GUI
                 wszystkie.Remove(s);
             }
 
-            //this.pk = pk;
             this.klient = klient;
             czas = c;
             InitializeComponent();
@@ -48,7 +51,7 @@ namespace GUI
             foreach (string s in wszystkie)
             {
                 box = new CheckBox();
-                box.Content = s;
+                box.Content = NazwyPakietow[s];
                 checkboxy.Add(box);
             }
             ListBox_Pakiet.ItemsSource = checkboxy;
@@ -61,43 +64,44 @@ namespace GUI
 
             foreach (CheckBox box in ListBox_Pakiet.Items)
             {
-                if (box.IsChecked == true && box.Content.ToString() == Edodat.Niezdolnosc.ToString())
+                string a = NazwyPakietow.FirstOrDefault(x => x.Value == box.Content.ToString()).Key;
+                if (box.IsChecked == true && a == Edodat.Niezdolnosc.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.Niezdolnosc.ToString(), 50000.0, 5, 5, 120.0);
                     pk.DodajPakiet2(p);
                     pkdod.DodajPakiet2(p);
                 }
-                else if (box.IsChecked == true && box.Content.ToString() == Edodat.Onkolog.ToString())
+                else if (box.IsChecked == true && a == Edodat.Onkolog.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0);
                     pk.DodajPakiet2(p);
                     pkdod.DodajPakiet2(p);
                 }
-                else if (box.IsChecked == true && box.Content.ToString() == Edodat.Ortopeda.ToString())
+                else if (box.IsChecked == true && a == Edodat.Ortopeda.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.Ortopeda.ToString(), 10000.0, 3, 5, 96.0);
                     pk.DodajPakiet2(p);
                     pkdod.DodajPakiet2(p);
                 }
-                else if (box.IsChecked == true && box.Content.ToString() == Edodat.PowazneZachorowanieDziecka.ToString())
+                else if (box.IsChecked == true && a == Edodat.PowazneZachorowanieDziecka.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.PowazneZachorowanieDziecka.ToString(), 20000.0, 4, 5, 120.0);
                     pk.DodajPakiet2(p);
                     pkdod.DodajPakiet2(p);
                 }
-                else if (box.IsChecked == true && box.Content.ToString() == Edodat.smiercNW.ToString())
+                else if (box.IsChecked == true && a == Edodat.smiercNW.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.smiercNW.ToString(), 100000.0, 6, 5, 60.0);
                     pk.DodajPakiet2(p);
                     pkdod.DodajPakiet2(p);
                 }
-                else if (box.IsChecked == true && box.Content.ToString() == Edodat.SmiercWK.ToString())
+                else if (box.IsChecked == true && a == Edodat.SmiercWK.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.SmiercWK.ToString(), 50000.0, 7, 5, 144.0);
                     pk.DodajPakiet2(p);
                     pkdod.DodajPakiet2(p);
                 }
-                else if (box.IsChecked == true && box.Content.ToString() == Edodat.SportyEkstremalne.ToString())
+                else if (box.IsChecked == true && a == Edodat.SportyEkstremalne.ToString())
                 {
                     p = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0);
                     pk.DodajPakiet2(p);
