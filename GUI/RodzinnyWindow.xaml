@@ -13,8 +13,7 @@
         <Label Content="Wpisana liczba dzieci:" HorizontalAlignment="Left" Height="30" Margin="71,141,0,0" VerticalAlignment="Top" Width="131"/>
         <TextBox IsReadOnly="True" Name="TextBox_LiczbaDzieci" HorizontalAlignment="Left" Height="30" Margin="220,141,0,0" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.471,-0.15"/>
         <Button Name="DodajDziecko_Button" Content="Dodaj Dziecko" HorizontalAlignment="Left" Height="30" Margin="352,141,0,0" VerticalAlignment="Top" Width="199" Click="DodajDziecko_Click"/>
-        <Button Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Margin="71,282,0,0" VerticalAlignment="Top" Width="131" Click="Cofnij_Click"/>
-        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="414,282,0,0" VerticalAlignment="Top" Width="137" Click="Akceptuj_Click"/>
+        <Button Name="Akceptuj" Content="Akceptuj" HorizontalAlignment="Left" Margin="352,282,0,0" VerticalAlignment="Top" Width="199" Click="Akceptuj_Click" Height="22"/>
         <TextBox Name="TextBox_WiekMalzonka" HorizontalAlignment="Left" Height="28" Margin="140,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87"/>
         <Label Content="Wiek" HorizontalAlignment="Left" Height="28" Margin="71,249,0,0" VerticalAlignment="Top" Width="64" RenderTransformOrigin="-1.026,0.235"/>
     </Grid>

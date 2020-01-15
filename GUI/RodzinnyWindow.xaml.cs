@@ -76,6 +76,11 @@ namespace GUI
                 klient.Malzonek = false;
             }
 
+            if(Convert.ToInt32(TextBox_WiekMalzonka.Text) < 18)
+            {
+                MessageBox.Show("Małżonek musi mieć conajmniej 18 lat");
+                return;
+            }
             
             Klient2Window okno = new Klient2Window(klient, decyzja, czas,false);
             this.Close();
@@ -91,15 +96,6 @@ namespace GUI
             z = zamowienie;
             TextBox_LiczbaDzieci.Text = count.ToString();
 
-            //deklaracja malzonka
-            /*if (klient.Malzonek == true)
-            {
-                CheckBox_Malzonek.IsChecked = true;
-            }           
-            else if (klient.Malzonek == false)
-            {
-                CheckBox_Malzonek.IsChecked = false;            
-            }*/
         }
 
     }
