@@ -31,6 +31,7 @@ namespace GUI
         Klient klient;
         Zamowienie zamowienie;
         PakietKoncowy pk;
+        int podzial;
 
 
         public PakietWindow()
@@ -90,20 +91,22 @@ namespace GUI
 
             int l = klient.historia.Count;
 
-            if (ComboBox_Typ.Text == "miesięczna")
-            {
-                z.PakietKoncowy.Podzialskl = 12;
-            }
-            else if (ComboBox_Typ.Text == "roczna")
-            {
-                z.PakietKoncowy.Podzialskl = 1;
-            }
 
 
         }
 
         public void Dalej_Click(object sender, RoutedEventArgs e)
         {
+            if (ComboBox_Typ.Text == "miesięczna")
+            {
+                podzial = 12;
+            }
+            else if (ComboBox_Typ.Text == "roczna")
+            {
+                podzial = 1;
+            }
+            Console.WriteLine("Combo " + ComboBox_Typ.Text);
+
             if (ComboBox_Plec.Text == "" || TextBox_Wiek.Text == "" || ComboBox_Zawod.Text == "")
             {
                 MessageBox.Show("Uzupełnij wszystkie dane!!!");
@@ -166,13 +169,13 @@ namespace GUI
             {
                 if (decyzja == true)
                 {
-                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, 0);
+                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, 0,podzial);
                     this.Close();
                     okno.ShowDialog();
                 }
                 else
                 {
-                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, czyDodano);
+                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, podzial);
                     this.Close();
                     okno1.ShowDialog();
                 }

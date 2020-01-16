@@ -29,8 +29,10 @@ namespace GUI
         PakietDodatkowy p = new PakietDodatkowy();
         PakietKoncowy pk;
         PakietKoncowy pkus = new PakietKoncowy();
-        public UsunPakietWindow(Klient klient, int c, List<string> lista, PakietKoncowy pk)
+        int podzial;
+        public UsunPakietWindow(Klient klient, int c, List<string> lista, PakietKoncowy pk, int podzial)
         {
+            this.podzial = podzial;
             this.klient = klient;
             czas = c;
             InitializeComponent();
@@ -101,14 +103,14 @@ namespace GUI
             pkus.LiczenieSumySkladek(pkus);
             klient.historia[klient.historia.Count - 1].PakietKoncowy = pk;
 
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas, true);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas, podzial);
             this.Close();
             okno.ShowDialog();
         }
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas, true);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas, podzial);
             this.Close();
             okno.ShowDialog();
         }

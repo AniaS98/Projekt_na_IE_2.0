@@ -20,6 +20,7 @@ namespace GUI
     /// </summary>
     public partial class RodzinnyWindow : Window
     {
+        int podzial;
         int czas;
         bool decyzja = true;
         Klient klient;
@@ -37,9 +38,9 @@ namespace GUI
 
         public void DodajDziecko_Click(object sender, RoutedEventArgs e)
         {
-            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
+            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, count,podzial);
             this.Close();
-            okno.ShowDialog();  
+            okno.ShowDialog();
         }
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
@@ -55,7 +56,7 @@ namespace GUI
             {
                 for (int d = 1; d <= klient.rodzina.Count; d++)
                 {
-                    DodawanieDzieckaWindow dodawanie = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
+                    DodawanieDzieckaWindow dodawanie = new DodawanieDzieckaWindow(klient, decyzja, czas, count,podzial);
                 }
 
             }
@@ -76,13 +77,13 @@ namespace GUI
                 klient.Malzonek = false;
             }
 
-            
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas,false);
+
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas, podzial);
             this.Close();
             okno.ShowDialog();
         }
 
-        public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co) : this()
+        public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co,int podzial) : this()
         {
             czas = c;
             decyzja = de;
@@ -90,6 +91,7 @@ namespace GUI
             this.klient = klient;
             z = zamowienie;
             TextBox_LiczbaDzieci.Text = count.ToString();
+            this.podzial = podzial;
 
             //deklaracja malzonka
             /*if (klient.Malzonek == true)
