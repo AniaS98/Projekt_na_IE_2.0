@@ -36,15 +36,19 @@ namespace GUI
                 { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet Onkolog" }, {"Ortopeda","Pakiet Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
             };
 
+        public Klient2Window()
+        {
+            InitializeComponent();
+        }
         public Klient2Window(Klient klient, bool de, int c, bool czy,int podzial)
         {
+            InitializeComponent();
             this.podzial = podzial;
 
             czyDodano = czy;
             this.klient = klient;
             czas = c;
             decyzja = de;
-            InitializeComponent();
             if (czyDodano == false)
             {
                 klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych,12);

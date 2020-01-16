@@ -90,6 +90,7 @@ namespace GUI
 
         public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co,int podzial) 
         {
+            InitializeComponent();
             this.podzial = podzial;
             czas = c;
             decyzja = de;

@@ -758,6 +758,7 @@ namespace ProjektUbezpieczenia
             k.historia[l].PakietKoncowy.Skladka = wskladka;
 
             Console.WriteLine("Składka pakietu rodzinnego: " + wskladka);
+            LiczenieKosztu(k);
             return results;
         }
 
