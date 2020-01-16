@@ -686,7 +686,6 @@ namespace ProjektUbezpieczenia
             Console.WriteLine("Podzial: " + podzial);
             double wskladka = 0;
 
-            Console.WriteLine("PakietRodzinny ile dzieci: " + k.rodzina.Count);
             int ldzieci = k.rodzina.Count;
             if (k.malzonek == true)
                 ldzieci--;
@@ -722,35 +721,30 @@ namespace ProjektUbezpieczenia
             }
             Console.WriteLine("PakietRodzinny czyMałżonek: " + czyMalzonek);
             wskladka = wskladka + 55.0 + 55.0 * czyMalzonek;
-            Console.WriteLine("PakietRodzinny miesięczna: " + wskladka);
-            /*if (podzial == 1)
-            {
-                wskladka *=12;
-            }*/
-            double wynikPosredni = wskladka;
-            wskladka += k.historia[l].PakietKoncowy.Skladka;
-            wynikPosredni = wskladka - wynikPosredni;
-            /*if (podzial == 1)
-            {
-                wskladka *= 0.95;
-            }*/
-            Console.WriteLine("PakietRodzinny roczna: " + wskladka);
+            Console.WriteLine("PakietRodzinny miesięczna przed obniżką: " + wskladka);
+            double wynikPosredni = k.historia[l].PakietKoncowy.Skladka;
+
             //Podział na długość ubezpieczenia
             if (czas > 10)
             {
-                wskladka -= wynikPosredni;
                 double roznica = (double)czas - 10.0;
                 wskladka = (wskladka * roznica * 0.2) + wskladka;
-                wskladka += wynikPosredni;
+                //wynikPosredni = (wynikPosredni * roznica * 0.2) + wynikPosredni;
+
             }
+            Console.WriteLine("PakietRodzinny po czasie: " + wskladka);
             if (k.malzonek == true)
                 wskladka -= 5.5;
+            Console.WriteLine("PakietRodzinny miesięczna: " + wskladka);
             if (podzial == 1)
             {
-                wskladka -= wynikPosredni;
-                wskladka = wskladka * 12;
                 wskladka += wynikPosredni;
+                wskladka = wskladka * 12;
                 wskladka *= 0.95;
+            }
+            else
+            {
+                wskladka += wynikPosredni;
             }
 
             Console.WriteLine("PakietRodzinny po czasie: " + wskladka);
