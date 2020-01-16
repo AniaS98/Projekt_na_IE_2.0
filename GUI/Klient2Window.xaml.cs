@@ -31,20 +31,15 @@ namespace GUI
         bool czyDodano;
         int podzial = 0;
 
-
+        Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
+            {
+                { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet Onkolog" }, {"Ortopeda","Pakiet Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
+            };
         public Klient2Window(Klient klient, bool de, int c, int podzial)
         {
-            this.podzial = podzial;
-            Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
-            {
-                { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet: Onkolog" }, {"Ortopeda","Pakiet: Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
-            };
 
-            pk = klient.historia[klient.historia.Count - 1].PakietKoncowy;
-            foreach (PakietDodatkowy p in klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe)
-            {
-                Console.WriteLine(p.ToString());
-            }
+
+            czyDodano = czy;
             this.klient = klient;
             czas = c;
             decyzja = de;
@@ -103,7 +98,9 @@ namespace GUI
             List<string> lista = new List<string>();
             foreach(string s in ListBox_Pakiety.Items)
             {
-                lista.Add(s.ToString());
+                string a=NazwyPakietow.FirstOrDefault(x => x.Value == s.ToString()).Key;
+                lista.Add(a);
+                Console.WriteLine(a);
             }
 
             DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas, lista,pk, podzial);
