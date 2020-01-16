@@ -98,7 +98,6 @@ namespace ProjektUbezpieczenia
             {
                 return PESEL;
             }
-
             set
             {
                 if (value.Length != 11)
@@ -418,9 +417,9 @@ namespace ProjektUbezpieczenia
             }
             dr[52] = id;
 
-            for(int i=1;i<ncol;i++)
+            for (int i = 1; i < ncol; i++)
             {
-                sheet.Cells[nrow + 1, i+1]=dr[i];
+                sheet.Cells[nrow + 1, i + 1] = dr[i];
             }
 
             workbook.Close(true);
@@ -428,7 +427,7 @@ namespace ProjektUbezpieczenia
 
             //dt.Tables[rozmiar].Rows.Add(dr);
 
-            
+
             //myDataAdapter.UpdateCommand = builder.GetUpdateCommand();
             //myDataAdapter.Update(dt);
 
@@ -569,13 +568,61 @@ namespace ProjektUbezpieczenia
 
         public void LiczenieKosztu(Klient k)
         {
-            double wynik=0.0;
+            double wynik = 0.0;
             Zamowienie z = k.historia[k.historia.Count - 1];
-            foreach(PakietDodatkowy pd in z.PakietKoncowy.dodatkowe)
+            foreach (PakietDodatkowy pd in z.PakietKoncowy.dodatkowe)
             {
                 wynik += pd.Koszt;
             }
             k.historia[k.historia.Count - 1].PakietKoncowy.KosztKoncowy = wynik;
+
+        }
+
+        public void DodaniePojedynczegoPakietu(double skladka,int czas, Klient k, int LiczbaUbezpieczonych, int podzial)
+        {
+            double pierwotna = k.historia[k.historia.Count - 1].PakietKoncowy.Skladka;
+            if (podzial == 1)
+            {
+                pierwotna /= 0.95;
+                skladka *= 12;
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka = pierwotna;
+            }
+
+            if (czas > 5)
+            {
+                double roznica = (double)czas - 5.0;
+                skladka = (skladka * roznica * 0.2) + skladka;
+            }
+            k.historia[k.historia.Count - 1].PakietKoncowy.Skladka += skladka;
+            if (podzial == 1)
+            {
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka *= 0.95;
+            }
+            Console.WriteLine("Dodanie pakietu {0}", skladka);
+
+        }
+
+        public void UsuwaniePojedynczegoPakietu(double skladka, int czas, Klient k, int LiczbaUbezpieczonych, int podzial)
+        {
+            double pierwotna=k.historia[k.historia.Count - 1].PakietKoncowy.Skladka;
+            if (podzial == 1)
+            {
+                pierwotna /= 0.95;
+                skladka *= 12;
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka = pierwotna;
+            }
+                
+            if (czas > 5)
+            {
+                double roznica = (double)czas - 5.0;
+                skladka = (skladka * roznica * 0.2) + skladka;
+            }
+            k.historia[k.historia.Count - 1].PakietKoncowy.Skladka -= skladka;
+            if (podzial == 1)
+            {
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka *= 0.95;
+            }
+            Console.WriteLine("Usuwanie pakietu {0}", skladka);
 
         }
 
@@ -593,7 +640,7 @@ namespace ProjektUbezpieczenia
         public List<double> PakietPodstawowyIndywiduany(int czas, Klient k, int podzial)
         {
             int l = k.historia.Count - 1;
-            double wynik = 40.0 ;
+            double wynik = 40.0;
 
 
             if (czas > 10)
@@ -604,12 +651,14 @@ namespace ProjektUbezpieczenia
             }
 
             //wynik = 480.0;
-            if (podzial ==1)
-                wynik = wynik * 12;
-            k.historia[l].PakietKoncowy.Skladka += wynik;
             if (podzial == 1)
-                k.historia[l].PakietKoncowy.Skladka *= 0.95;
-            Console.WriteLine("Składka pakietu indywidualnego: "+wynik);
+            {
+                k.historia[l].PakietKoncowy.Skladka += wynik;
+                k.historia[l].PakietKoncowy.Skladka *= (12*0.95);
+            }
+            else
+                k.historia[l].PakietKoncowy.Skladka += wynik;
+            Console.WriteLine("Składka pakietu indywidualnego: " + wynik);
             results.Add(wynik);//Składka
             results.Add(100000.0);//Suma
             LiczenieKosztu(k);
@@ -630,7 +679,7 @@ namespace ProjektUbezpieczenia
         /// WYJŚCIE: Suma składek przekazana przez referencje
         /// </summary>
         //PROMOCJE I PODZIAŁ
-        public List<double> PakietRodzinny(int czas, Klient k,int podzial)
+        public List<double> PakietRodzinny(int czas, Klient k, int podzial)
         {
             double czyMalzonek = 0.0;
             int l = k.historia.Count - 1;
@@ -679,7 +728,7 @@ namespace ProjektUbezpieczenia
                 wskladka *=12;
             }*/
             double wynikPosredni = wskladka;
-            wskladka+=k.historia[l].PakietKoncowy.Skladka;
+            wskladka += k.historia[l].PakietKoncowy.Skladka;
             wynikPosredni = wskladka - wynikPosredni;
             /*if (podzial == 1)
             {
@@ -691,7 +740,7 @@ namespace ProjektUbezpieczenia
             {
                 wskladka -= wynikPosredni;
                 double roznica = (double)czas - 10.0;
-                wskladka = (wskladka * roznica * 0.2)  + wskladka;
+                wskladka = (wskladka * roznica * 0.2) + wskladka;
                 wskladka += wynikPosredni;
             }
             if (k.malzonek == true)

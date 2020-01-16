@@ -27,14 +27,17 @@ namespace GUI
         CheckBox box = new CheckBox();
         List<string> wszystkie = new List<string>();
         PakietDodatkowy p = new PakietDodatkowy();
-        PakietKoncowy pk;
         PakietKoncowy pkus = new PakietKoncowy();
+        int podzial;
+        int lUb;
         Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
             {
                 { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet Onkolog" }, {"Ortopeda","Pakiet Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
             };
-        public UsunPakietWindow(Klient klient, int c, List<string> lista, PakietKoncowy pk)
+        public UsunPakietWindow(Klient klient, int c, List<string> lista, PakietKoncowy pk,int podzial,int lUb)
         {
+            this.lUb = lUb;
+            this.podzial = podzial;
             foreach (var item in Enum.GetNames(typeof(Edodat)))
             {
                 wszystkie.Add(item);
@@ -55,66 +58,75 @@ namespace GUI
 
         private void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            string nazwa = p.Nazwa;
-            pk = klient.historia[klient.historia.Count - 1].PakietKoncowy;
-            string a = NazwyPakietow.FirstOrDefault(x => x.Value == box.Content.ToString()).Key;
+            
             foreach (CheckBox box in ListBox_Pakiet.Items)
             {
+                string a = NazwyPakietow.FirstOrDefault(x => x.Value == box.Content.ToString()).Key;
+                Console.WriteLine("Coś się usunęło");
                 if (box.IsChecked == true && a == Edodat.Niezdolnosc.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.Niezdolnosc.ToString(), 50000.0, 5, 5, 120.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.Niezdolnosc.ToString(), 50000.0, 5, 5, 120.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.Niezdolnosc.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(12, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 50000.0;
+                    Console.WriteLine("Niezdolność");
                 }
                 else if (box.IsChecked == true && a == Edodat.Onkolog.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.Onkolog.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(10, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 20000.0;
                 }
                 else if (box.IsChecked == true && a == Edodat.Ortopeda.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.Ortopeda.ToString(), 10000.0, 3, 5, 96.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.Ortopeda.ToString(), 10000.0, 3, 5, 96.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.Ortopeda.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(8, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 10000.0;
                 }
                 else if (box.IsChecked == true && a == Edodat.PowazneZachorowanieDziecka.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.PowazneZachorowanieDziecka.ToString(), 20000.0, 4, 5, 120.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.PowazneZachorowanieDziecka.ToString(), 20000.0, 4, 5, 120.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.PowazneZachorowanieDziecka.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(10, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 20000.0;
                 }
                 else if (box.IsChecked == true && a == Edodat.smiercNW.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.smiercNW.ToString(), 100000.0, 6, 5, 60.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.smiercNW.ToString(), 100000.0, 6, 5, 60.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.smiercNW.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(5, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 100000.0;
                 }
                 else if (box.IsChecked == true && a == Edodat.SmiercWK.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.SmiercWK.ToString(), 50000.0, 7, 5, 144.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.SmiercWK.ToString(), 50000.0, 7, 5, 144.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.SmiercWK.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(12, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 50000.0;
                 }
                 else if (box.IsChecked == true && a == Edodat.SportyEkstremalne.ToString())
                 {
-                    p = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0);
-                    pk.UsunPakiet2(p.Nazwa);
-                    pkus.UsunPakiet2(nazwa);
+                    //p = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.UsunPakiet2(Edodat.SportyEkstremalne.ToString());
+                    klient.UsuwaniePojedynczegoPakietu(5, czas, klient, lUb, podzial);
+                    klient.historia[klient.historia.Count - 1].PakietKoncowy.KosztKoncowy -= 5000.0;
                 }
 
             }
-            pkus.LiczenieSumySkladek(pkus);
-            klient.historia[klient.historia.Count - 1].PakietKoncowy = pk;
+            Console.WriteLine("Wypisaeni w usuwaniu");
+            foreach (PakietDodatkowy p in klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe)
+                Console.WriteLine(p.ToString());
 
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas, true);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas, true, podzial);
             this.Close();
             okno.ShowDialog();
         }
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas, true);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas, true, podzial);
             this.Close();
             okno.ShowDialog();
         }

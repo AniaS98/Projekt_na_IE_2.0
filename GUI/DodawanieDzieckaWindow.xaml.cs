@@ -20,22 +20,23 @@ namespace GUI
     /// </summary>
     public partial class DodawanieDzieckaWindow : Window
     {
-        int podzial;
+
         bool decyzja;
         int czas;
         int count;
         Klient klient;
         Zamowienie zamowienie;
+        int podzial;
         public DodawanieDzieckaWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
 
             CzlonekRodziny dziecko = new CzlonekRodziny();
-            dziecko.Wiek = Convert.ToInt32(TextBox_WiekDziecka.Text);
+            dziecko.Wiek =Convert.ToInt32( TextBox_WiekDziecka.Text);
             klient.DodajCzlonkaRodziny(dziecko);
             count++;
             /*if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
@@ -45,14 +46,13 @@ namespace GUI
             Console.WriteLine(count);
             RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count,podzial);
 
-            okno.CheckBox_Dzieci.IsChecked = true;
+            okno.CheckBox_Dzieci.IsChecked=true;
             this.Close();
             okno.ShowDialog();
         }
 
-        public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co, int podzial) 
+        public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co,int podzial) : this()
         {
-            InitializeComponent();
             this.podzial = podzial;
             decyzja = de;
             czas = c;

@@ -29,42 +29,40 @@ namespace GUI
         PakietKoncowy pk;
         PakietDodatkowy p = new PakietDodatkowy();
         bool czyDodano;
-        int podzial = 0;
+        int podzial;
 
         Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
             {
                 { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet Onkolog" }, {"Ortopeda","Pakiet Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
             };
-        public Klient2Window(Klient klient, bool de, int c, int podzial)
-        {
 
+        public Klient2Window(Klient klient, bool de, int c, bool czy,int podzial)
+        {
+            this.podzial = podzial;
 
             czyDodano = czy;
             this.klient = klient;
             czas = c;
             decyzja = de;
             InitializeComponent();
-            if (decyzja == false)
-                liczba_ubezpieczonych = 1;
-            else
-                liczba_ubezpieczonych = 1 + klient.rodzina.Count;
-
             if (czyDodano == false)
             {
-                klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych, klient.historia[klient.historia.Count-1].PakietKoncowy.Podzialskl);
-                Console.WriteLine(klient.historia[klient.historia.Count - 1].PakietKoncowy.Skladka);
+                klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych,12);
                 if (decyzja == true)
                 {
                     klient.PakietRodzinny(czas, klient,podzial);
                 }
                 else
                 {
-                    klient.PakietPodstawowyIndywiduany(czas, klient, podzial);
+                    klient.PakietPodstawowyIndywiduany(czas, klient,podzial);
                 }
             }
 
             int k = klient.historia.Count - 1;
             List <PakietDodatkowy> lista = klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe;
+            foreach (PakietDodatkowy p in klient.historia[klient.historia.Count - 1].PakietKoncowy.dodatkowe)
+                Console.WriteLine(p.ToString());
+            Console.WriteLine(lista.Count);
             List<string>  LS = new List<string>();
             ListBox_Pakiety.ItemsSource = new List<String>();
             for (int i = 0; i < lista.Count; i++)
@@ -76,6 +74,7 @@ namespace GUI
             ListBox_Pakiety.ItemsSource = LS;
             Suma.Text = klient.historia[k].PakietKoncowy.Skladka.ToString();
             kosztKoncowy.Text = klient.historia[k].PakietKoncowy.KosztKoncowy.ToString();
+
         }
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)
@@ -103,7 +102,7 @@ namespace GUI
                 Console.WriteLine(a);
             }
 
-            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas, lista,pk, podzial);
+            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas, lista,pk, podzial,liczba_ubezpieczonych);
             this.Close();
             okno.ShowDialog();
         }
@@ -116,7 +115,7 @@ namespace GUI
             {
                 lista.Add(s.ToString());
             }
-            UsunPakietWindow okno = new UsunPakietWindow(klient, czas, lista, pk, podzial);
+            UsunPakietWindow okno = new UsunPakietWindow(klient, czas, lista, pk,podzial,liczba_ubezpieczonych);
             this.Close();
             okno.ShowDialog();
         }

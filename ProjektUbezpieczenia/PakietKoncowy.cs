@@ -87,10 +87,12 @@ namespace ProjektUbezpieczenia
 
         public void UsunPakiet2(string nazwa)
         {
+            Console.Write("Usuwanie...");
             foreach (PakietDodatkowy i in dodatkowe)
             {
                 if (i.Nazwa == nazwa)
                 {
+                    Console.Write("Niezdolności ");
                     dodatkowe.Remove(i);
                     return;
                 }

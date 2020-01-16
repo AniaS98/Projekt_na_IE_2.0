@@ -26,13 +26,11 @@ namespace GUI
         List<Choroby> chorobies = new List<Choroby>();
         List<Pasje> hobbies = new List<Pasje>();
 
-        bool czyDodano = false;
         bool decyzja = false;
         Klient klient;
         Zamowienie zamowienie;
         PakietKoncowy pk;
         int podzial;
-
 
         public PakietWindow()
         {
@@ -91,22 +89,20 @@ namespace GUI
 
             int l = klient.historia.Count;
 
+            if (ComboBox_Typ.Text == "miesięczna")
+            {
+                z.PakietKoncowy.Podzialskl = 12;
+            }
+            else if (ComboBox_Typ.Text == "roczna")
+            {
+                z.PakietKoncowy.Podzialskl = 1;
+            }
 
 
         }
 
         public void Dalej_Click(object sender, RoutedEventArgs e)
         {
-            if (ComboBox_Typ.Text == "miesięczna")
-            {
-                podzial = 12;
-            }
-            else if (ComboBox_Typ.Text == "roczna")
-            {
-                podzial = 1;
-            }
-            Console.WriteLine("Combo " + ComboBox_Typ.Text);
-
             if (ComboBox_Plec.Text == "" || TextBox_Wiek.Text == "" || ComboBox_Zawod.Text == "")
             {
                 MessageBox.Show("Uzupełnij wszystkie dane!!!");
@@ -155,11 +151,11 @@ namespace GUI
 
             if (ComboBox_Typ.Text == "miesięczna")
             {
-                zamowienie.PakietKoncowy.Podzialskl = 12;
+                podzial = 12;
             }
             else if (ComboBox_Typ.Text == "roczna")
             {
-                zamowienie.PakietKoncowy.Podzialskl = 1;
+                podzial = 1;
             }
 
             int czas = Convert.ToInt32(TextBox_Czas.Text);
@@ -175,7 +171,7 @@ namespace GUI
                 }
                 else
                 {
-                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, podzial);
+                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, false, podzial);
                     this.Close();
                     okno1.ShowDialog();
                 }

@@ -20,7 +20,6 @@ namespace GUI
     /// </summary>
     public partial class RodzinnyWindow : Window
     {
-        int podzial;
         int czas;
         bool decyzja = true;
         Klient klient;
@@ -28,6 +27,7 @@ namespace GUI
         CzlonekRodziny dziecko = new CzlonekRodziny();
         CzlonekRodziny malzonek = new CzlonekRodziny();
         PakietKoncowy pk;
+        int podzial;
 
         int count = 0;
 
@@ -40,7 +40,7 @@ namespace GUI
         {
             DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, count,podzial);
             this.Close();
-            okno.ShowDialog();
+            okno.ShowDialog();  
         }
 
         private void Cofnij_Click(object sender, RoutedEventArgs e)
@@ -52,11 +52,11 @@ namespace GUI
 
         public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckBox_Dzieci.IsChecked == true)
+            /*if (CheckBox_Dzieci.IsChecked == true)
             {
                 for (int d = 1; d <= klient.rodzina.Count; d++)
                 {
-                    DodawanieDzieckaWindow dodawanie = new DodawanieDzieckaWindow(klient, decyzja, czas, count,podzial);
+                    DodawanieDzieckaWindow dodawanie = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
                 }
 
             }
@@ -64,7 +64,7 @@ namespace GUI
             {
                 int d = klient.rodzina.Count;
                 d = 0;
-            }
+            }*/
 
             if (CheckBox_Malzonek.IsChecked == true)
             {
@@ -77,31 +77,27 @@ namespace GUI
                 klient.Malzonek = false;
             }
 
-
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas, podzial);
+            if(Convert.ToInt32(TextBox_WiekMalzonka.Text) < 18)
+            {
+                MessageBox.Show("Małżonek musi mieć conajmniej 18 lat");
+                return;
+            }
+            
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas,false, podzial);
             this.Close();
             okno.ShowDialog();
         }
 
-        public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co,int podzial) : this()
+        public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co,int podzial) 
         {
+            this.podzial = podzial;
             czas = c;
             decyzja = de;
             count = co;
             this.klient = klient;
             z = zamowienie;
             TextBox_LiczbaDzieci.Text = count.ToString();
-            this.podzial = podzial;
 
-            //deklaracja malzonka
-            /*if (klient.Malzonek == true)
-            {
-                CheckBox_Malzonek.IsChecked = true;
-            }           
-            else if (klient.Malzonek == false)
-            {
-                CheckBox_Malzonek.IsChecked = false;            
-            }*/
         }
 
     }

@@ -26,9 +26,9 @@ namespace GUI
 
         private void Klient_Click(object sender, RoutedEventArgs e)
         {
-            KlientWindow okno = new KlientWindow();
+            KlientWindow okno3 = new KlientWindow();
             this.Close();
-            okno.ShowDialog();
+            okno3.ShowDialog();
         }
 
         private void Przedstawiciel_Click(object sender, RoutedEventArgs e)
