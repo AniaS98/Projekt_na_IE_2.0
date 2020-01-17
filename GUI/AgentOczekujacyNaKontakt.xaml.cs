@@ -69,6 +69,8 @@ namespace GUI
                 }
                 Klient klient = listaDoUsuniecia.klienci[0];
                 klient.ZapisKlientaDoXLSX(klient, agent);
+                
+
                 foreach (Klient k in listaDoUsuniecia.klienci)
                 {
                     lista.klienci.Remove(k);

@@ -46,7 +46,7 @@ namespace GUI
             ListaKlientowDoKontaktu.DodajKlienta(klient);
 
             ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
-            this.Close();
+            //this.Close();
         }
 
     }

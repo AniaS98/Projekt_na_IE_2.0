@@ -262,7 +262,7 @@ namespace ProjektUbezpieczenia
 
         public void ZapisKlientaDoXLSX(Klient k, Agent id)
         {
-            string plik = "Klienci_dane.xls";
+            string plik = "Klienci.xls";
             string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
             DataSet dt = new DataSet();
@@ -314,6 +314,10 @@ namespace ProjektUbezpieczenia
 
             command.ExecuteNonQuery();
             conn.Close();
+            
+
+
+
         }
 
 
