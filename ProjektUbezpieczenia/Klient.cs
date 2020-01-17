@@ -259,41 +259,16 @@ namespace ProjektUbezpieczenia
         double[] pakietySum = new double[7];
         double[] pakietyCzas = new double[7];
         int czasdodatkowych = 0;
-        double skladkaMiesieczna = 0;
-        double skladkaKoncowa = 0;
 
-        public void ZapisKlientaDoXLSX(Klient k)
+        public void ZapisKlientaDoXLSX(Klient k, Agent id)
         {
-            string plik = "DaneDoTestów.xls";
-            Microsoft.Office.Interop.Excel.Application application = new Application();
-
-            Workbook workbook = application.Workbooks.Open(plik);
-            Worksheet sheet = application.ActiveSheet; //as application.Worksheet;
-
-            Range range = sheet.UsedRange;
-            int nrow = range.Rows.Count;
-            int ncol = range.Columns.Count;
-
-
-
-            /*string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string plik = "Klienci_dane.xls";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [Arkusz1$]", conn);
-            OleDbCommandBuilder builder = new OleDbCommandBuilder(myDataAdapter);*/
             DataSet dt = new DataSet();
-            //DataTable table = new DataTable();
-            DataRow dr;
-            //myDataAdapter.Fill(dt);
-            int rozmiar = 0;//dt.Tables.Count;
 
-            Skl_Dzieci = 0;
-            Skl_Dorosli = 55.0;
-            pakietyOdp = new string[7];
-            pakietySum = new double[7];
-            pakietyCzas = new double[7];
-            czasdodatkowych = 0;
-            skladkaMiesieczna = 0;
-            skladkaKoncowa = 0;
+            string data;
+            int czas = k.historia[k.historia.Count - 1].PakietKoncowy.Lata;
 
 
             List<double> pomocnik1 = new List<double>();
@@ -302,136 +277,43 @@ namespace ProjektUbezpieczenia
             int dzieci_5 = 0;
             int dzieci_12 = 0;
             int dzieci_18 = 0;
-            int lUbezpieczonych = 1;
             int ldorosli = 1;
-            double DorosliZnizka = 0;
-            double DodatkiSum = 0;
-            double[] pakietyZnizki = new double[7];
-            int id = 0;
+            DateTime dzis = DateTime.Now;
 
             String typ = "Roczna";
 
             for (int i = 0; i < 7; i++)
                 pakietyOdp[i] = "Nie";
-            /*
-            foreach(PakietDodatkowy pd in k.Historia[k.historia.Count - 1].PakietKoncowy.Dodatkowe)
-            {
-                if (pd.Nazwa == Edodat.SportyEkstremalne.ToString())
-                    pakietyOdp[0] = "Tak";
-                else if (pd.Nazwa == Edodat.Onkolog.ToString())
-                    pakietyOdp[1] = "Tak";
-                else if (pd.Nazwa == Edodat.Ortopeda.ToString())
-                    pakietyOdp[2] = "Tak";
-                else if (pd.Nazwa == Edodat.PowazneZachorowanieDziecka.ToString())
-                    pakietyOdp[3] = "Tak";
-                else if (pd.Nazwa == Edodat.Niezdolnosc.ToString())
-                    pakietyOdp[4] = "Tak";
-                else if (pd.Nazwa == Edodat.SmiercWK.ToString())
-                    pakietyOdp[5] = "Tak";
-                else if (pd.Nazwa == Edodat.smiercNW.ToString())
-                    pakietyOdp[6] = "Tak";
-            }*/
-            if (rodzina != null)
-            {
-                pomocnik2 = PakietRodzinny(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k, k.Historia[k.historia.Count - 1].PakietKoncowy.Podzialskl);
-                lUbezpieczonych += k.rodzina.Count;
-                if (malzonek == false)
-                    ldzieci = k.rodzina.Count;
-                else
-                {
-                    ldzieci = k.rodzina.Count - 1;
-                    ldorosli++;
-                    DorosliZnizka = 5.5;
-                }
-                foreach (CzlonekRodziny cr in k.Rodzina)
-                {
-                    if (cr.Wiek < 6)
-                    {
-                        dzieci_5++;
-                    }
-                    if (cr.Wiek < 13)
-                    {
-                        dzieci_12++;
-                    }
-                    if (cr.Wiek < 19)
-                    {
-                        dzieci_18++;
-                    }
-                }
-            }
-            else
-                pomocnik1 = PakietPodstawowyIndywiduany(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k, k.historia[k.historia.Count - 1].PakietKoncowy.Podzialskl);
-
-            FunkcjaPakietDodatkowy(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k, ldorosli, 1);
 
             if (k.Historia[k.historia.Count - 1].PakietKoncowy.Podzialskl == 12)
                 typ = "Miesięczna";
 
-            dr = dt.Tables[rozmiar].NewRow();
-            dr[1] = k.Imie;
-            dr[2] = k.Nazwisko;
-            dr[3] = k.Wiek;
-            dr[4] = k.Plec;
-            dr[5] = ldzieci;
-            dr[6] = dzieci_5;
-            dr[7] = dzieci_12;
-            dr[8] = dzieci_18;
-            dr[9] = ldorosli;
-            dr[10] = lUbezpieczonych;
+            data = "\'" + k.Imie + "\',\'" + k.Nazwisko + "\',\'" + k.Wiek + "\',\'" + k.Plec + "\'," + ldzieci + "," + dzieci_5 + "," + dzieci_12 + "," + dzieci_18 + "," + ldorosli + "," + czas;
+            
             for (int i = 0; i < 7; i++)
-                dr[11 + i] = pakietyOdp[1];
-            dr[18] = typ;
-            dr[19] = Skl_Dzieci;
-            dr[20] = Skl_Dorosli;
-            dr[21] = k.Historia[k.historia.Count - 1].PakietKoncowy.Lata;
-            dr[22] = (Skl_Dorosli + Skl_Dzieci);
-            dr[23] = DorosliZnizka;
-            dr[24] = (Skl_Dorosli + Skl_Dzieci - DorosliZnizka);
+                data += (",\'" + pakietyOdp[1]+ "\'");
             for (int i = 0; i < 7; i++)
-            {
-                dr[25 + i] = pakietySum[i];
-                DodatkiSum += pakietySum[i];
-            }
-            dr[33] = DodatkiSum;
-            for (int i = 0; i < 7; i++)
-            {
-                pakietyCzas[i] = pakietySum[i] * k.Historia[k.historia.Count - 1].PakietKoncowy.Lata;
-                dr[34 + i] = pakietyCzas[i];
-                if (czasdodatkowych > 5)
-                    pakietyZnizki[i] = pakietySum[i] * 0.2 * (czasdodatkowych - 5) + pakietySum[i];
-                else
-                    pakietyZnizki[i] = pakietySum[i];
-            }
-            for (int i = 0; i < 7; i++)
-            {
-                dr[42 + i] = pakietyZnizki[i];
+                data += ("," + czas);
 
-            }
-            dr[50] = skladkaMiesieczna;
-            dr[51] = skladkaKoncowa;
-            ListaAgentow LA = ListaAgentow.OdczytajXML("ListaAgentow.xml");
-            foreach (Agent a in LA.Agenci)
-            {
-                if (a.Lista_klientow.Klienci.Contains(k))
-                    id = a.idAgenta;
-            }
-            dr[52] = id;
-
-            for (int i = 1; i < ncol; i++)
-            {
-                sheet.Cells[nrow + 1, i + 1] = dr[i];
-            }
-
-            workbook.Close(true);
-            application.Quit();
-
-            //dt.Tables[rozmiar].Rows.Add(dr);
+            data+=(",\'" + typ+ "\'");
+            data += (",\'" + k.historia[k.historia.Count - 1].PakietKoncowy.Skladka + "\'");
+            data += (",\'" + dzis.ToString("dd/MM/yyyy") + "\'");
+            data+= (",\'" + k.NumerTelefonu + "\',\'"+id.Nazwisko + "\'");
+            dzis.AddMonths(czas*12);
+            data+= (",\'" + dzis.ToString("dd/MM/yyyy") + "\'");
 
 
-            //myDataAdapter.UpdateCommand = builder.GetUpdateCommand();
-            //myDataAdapter.Update(dt);
+            string columns = "(IMIĘ,NAZWISKO,WIEK,PŁEĆ,DZIECI,A,B,C,Ubezpieczeni,CzasTrwaniaPakietuPodst,SportyEkstremalne,Onkolog,Ortopeda,PoważneZachorowanieDziecka,NiezdolnośćDoSamodzielnegoŻyciaLubPracy,ŚmierćWypadekKomunikacyjny,ŚmierćNNW,CzasTrwaniaDod1,CzasTrwaniaDod2,CzasTrwaniaDod3,CzasTrwaniaDod4,CzasTrwaniaDod5,CzasTrwaniaDod6,CzasTrwaniaDod7,Typ,Składka,Początek,Telefon,id,Koniec)";
 
-            //File.WriteAllText("TestyKlientow.csv", csv.ToString());
+            OleDbCommand command = new OleDbCommand();
+            conn.Open();
+            command.Connection = conn;
+            string sql = "Insert into [Sheet1$] " + columns+ " values (" + data+")";
+            Console.WriteLine(sql);
+            command.CommandText = sql;
+
+            command.ExecuteNonQuery();
+            conn.Close();
         }
 
 

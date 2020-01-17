@@ -18,7 +18,7 @@ namespace ProjektUbezpieczenia
             ListaKlientow listak = new ListaKlientow();
             //listak.DodajKlienta(K1);
 
-            DodawanieAgentowdobazy();
+            //DodawanieAgentowdobazy();
             // int l = K1.historia.Count;
             // Console.WriteLine(l);
             //K1.historia.Add(new Zamowienie());

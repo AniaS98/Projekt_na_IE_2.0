@@ -27,8 +27,8 @@ namespace GUI
     /// </summary>
     public partial class AgentStatystykiWiek : Window
     {
-        public string agent;
-        public AgentStatystykiWiek(string a)
+        Agent agent;
+        public AgentStatystykiWiek(Agent a)
         {
             InitializeComponent();
             agent = a;

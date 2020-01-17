@@ -42,6 +42,7 @@ namespace GUI
         }
         public Klient2Window(Klient klient, bool de, int c, bool czy,int podzial)
         {
+
             InitializeComponent();
             this.podzial = podzial;
 
@@ -78,7 +79,6 @@ namespace GUI
             ListBox_Pakiety.ItemsSource = LS;
             Suma.Text = klient.historia[k].PakietKoncowy.Skladka.ToString();
             kosztKoncowy.Text = klient.historia[k].PakietKoncowy.KosztKoncowy.ToString();
-
         }
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)

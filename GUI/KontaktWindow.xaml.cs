@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ProjektUbezpieczenia;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace GUI
 {
@@ -38,8 +41,10 @@ namespace GUI
             klient.Imie = TextBox_Imie.Text;
             klient.Nazwisko = TextBox_Nazwisko.Text;
             klient.NumerTelefonu = TextBox_Telefon.Text;
-            ListaKlientow ListaKlientowDoKontaktu = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.XML");
+            ListaKlientow ListaKlientowDoKontaktu = ListaKlientow.OdczytajXML("ListaKlientówDoKontaktu.xml");
+
             ListaKlientowDoKontaktu.DodajKlienta(klient);
+
             ListaKlientowDoKontaktu.ZapiszXML("ListaKlientówDoKontaktu");
             this.Close();
         }

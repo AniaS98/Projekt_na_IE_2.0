@@ -26,8 +26,8 @@ namespace GUI
     /// </summary>
     public partial class AgentStatystykiPlec : Window
     {
-        public string agent;
-        public AgentStatystykiPlec(string a)
+        Agent agent;
+        public AgentStatystykiPlec(Agent a)
         {
             InitializeComponent();
             agent = a;
