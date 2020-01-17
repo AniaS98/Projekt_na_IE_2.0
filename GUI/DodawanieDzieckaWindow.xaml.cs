@@ -39,10 +39,11 @@ namespace GUI
             dziecko.Wiek =Convert.ToInt32( TextBox_WiekDziecka.Text);
             klient.DodajCzlonkaRodziny(dziecko);
             count++;
-            /*if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
+            if (Convert.ToInt32(TextBox_WiekDziecka.Text) > 18)
             {
                 MessageBox.Show("Dziecko nie może mieć powyżej 18 lat.");
-            }*/
+                return;
+            }
             Console.WriteLine(count);
             RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count,podzial);
 

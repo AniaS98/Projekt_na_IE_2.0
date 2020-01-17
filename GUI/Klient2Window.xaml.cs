@@ -40,7 +40,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        public Klient2Window(Klient klient, bool de, int c, bool czy,int podzial)
+        public Klient2Window(Klient klient, bool de, int c, bool czy, int podzial)
         {
 
             InitializeComponent();
@@ -72,13 +72,19 @@ namespace GUI
             ListBox_Pakiety.ItemsSource = new List<String>();
             for (int i = 0; i < lista.Count; i++)
             {
-                //LS.Add(lista[i].Nazwa.ToString());
                 LS.Add(NazwyPakietow[lista[i].Nazwa]);
-
             }
             ListBox_Pakiety.ItemsSource = LS;
             Suma.Text = klient.historia[k].PakietKoncowy.Skladka.ToString();
             kosztKoncowy.Text = klient.historia[k].PakietKoncowy.KosztKoncowy.ToString();
+            if(podzial == 12)
+            {
+                TextBox_RodzajSkladki.Text = "/miesiąc";
+            }
+            else
+            {
+                TextBox_RodzajSkladki.Text = "/rok";
+            }
         }
 
         private void Kontakt_Click(object sender, RoutedEventArgs e)
