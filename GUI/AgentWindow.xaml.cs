@@ -26,8 +26,8 @@ namespace GUI
     /// </summary>
     public partial class AgentWindow : Window
     {
-        public string przedstawiciel;
-        public AgentWindow(string a)
+        Agent przedstawiciel;
+        public AgentWindow(Agent a)
         {
             InitializeComponent();
             przedstawiciel= a;
@@ -44,7 +44,7 @@ namespace GUI
              myDataAdapter.Fill(dt, "Sheet1");
 
 
-            dataGridView.ItemsSource= ((dt.Tables["Sheet1"].DefaultView).RowFilter = string.Format("id = '{0}'", przedstawiciel.ToString()));
+            dataGridView.ItemsSource= ((dt.Tables["Sheet1"].DefaultView).RowFilter = string.Format("id = '{0}'", przedstawiciel.Nazwisko.ToString()));
             dataGridView.ItemsSource = dt.Tables["Sheet1"].DefaultView;
        
 
@@ -62,7 +62,7 @@ namespace GUI
             myDataAdapter.Fill(dt, "Sheet1");
 
             DateTime dateT = DateTime.Now.AddMonths(1);
-            dataGridView.ItemsSource = ((dt.Tables["Sheet1"].DefaultView).RowFilter = string.Format("Koniec<= '{0}' AND id = '{1}'", dateT.ToString("yyyy-MM-dd"), przedstawiciel.ToString()));
+            dataGridView.ItemsSource = ((dt.Tables["Sheet1"].DefaultView).RowFilter = string.Format("Koniec<= '{0}' AND id = '{1}'", dateT.ToString("yyyy-MM-dd"), przedstawiciel.Nazwisko.ToString()));
 
 
            dataGridView.ItemsSource = dt.Tables["Sheet1"].DefaultView;

@@ -98,7 +98,6 @@ namespace ProjektUbezpieczenia
             {
                 return PESEL;
             }
-
             set
             {
                 if (value.Length != 11)
@@ -260,41 +259,16 @@ namespace ProjektUbezpieczenia
         double[] pakietySum = new double[7];
         double[] pakietyCzas = new double[7];
         int czasdodatkowych = 0;
-        double skladkaMiesieczna = 0;
-        double skladkaKoncowa = 0;
 
-        public void ZapisKlientaDoXLSX(Klient k)
+        public void ZapisKlientaDoXLSX(Klient k, Agent id)
         {
-            string plik = "DaneDoTestów.xls";
-            Microsoft.Office.Interop.Excel.Application application = new Application();
-
-            Workbook workbook = application.Workbooks.Open(plik);
-            Worksheet sheet = application.ActiveSheet; //as application.Worksheet;
-
-            Range range = sheet.UsedRange;
-            int nrow = range.Rows.Count;
-            int ncol = range.Columns.Count;
-
-
-
-            /*string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
+            string plik = "Klienci.xls";
+            string PathConn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + plik + "; Extended Properties=\"Excel 8.0;HDR=Yes;\";";
             OleDbConnection conn = new OleDbConnection(PathConn);
-            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter("Select * from [Arkusz1$]", conn);
-            OleDbCommandBuilder builder = new OleDbCommandBuilder(myDataAdapter);*/
             DataSet dt = new DataSet();
-            //DataTable table = new DataTable();
-            DataRow dr;
-            //myDataAdapter.Fill(dt);
-            int rozmiar = 0;//dt.Tables.Count;
 
-            Skl_Dzieci = 0;
-            Skl_Dorosli = 55.0;
-            pakietyOdp = new string[7];
-            pakietySum = new double[7];
-            pakietyCzas = new double[7];
-            czasdodatkowych = 0;
-            skladkaMiesieczna = 0;
-            skladkaKoncowa = 0;
+            string data;
+            int czas = k.historia[k.historia.Count - 1].PakietKoncowy.Lata;
 
 
             List<double> pomocnik1 = new List<double>();
@@ -303,136 +277,47 @@ namespace ProjektUbezpieczenia
             int dzieci_5 = 0;
             int dzieci_12 = 0;
             int dzieci_18 = 0;
-            int lUbezpieczonych = 1;
             int ldorosli = 1;
-            double DorosliZnizka = 0;
-            double DodatkiSum = 0;
-            double[] pakietyZnizki = new double[7];
-            int id = 0;
+            DateTime dzis = DateTime.Now;
 
             String typ = "Roczna";
 
             for (int i = 0; i < 7; i++)
                 pakietyOdp[i] = "Nie";
-            /*
-            foreach(PakietDodatkowy pd in k.Historia[k.historia.Count - 1].PakietKoncowy.Dodatkowe)
-            {
-                if (pd.Nazwa == Edodat.SportyEkstremalne.ToString())
-                    pakietyOdp[0] = "Tak";
-                else if (pd.Nazwa == Edodat.Onkolog.ToString())
-                    pakietyOdp[1] = "Tak";
-                else if (pd.Nazwa == Edodat.Ortopeda.ToString())
-                    pakietyOdp[2] = "Tak";
-                else if (pd.Nazwa == Edodat.PowazneZachorowanieDziecka.ToString())
-                    pakietyOdp[3] = "Tak";
-                else if (pd.Nazwa == Edodat.Niezdolnosc.ToString())
-                    pakietyOdp[4] = "Tak";
-                else if (pd.Nazwa == Edodat.SmiercWK.ToString())
-                    pakietyOdp[5] = "Tak";
-                else if (pd.Nazwa == Edodat.smiercNW.ToString())
-                    pakietyOdp[6] = "Tak";
-            }*/
-            if (rodzina != null)
-            {
-                pomocnik2 = PakietRodzinny(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k);
-                lUbezpieczonych += k.rodzina.Count;
-                if (malzonek == false)
-                    ldzieci = k.rodzina.Count;
-                else
-                {
-                    ldzieci = k.rodzina.Count - 1;
-                    ldorosli++;
-                    DorosliZnizka = 5.5;
-                }
-                foreach (CzlonekRodziny cr in k.Rodzina)
-                {
-                    if (cr.Wiek < 6)
-                    {
-                        dzieci_5++;
-                    }
-                    if (cr.Wiek < 13)
-                    {
-                        dzieci_12++;
-                    }
-                    if (cr.Wiek < 19)
-                    {
-                        dzieci_18++;
-                    }
-                }
-            }
-            else
-                pomocnik1 = PakietPodstawowyIndywiduany(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k);
-
-            FunkcjaPakietDodatkowy(k.Historia[k.historia.Count - 1].PakietKoncowy.Lata, k, ldorosli, 1);
 
             if (k.Historia[k.historia.Count - 1].PakietKoncowy.Podzialskl == 12)
                 typ = "Miesięczna";
 
-            dr = dt.Tables[rozmiar].NewRow();
-            dr[1] = k.Imie;
-            dr[2] = k.Nazwisko;
-            dr[3] = k.Wiek;
-            dr[4] = k.Plec;
-            dr[5] = ldzieci;
-            dr[6] = dzieci_5;
-            dr[7] = dzieci_12;
-            dr[8] = dzieci_18;
-            dr[9] = ldorosli;
-            dr[10] = lUbezpieczonych;
-            for (int i = 0; i < 7; i++)
-                dr[11 + i] = pakietyOdp[1];
-            dr[18] = typ;
-            dr[19] = Skl_Dzieci;
-            dr[20] = Skl_Dorosli;
-            dr[21] = k.Historia[k.historia.Count - 1].PakietKoncowy.Lata;
-            dr[22] = (Skl_Dorosli + Skl_Dzieci);
-            dr[23] = DorosliZnizka;
-            dr[24] = (Skl_Dorosli + Skl_Dzieci - DorosliZnizka);
-            for (int i = 0; i < 7; i++)
-            {
-                dr[25 + i] = pakietySum[i];
-                DodatkiSum += pakietySum[i];
-            }
-            dr[33] = DodatkiSum;
-            for (int i = 0; i < 7; i++)
-            {
-                pakietyCzas[i] = pakietySum[i] * k.Historia[k.historia.Count - 1].PakietKoncowy.Lata;
-                dr[34 + i] = pakietyCzas[i];
-                if (czasdodatkowych > 5)
-                    pakietyZnizki[i] = pakietySum[i] * 0.2 * (czasdodatkowych - 5) + pakietySum[i];
-                else
-                    pakietyZnizki[i] = pakietySum[i];
-            }
-            for (int i = 0; i < 7; i++)
-            {
-                dr[42 + i] = pakietyZnizki[i];
-
-            }
-            dr[50] = skladkaMiesieczna;
-            dr[51] = skladkaKoncowa;
-            ListaAgentow LA = ListaAgentow.OdczytajXML("ListaAgentow.xml");
-            foreach (Agent a in LA.Agenci)
-            {
-                if (a.Lista_klientow.Klienci.Contains(k))
-                    id = a.idAgenta;
-            }
-            dr[52] = id;
-
-            for(int i=1;i<ncol;i++)
-            {
-                sheet.Cells[nrow + 1, i+1]=dr[i];
-            }
-
-            workbook.Close(true);
-            application.Quit();
-
-            //dt.Tables[rozmiar].Rows.Add(dr);
-
+            data = "\'" + k.Imie + "\',\'" + k.Nazwisko + "\',\'" + k.Wiek + "\',\'" + k.Plec + "\'," + ldzieci + "," + dzieci_5 + "," + dzieci_12 + "," + dzieci_18 + "," + ldorosli + "," + czas;
             
-            //myDataAdapter.UpdateCommand = builder.GetUpdateCommand();
-            //myDataAdapter.Update(dt);
+            for (int i = 0; i < 7; i++)
+                data += (",\'" + pakietyOdp[1]+ "\'");
+            for (int i = 0; i < 7; i++)
+                data += ("," + czas);
 
-            //File.WriteAllText("TestyKlientow.csv", csv.ToString());
+            data+=(",\'" + typ+ "\'");
+            data += (",\'" + k.historia[k.historia.Count - 1].PakietKoncowy.Skladka + "\'");
+            data += (",\'" + dzis.ToString("dd/MM/yyyy") + "\'");
+            data+= (",\'" + k.NumerTelefonu + "\',\'"+id.Nazwisko + "\'");
+            dzis.AddMonths(czas*12);
+            data+= (",\'" + dzis.ToString("dd/MM/yyyy") + "\'");
+
+
+            string columns = "(IMIĘ,NAZWISKO,WIEK,PŁEĆ,DZIECI,A,B,C,Ubezpieczeni,CzasTrwaniaPakietuPodst,SportyEkstremalne,Onkolog,Ortopeda,PoważneZachorowanieDziecka,NiezdolnośćDoSamodzielnegoŻyciaLubPracy,ŚmierćWypadekKomunikacyjny,ŚmierćNNW,CzasTrwaniaDod1,CzasTrwaniaDod2,CzasTrwaniaDod3,CzasTrwaniaDod4,CzasTrwaniaDod5,CzasTrwaniaDod6,CzasTrwaniaDod7,Typ,Składka,Początek,Telefon,id,Koniec)";
+
+            OleDbCommand command = new OleDbCommand();
+            conn.Open();
+            command.Connection = conn;
+            string sql = "Insert into [Sheet1$] " + columns+ " values (" + data+")";
+            Console.WriteLine(sql);
+            command.CommandText = sql;
+
+            command.ExecuteNonQuery();
+            conn.Close();
+            
+
+
+
         }
 
 
@@ -453,17 +338,24 @@ namespace ProjektUbezpieczenia
             PakietKoncowy pk = new PakietKoncowy(0, k.historia[l].PakietKoncowy.Skladka, 0, 0, 0, czas);
             PakietDodatkowy pd = new PakietDodatkowy();
             double wskladka = 0.0;
+            if (k.malzonek == true)
+                LiczbaUbezpieczonych = 2;
+            else
+                LiczbaUbezpieczonych = 1;
 
+            Console.WriteLine("Liczba ubezpieczonych" + LiczbaUbezpieczonych);
             //PakietDodatkowy(string nazwa, double koszt, int idd, int lata, double skladka)
 
             if (k.Hobbies.Contains(Pasje.sporty_ekstremalne))
             {
                 pakietyOdp[0] = "Tak";
                 pakietySum[0] = 5.0 * LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, 60.0 * LiczbaUbezpieczonych);
+                if (podzial == 1)
+                    pakietySum[0] *= 12;
+                wskladka += pakietySum[0];
+                pd = new PakietDodatkowy(Edodat.SportyEkstremalne.ToString(), 5000.0, 1, 5, pakietySum[0]);
+                Console.WriteLine("1: " + pakietySum[0]);
                 pk.DodajPakiet2(pd);
-                wskladka += 60.0;
-                Console.WriteLine(1);
             }
 
 
@@ -472,53 +364,66 @@ namespace ProjektUbezpieczenia
             {
                 pakietyOdp[1] = "Tak";
                 pakietySum[1] = 10.0 * LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, 120.0 * LiczbaUbezpieczonych);
+                if (podzial == 1)
+                    pakietySum[1] *= 12;
+                wskladka += pakietySum[1];
+                pd = new PakietDodatkowy(Edodat.Onkolog.ToString(), 20000.0, 2, 5, pakietySum[1]);
+                Console.WriteLine("2: " + pakietySum[1]);
                 pk.DodajPakiet2(pd);
-                wskladka += 120.0;
-                Console.WriteLine(2);
             }
 
             if (k.Chorobies.Contains(Choroby.osteoporoza) || k.Wiek > 60 || k.Hobbies.Contains(Pasje.wspinaczka_gorska) || k.Hobbies.Contains(Pasje.rower) || k.Hobbies.Contains(Pasje.sporty_zimowe) || k.Hobbies.Contains(Pasje.lekkoatletyka))
             {
                 pakietyOdp[2] = "Tak";
                 pakietySum[2] = 8.0 * LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.Ortopeda.ToString(), 10000.0, 3, 5, 96.0 * LiczbaUbezpieczonych);
+                if (podzial == 1)
+                    pakietySum[2] *= 12;
+                wskladka += pakietySum[2];
+                pd = new PakietDodatkowy(Edodat.Ortopeda.ToString(), 10000.0, 3, 5, pakietySum[2]);
+                Console.WriteLine("3: " + pakietySum[2]);
                 pk.DodajPakiet2(pd);
-                wskladka += 96.0;
-                Console.WriteLine(3);
             }
             if ((k.malzonek == false && k.Rodzina.Count != 0) || (k.malzonek == true && k.Rodzina.Count != 1))
             {
                 pakietyOdp[3] = "Tak";
                 pakietySum[3] = 10.0 * LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.PowazneZachorowanieDziecka.ToString(), 20000.0, 4, 5, 120.0 * LiczbaUbezpieczonych);
+                if (podzial == 1)
+                    pakietySum[3] *= 12;
+                wskladka += pakietySum[3];
+                pd = new PakietDodatkowy(Edodat.PowazneZachorowanieDziecka.ToString(), 20000.0, 4, 5, pakietySum[3]);
+                Console.WriteLine("4: " + pakietySum[3]);
                 pk.DodajPakiet2(pd);
-                wskladka += 120.0;
-                Console.WriteLine(4);
             }
             if (k.Zawod == Zawody.gornik || k.Zawod == Zawody.zolnierz || k.Zawod == Zawody.rybak || k.Zawod == Zawody.pilot_samolotu || k.Zawod == Zawody.policjant || k.Zawod == Zawody.strazak || k.Zawod == Zawody.budowlaniec || k.Zawod == Zawody.pracownik_przemysłu_ciezkiego || k.Zawod == Zawody.osoba_pracujaca_na_wysokosci || k.Zawod == Zawody.lekarz)
             {
                 pakietyOdp[4] = "Tak";
-                pakietySum[4] = 10.0 * LiczbaUbezpieczonych;
-                pd = new PakietDodatkowy(Edodat.Niezdolnosc.ToString(), 50000.0, 5, 5, 120.0 * LiczbaUbezpieczonych);
+                pakietySum[4] = 12.0 * LiczbaUbezpieczonych;
+                if (podzial == 1)
+                    pakietySum[4] *= 12;
+                wskladka += pakietySum[4];
+                pd = new PakietDodatkowy(Edodat.Niezdolnosc.ToString(), 50000.0, 5, 5, pakietySum[4]);
+                Console.WriteLine("5: " + pakietySum[4]);
                 pk.DodajPakiet2(pd);
-                wskladka += 120.0;
-                Console.WriteLine(5);
             }
-            //W proponowanych zawsze będą Śmierci, chyba że wymyślimy jakieś warunki :D
-            pd = new PakietDodatkowy(Edodat.SmiercWK.ToString(), 100000.0, 6, 5, 60.0 * LiczbaUbezpieczonych);
-            pk.DodajPakiet2(pd);
-            wskladka += 60.0;
+            //W proponowanych zawsze będą Śmierci
             pakietyOdp[5] = "Tak";
             pakietySum[5] = 5.0 * LiczbaUbezpieczonych;
-            Console.WriteLine(6);
-
-            pd = new PakietDodatkowy(Edodat.smiercNW.ToString(), 50000.0, 7, 5, 144.0 * LiczbaUbezpieczonych);
+            if (podzial == 1)
+                pakietySum[5] *= 12;
+            wskladka += pakietySum[5];
+            pd = new PakietDodatkowy(Edodat.SmiercWK.ToString(), 100000.0, 6, 5, pakietySum[5]);
+            Console.WriteLine("6: " + pakietySum[5]);
             pk.DodajPakiet2(pd);
-            wskladka += 144.0;
+
+
             pakietyOdp[6] = "Tak";
             pakietySum[6] = 12.0 * LiczbaUbezpieczonych;
-            Console.WriteLine(7);
+            if (podzial == 1)
+                pakietySum[6] *= 12;
+            wskladka += pakietySum[6];
+            pd = new PakietDodatkowy(Edodat.smiercNW.ToString(), 50000.0, 7, 5, pakietySum[6]);
+            Console.WriteLine("7: " + pakietySum[6]);
+            pk.DodajPakiet2(pd);
 
             Console.WriteLine("Pakiety Dodatkowe - składka roczna {0}", wskladka);
 
@@ -526,14 +431,15 @@ namespace ProjektUbezpieczenia
             if (czas > 5)
             {
                 double roznica = (double)czas - 5.0;
-                wskladka = ((wskladka * roznica * 0.2) / roznica) + wskladka;
+                wskladka = (wskladka * roznica * 0.2) + wskladka;
+                Console.WriteLine("Pakiety Dodatkowe - po obniżce {0}", wskladka);
             }
 
-            if (podzial == 12)
+            /*if (podzial == 12)
             {
                 wskladka = wskladka / 12;
                 Console.WriteLine("Pakiety Dodatkowe - składka miesięczna {0}", wskladka);
-            }
+            }*/
             pk.Skladka += wskladka;
 
 
@@ -546,6 +452,69 @@ namespace ProjektUbezpieczenia
             z.ZapiszXML();
         }
 
+        public void LiczenieKosztu(Klient k)
+        {
+            double wynik = 0.0;
+            Zamowienie z = k.historia[k.historia.Count - 1];
+            foreach (PakietDodatkowy pd in z.PakietKoncowy.dodatkowe)
+            {
+                wynik += pd.Koszt;
+            }
+            k.historia[k.historia.Count - 1].PakietKoncowy.KosztKoncowy = wynik;
+
+        }
+
+        public void DodaniePojedynczegoPakietu(double skladka,int czas, Klient k, int LiczbaUbezpieczonych, int podzial)
+        {
+            double pierwotna = k.historia[k.historia.Count - 1].PakietKoncowy.Skladka;
+            if (podzial == 1)
+            {
+                pierwotna /= 0.95;
+                skladka *= 12;
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka = pierwotna;
+            }
+
+            if (czas > 5)
+            {
+                double roznica = (double)czas - 5.0;
+                skladka = (skladka * roznica * 0.2) + skladka;
+            }
+            k.historia[k.historia.Count - 1].PakietKoncowy.Skladka += skladka;
+            if (podzial == 1)
+            {
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka *= 0.95;
+            }
+            Console.WriteLine("Dodanie pakietu {0}", skladka);
+
+        }
+
+        public void UsuwaniePojedynczegoPakietu(double skladka, int czas, Klient k, int LiczbaUbezpieczonych, int podzial)
+        {
+            double pierwotna=k.historia[k.historia.Count - 1].PakietKoncowy.Skladka;
+            if (podzial == 1)
+            {
+                pierwotna /= 0.95;
+                skladka *= 12;
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka = pierwotna;
+            }
+                
+            if (czas > 5)
+            {
+                double roznica = (double)czas - 5.0;
+                skladka = (skladka * roznica * 0.2) + skladka;
+            }
+            k.historia[k.historia.Count - 1].PakietKoncowy.Skladka -= skladka;
+            if (podzial == 1)
+            {
+                k.historia[k.historia.Count - 1].PakietKoncowy.Skladka *= 0.95;
+            }
+            Console.WriteLine("Usuwanie pakietu {0}", skladka);
+
+        }
+
+
+
+
         List<double> results = new List<double>();
 
         /// <summary>
@@ -554,27 +523,31 @@ namespace ProjektUbezpieczenia
         /// WYJŚCIE: składka roczna/miesięczna (podana przez odwołanie do pakietukoncowego)
         /// </summary>
 
-        public List<double> PakietPodstawowyIndywiduany(int czas, Klient k)
+        public List<double> PakietPodstawowyIndywiduany(int czas, Klient k, int podzial)
         {
             int l = k.historia.Count - 1;
-            int podzial = k.historia[l].PakietKoncowy.Podzialskl;
-            double wynik = 480.0;
+            double wynik = 40.0;
 
 
             if (czas > 10)
             {
-                double roznica = (double)czas - 5.0;
-                wynik = ((wynik * roznica * 0.2) / roznica) + wynik;
+                double roznica = (double)czas - 10.0;
+                wynik = (wynik * roznica * 0.2) + wynik;
                 Console.WriteLine("Pakiet Indywidualny - składka roczna {0}", wynik);
             }
 
             //wynik = 480.0;
-            if (wynik == 12)
-                wynik = wynik / 12;
-            k.historia[l].PakietKoncowy.Skladka += wynik;
-            Console.WriteLine("Składka pakietu indywidualnego");
+            if (podzial == 1)
+            {
+                k.historia[l].PakietKoncowy.Skladka += wynik;
+                k.historia[l].PakietKoncowy.Skladka *= (12*0.95);
+            }
+            else
+                k.historia[l].PakietKoncowy.Skladka += wynik;
+            Console.WriteLine("Składka pakietu indywidualnego: " + wynik);
             results.Add(wynik);//Składka
             results.Add(100000.0);//Suma
+            LiczenieKosztu(k);
 
             return results;
         }
@@ -592,18 +565,19 @@ namespace ProjektUbezpieczenia
         /// WYJŚCIE: Suma składek przekazana przez referencje
         /// </summary>
         //PROMOCJE I PODZIAŁ
-        public List<double> PakietRodzinny(int czas, Klient k)
+        public List<double> PakietRodzinny(int czas, Klient k, int podzial)
         {
             double czyMalzonek = 0.0;
             int l = k.historia.Count - 1;
-            int podzial = k.historia[l].PakietKoncowy.Podzialskl; //te szalone odwołania XD
+            Console.WriteLine("Podzial: " + podzial);
+            double wskladka = 0;
 
-            double wskladka = 0.0;
-
-            for (int d = 1; d < k.rodzina.Count; d++)
+            int ldzieci = k.rodzina.Count;
+            if (k.malzonek == true)
+                ldzieci--;
+            for (int d = 0; d < ldzieci; d++)
             {
-                if (d == 0 && k.malzonek == true)
-                    d++;
+                Console.WriteLine("PakietRodzinny wiek dziecka: " + k.rodzina[d].Wiek);
 
                 if (k.rodzina[d].Wiek <= 5)
                 {
@@ -621,6 +595,7 @@ namespace ProjektUbezpieczenia
                     wskladka += 30.0;
                 }
             }
+            Console.WriteLine("PakietRodzinny dzieci: " + wskladka);
             results.Add(wskladka);
 
             results.Add(55.0);
@@ -630,30 +605,40 @@ namespace ProjektUbezpieczenia
                 results[1] += 55.0;
                 Skl_Dorosli += 55.0;
             }
-
-
-            if (podzial == 1)
-            {
-                wskladka = (wskladka * 12.0 + 660.0 + 660 * 0.9 * czyMalzonek) * 0.95;
-            }
-            else
-            {
-
-                wskladka = wskladka + 55.0 + 55.0 * 0.9 * czyMalzonek;
-            }
+            Console.WriteLine("PakietRodzinny czyMałżonek: " + czyMalzonek);
+            wskladka = wskladka + 55.0 + 55.0 * czyMalzonek;
+            Console.WriteLine("PakietRodzinny miesięczna przed obniżką: " + wskladka);
+            double wynikPosredni = k.historia[l].PakietKoncowy.Skladka;
 
             //Podział na długość ubezpieczenia
             if (czas > 10)
             {
-                double roznica = (double)czas - 5.0;
-                wskladka = ((wskladka * roznica * 0.2) / roznica) + wskladka;
+                double roznica = (double)czas - 10.0;
+                wskladka = (wskladka * roznica * 0.2) + wskladka;
+                //wynikPosredni = (wynikPosredni * roznica * 0.2) + wynikPosredni;
+
             }
-            if (podzial == 12)
-                wskladka = wskladka / 12;
+            Console.WriteLine("PakietRodzinny po czasie: " + wskladka);
+            if (k.malzonek == true)
+                wskladka -= 5.5;
+            Console.WriteLine("PakietRodzinny miesięczna: " + wskladka);
+            if (podzial == 1)
+            {
+                wskladka += wynikPosredni;
+                wskladka = wskladka * 12;
+                wskladka *= 0.95;
+            }
+            else
+            {
+                wskladka += wynikPosredni;
+            }
 
-            k.historia[l].PakietKoncowy.KosztKoncowy += wskladka;
+            Console.WriteLine("PakietRodzinny po czasie: " + wskladka);
 
+            k.historia[l].PakietKoncowy.Skladka = wskladka;
 
+            Console.WriteLine("Składka pakietu rodzinnego: " + wskladka);
+            LiczenieKosztu(k);
             return results;
         }
 

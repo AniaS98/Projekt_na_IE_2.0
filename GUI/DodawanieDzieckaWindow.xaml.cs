@@ -26,6 +26,7 @@ namespace GUI
         int count;
         Klient klient;
         Zamowienie zamowienie;
+        int podzial;
         public DodawanieDzieckaWindow()
         {
             InitializeComponent(); 
@@ -43,15 +44,16 @@ namespace GUI
                 MessageBox.Show("Dziecko nie może mieć powyżej 18 lat.");
             }*/
             Console.WriteLine(count);
-            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count);
+            RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, count,podzial);
 
             okno.CheckBox_Dzieci.IsChecked=true;
             this.Close();
             okno.ShowDialog();
         }
 
-        public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co) : this()
+        public DodawanieDzieckaWindow(Klient klient, bool de, int c, int co,int podzial) : this()
         {
+            this.podzial = podzial;
             decyzja = de;
             czas = c;
             count = co;

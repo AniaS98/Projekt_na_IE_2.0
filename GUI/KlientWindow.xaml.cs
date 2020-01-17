@@ -54,7 +54,7 @@ namespace GUI
             PakietWindow okno = new PakietWindow(klient, decyzja, z);//jeżeli decyzja jest true to jest to pakiet rodzinny i trzeba będzie go tak przekazywać aż do okna w którym będzie trzeba wybrać którą funkcję wczytać z klas
             this.Close();
             okno.ShowDialog();
-
+            
         }
 
         public void Indywidualny_Click(object sender, RoutedEventArgs e)
@@ -66,4 +66,3 @@ namespace GUI
         }
     }
 }
-

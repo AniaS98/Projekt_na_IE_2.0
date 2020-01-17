@@ -47,7 +47,7 @@ namespace GUI
                 if(a.haslo==PasswordBox_HasloAgent.Password)
                 {
                     dostep = true;
-                    AgentWindow okno = new AgentWindow(a.Nazwisko);
+                    AgentWindow okno = new AgentWindow(a);
                     this.Close();
                     okno.ShowDialog();
                 }

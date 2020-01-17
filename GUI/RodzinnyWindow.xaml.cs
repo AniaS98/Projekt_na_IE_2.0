@@ -27,6 +27,7 @@ namespace GUI
         CzlonekRodziny dziecko = new CzlonekRodziny();
         CzlonekRodziny malzonek = new CzlonekRodziny();
         PakietKoncowy pk;
+        int podzial;
 
         int count = 0;
 
@@ -37,7 +38,7 @@ namespace GUI
 
         public void DodajDziecko_Click(object sender, RoutedEventArgs e)
         {
-            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, count);
+            DodawanieDzieckaWindow okno = new DodawanieDzieckaWindow(klient, decyzja, czas, count,podzial);
             this.Close();
             okno.ShowDialog();  
         }
@@ -51,7 +52,7 @@ namespace GUI
 
         public void Akceptuj_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckBox_Dzieci.IsChecked == true)
+            /*if (CheckBox_Dzieci.IsChecked == true)
             {
                 for (int d = 1; d <= klient.rodzina.Count; d++)
                 {
@@ -63,7 +64,7 @@ namespace GUI
             {
                 int d = klient.rodzina.Count;
                 d = 0;
-            }
+            }*/
 
             if (CheckBox_Malzonek.IsChecked == true)
             {
@@ -76,19 +77,21 @@ namespace GUI
                 klient.Malzonek = false;
             }
 
-            if(Convert.ToInt32(TextBox_WiekMalzonka.Text) < 18)
+            if(CheckBox_Malzonek.IsChecked == true && Convert.ToInt32(TextBox_WiekMalzonka.Text) < 18)
             {
                 MessageBox.Show("Małżonek musi mieć conajmniej 18 lat");
                 return;
             }
             
-            Klient2Window okno = new Klient2Window(klient, decyzja, czas,false);
+            Klient2Window okno = new Klient2Window(klient, decyzja, czas,false, podzial);
             this.Close();
             okno.ShowDialog();
         }
 
-        public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co) : this()
+        public RodzinnyWindow(Klient klient, bool de, int c, Zamowienie z, int co,int podzial) 
         {
+            InitializeComponent();
+            this.podzial = podzial;
             czas = c;
             decyzja = de;
             count = co;

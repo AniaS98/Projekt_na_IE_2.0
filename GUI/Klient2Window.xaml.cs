@@ -29,31 +29,37 @@ namespace GUI
         PakietKoncowy pk;
         PakietDodatkowy p = new PakietDodatkowy();
         bool czyDodano;
+        int podzial;
 
         Dictionary<string, string> NazwyPakietow = new Dictionary<string, string>()
             {
                 { "SportyEkstremalne","Sporty Ekstremalne" }, {"Onkolog","Pakiet Onkolog" }, {"Ortopeda","Pakiet Ortopeda" }, {"PowazneZachorowanieDziecka","Poważne zachorowanie dziecka" }, {"Niezdolnosc","Niezdolność do wykonywania zawodu" }, {"SmiercWK","Śmierć w wypadku komunikacyjnym" },{"smiercNW","Śmierć w nieszczęśliwym wypadku" }
             };
 
-        public Klient2Window(Klient klient, bool de, int c, bool czy)
+        public Klient2Window()
         {
-            
+            InitializeComponent();
+        }
+        public Klient2Window(Klient klient, bool de, int c, bool czy,int podzial)
+        {
+
+            InitializeComponent();
+            this.podzial = podzial;
 
             czyDodano = czy;
             this.klient = klient;
             czas = c;
             decyzja = de;
-            InitializeComponent();
             if (czyDodano == false)
             {
                 klient.FunkcjaPakietDodatkowy(czas, klient, liczba_ubezpieczonych,12);
                 if (decyzja == true)
                 {
-                    klient.PakietRodzinny(czas, klient);
+                    klient.PakietRodzinny(czas, klient,podzial);
                 }
                 else
                 {
-                    klient.PakietPodstawowyIndywiduany(czas, klient);
+                    klient.PakietPodstawowyIndywiduany(czas, klient,podzial);
                 }
             }
 
@@ -100,7 +106,7 @@ namespace GUI
                 Console.WriteLine(a);
             }
 
-            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas, lista,pk);
+            DodatkowyPakietWindow okno = new DodatkowyPakietWindow(klient, czas, lista,pk, podzial,liczba_ubezpieczonych);
             this.Close();
             okno.ShowDialog();
         }
@@ -113,7 +119,7 @@ namespace GUI
             {
                 lista.Add(s.ToString());
             }
-            UsunPakietWindow okno = new UsunPakietWindow(klient, czas, lista, pk);
+            UsunPakietWindow okno = new UsunPakietWindow(klient, czas, lista, pk,podzial,liczba_ubezpieczonych);
             this.Close();
             okno.ShowDialog();
         }

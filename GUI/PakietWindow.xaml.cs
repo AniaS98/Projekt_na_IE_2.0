@@ -26,12 +26,11 @@ namespace GUI
         List<Choroby> chorobies = new List<Choroby>();
         List<Pasje> hobbies = new List<Pasje>();
 
-        bool czyDodano = false;
         bool decyzja = false;
         Klient klient;
         Zamowienie zamowienie;
         PakietKoncowy pk;
-
+        int podzial;
 
         public PakietWindow()
         {
@@ -152,11 +151,11 @@ namespace GUI
 
             if (ComboBox_Typ.Text == "miesięczna")
             {
-                zamowienie.PakietKoncowy.Podzialskl = 12;
+                podzial = 12;
             }
             else if (ComboBox_Typ.Text == "roczna")
             {
-                zamowienie.PakietKoncowy.Podzialskl = 1;
+                podzial = 1;
             }
 
             int czas = Convert.ToInt32(TextBox_Czas.Text);
@@ -166,13 +165,13 @@ namespace GUI
             {
                 if (decyzja == true)
                 {
-                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, 0);
+                    RodzinnyWindow okno = new RodzinnyWindow(klient, decyzja, czas, zamowienie, 0,podzial);
                     this.Close();
                     okno.ShowDialog();
                 }
                 else
                 {
-                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, czyDodano);
+                    Klient2Window okno1 = new Klient2Window(klient, decyzja, czas, false, podzial);
                     this.Close();
                     okno1.ShowDialog();
                 }
