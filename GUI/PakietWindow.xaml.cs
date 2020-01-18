@@ -49,7 +49,6 @@ namespace GUI
             zamowienie = z;
             decyzja = de;
             this.klient = klient;
-            //klient.Wiek = Convert.ToInt32(TextBox_Wiek.Text);
 
             if ((klient.Plec) == Plcie.K)
                 ComboBox_Plec.Text = "kobieta";
@@ -159,6 +158,11 @@ namespace GUI
             }
 
             int czas = Convert.ToInt32(TextBox_Czas.Text);
+            if (czas < 2)
+            {
+                MessageBox.Show("Czas trwania ubezpieczenia nie może być krótszy niż 2 lata.");
+                return;
+            }
 
 
             if (Convert.ToInt32(TextBox_Wiek.Text) >= 18)
@@ -185,9 +189,6 @@ namespace GUI
                 klient.Hobbies = new List<Pasje>();
             if (klient.Chorobies == null)
                 klient.Chorobies = new List<Choroby>();
-
-            //Console.WriteLine(klient.ToString());
-            //Console.WriteLine(zamowienie.PakietKoncowy.Podzialskl.ToString());
 
 
         }
