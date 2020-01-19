@@ -231,13 +231,13 @@ namespace ProjektUbezpieczenia
         public override string ToString()
         {
             string s = Imie + " " + Nazwisko + " " + PESEL + " " + Wiek + " " + Plec + " " + NumerTelefonu + " " + Malzonek + " " + Zawod;
-            if (rodzina != null)
+            /*if (rodzina != null)
             {
                 foreach (CzlonekRodziny i in rodzina)
                 {
                     s = s + "\n" + i.ToString();
                 }
-            }
+            }*/
             foreach (Pasje i in hobbies)
             {
                 s = s + " " + i;
